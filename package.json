@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "repository": "https://github.com/silash35/movie-finder.git",
   "author": "Silas Henrique <silash35@gmail.com>",
-  "license": "Unlisense",
+  "license": "Unlicense",
   "private": false,
   "scripts": {
     "dev": "next dev",
