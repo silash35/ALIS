@@ -4,6 +4,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import styles from './defaultHeader.module.scss';
+
 export default function DefaultHeader() {
   return (
     <header>
@@ -11,9 +13,8 @@ export default function DefaultHeader() {
         <Toolbar>
 
           <IconButton edge="start" color="inherit" aria-label="menu">
-            <MenuIcon />
           </IconButton>
-          <i className="material-icons">&nbsp;science&nbsp;</i>
+          <i className={styles.bigFont + " material-icons"}>&nbsp;science&nbsp;</i>
           <Typography variant="h6">News</Typography>
 
           <Button color="inherit">2</Button>
