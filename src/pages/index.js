@@ -1,16 +1,19 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
 
 import DefaultHead from '../components/defaultHead';
-import DefaultHeader from '../components/defaultHeader';
+import CenterLayout from '../components/centerLayout';
+import SearchCard from '../components/searchCard';
 
 export default function Home() {
   return (
     <React.Fragment>
       <CssBaseline />
       <DefaultHead />
-      <DefaultHeader />
-      <Button color="primary">Hello World</Button>
+
+      <CenterLayout>
+        <SearchCard />
+      </CenterLayout>
+
     </React.Fragment>
   )
 }
