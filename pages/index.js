@@ -1,44 +1,23 @@
-import Head from 'next/head'
-import { connectToDatabase } from '../util/mongodb'
+import Head from "next/head";
+import { connectToDatabase } from "../util/mongodb";
 
 export default function Home(props) {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>ALIS</title>
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js with MongoDB!</a>
-        </h1>
+        <h1 className="title">Welcome to ALIS</h1>
 
-        {props.isConnected ? (
-          <h2 className="subtitle">You are connected to MongoDB</h2>
-        ) : (
-          <h2 className="subtitle">
-            You are NOT connected to MongoDB. Check the <code>README.md</code>{' '}
-            for instructions.
-          </h2>
-        )}
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
+        <article>
+          <h2>{props.locais[0].nome}</h2>
+          <p>
+            se vira aí
+          </p>
+        </article>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
 
       <style jsx>{`
         .container {
@@ -189,19 +168,20 @@ export default function Home(props) {
           box-sizing: border-box;
         }
       `}</style>
+
     </div>
-  )
+  );
 }
 
 export async function getServerSideProps(context) {
-  const db = await connectToDatabase()
-
-  const isConnected = await db.client.isConnected() // Returns true or false
+  const db = await connectToDatabase();
 
   const locais = await db.db.collection("listaDeLocais").find({}).toArray();
   console.log(locais);
 
   return {
-    props: {isConnected},
-  }
+    props: {
+      locais: JSON.parse(JSON.stringify(locais))
+    }
+  };
 }
