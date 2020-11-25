@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
 import Head from "next/head";
 
 const addLocal = () => {
   var data = {
-    method: "post",
+    method: 'POST',
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify({nome:"sorveteria gelatudo"})
   };
 

@@ -4,13 +4,15 @@ export default async function local(req, res) {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
 
+  console.log(req);
+
   const novo = {
-    nome: req.nome,
-    endereco: "round",
-    descricao: "San Marzano tomatoes mozzarella di bufala cheese",
+    nome: req.body.nome,
+    endereco: "ghsfdgdsfgsdg",
+    descricao: "dfgdsfgsfgsdgsdfgfsdgsdfg",
   };
 
-  if (req.method == "post") {
+  if (req.method === 'POST') {
     const db = await connectToDatabase();
     const listaDeLocais = await db.db.collection("listaDeLocais");
     await listaDeLocais.insertOne(novo);

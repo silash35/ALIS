@@ -20,6 +20,7 @@ export default function Home(props) {
         <h1>
           Welcome to <span>ALIS</span>
         </h1>
+        <a href="/novo">Adicionar Local</a>
       </header>
 
       <main>
