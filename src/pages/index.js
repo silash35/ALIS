@@ -27,7 +27,6 @@ export async function getServerSideProps(context) {
   const db = await connectToDatabase();
 
   const locais = await db.db.collection("listaDeLocais").find({}).toArray();
-  console.log(locais);
 
   return {
     props: {
