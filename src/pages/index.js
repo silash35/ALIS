@@ -1,14 +1,6 @@
 import Head from "next/head";
 import { connectToDatabase } from "../util/mongodb";
 
-const addLocal = async () => {
-  const novo = {
-    nome: "pizzaria",
-    endereco: "round",
-    descricao: "San Marzano tomatoes mozzarella di bufala cheese",
-  };
-};
-
 export default function Home(props) {
   return (
     <div className="container">
