@@ -6,11 +6,14 @@
     "build": "next build",
     "start": "next start"
   },
+  "license": "Unlicense",
+  "devDependencies": {
+    "sass": "^1.29.0"
+  },
   "dependencies": {
     "mongodb": "^3.5.9",
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  },
-  "license": "Unlicense"
+  }
 }
