@@ -1,6 +1,14 @@
 import Head from "next/head";
 import { connectToDatabase } from "../util/mongodb";
 
+const addLocal = async () => {
+  const novo = {
+    nome: "pizzaria",
+    endereco: "round",
+    descricao: "San Marzano tomatoes mozzarella di bufala cheese",
+  };
+};
+
 export default function Home(props) {
   return (
     <div className="container">
@@ -17,7 +25,7 @@ export default function Home(props) {
       <main>
         {props.locais.map((local) => {
           return (
-            <article className="card">
+            <article className="card" key={local._id}>
               <h2>{local.nome}</h2>
               <p>se vira aí</p>
             </article>
@@ -31,7 +39,8 @@ export default function Home(props) {
 export async function getServerSideProps(context) {
   const db = await connectToDatabase();
 
-  const locais = await db.db.collection("listaDeLocais").find({}).toArray();
+  const listaDeLocais = await db.db.collection("listaDeLocais");
+  const locais = await listaDeLocais.find({}).toArray();
 
   return {
     props: {
