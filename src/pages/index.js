@@ -8,17 +8,22 @@ export default function Home(props) {
         <title>ALIS</title>
       </Head>
 
+      <header>
+        <h1>
+          Welcome to <span>ALIS</span>
+        </h1>
+      </header>
+
       <main>
-        <h1 className="title">Welcome to ALIS</h1>
-
-        <article>
-          <h2>{props.locais[0].nome}</h2>
-          <p>
-            se vira aí
-          </p>
-        </article>
+        {props.locais.map((local) => {
+          return (
+            <article className="card">
+              <h2>{local.nome}</h2>
+              <p>se vira aí</p>
+            </article>
+          );
+        })}
       </main>
-
     </div>
   );
 }
@@ -30,7 +35,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      locais: JSON.parse(JSON.stringify(locais))
-    }
+      locais: JSON.parse(JSON.stringify(locais)),
+    },
   };
 }
