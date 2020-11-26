@@ -62,7 +62,7 @@ export default function novo(props) {
             <br/>
             <TextField name="descrição" label="Descrição" variant="outlined" multiline required />
             <br/>
-            <Button type="submit">Send</Button>
+            <Button variant="outlined" color="primary" type="submit">Send</Button>
           </form>
         </MuiThemeProvider>
       </main>

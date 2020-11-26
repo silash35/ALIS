@@ -39,13 +39,16 @@ header{
   position: absolute;
   right: 50px;
   top: 50px;
-
+  @media (max-width: 1000px) {
+    top: 10px;
+  }
 }
 
 h1 {
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  text-align: center;
   span {
     color: #0070f3;
     text-decoration: none;
@@ -61,6 +64,7 @@ p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
+  text-align: center;
 }
 
 .card {
