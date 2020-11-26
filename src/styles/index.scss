@@ -11,9 +11,35 @@
 
 main {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  .card{
+    width: 400px;
+    height: 300px;
+  }
+  form.card{
+    height: auto;
+  }
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 100px;
+  &.novo{
+    margin-bottom: 50px;
+  }
+}
+
+.linkCanto{
+  position: absolute;
+  right: 50px;
+  top: 50px;
+
 }
 
 h1 {
@@ -26,9 +52,23 @@ h1 {
   }
 }
 
+.title{
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
 .card {
+
+  display: flex;
+  flex-direction: column;
+
   margin: 1rem;
-  flex-basis: 45%;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -50,9 +90,7 @@ h1 {
     font-size: 1.5rem;
   }
 
-  p {
-    margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.5;
+  label{
+    align-self: center;
   }
 }

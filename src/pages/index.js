@@ -5,14 +5,20 @@ export default function Home(props) {
   return (
     <div className="container">
       <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+          rel="stylesheet"
+        />
         <title>ALIS</title>
       </Head>
 
+      <a className="linkCanto card" href="/novo">Adicionar Local</a>
       <header>
-        <h1>
-          Welcome to <span>ALIS</span>
+        <h1 className="title">
+          Bem vindo ao <span>alis</span>
         </h1>
-        <a href="/novo">Adicionar Local</a>
+        <p>O Agregador de Locais Inclusivos para Surdos</p>
       </header>
 
       <main>
@@ -20,7 +26,8 @@ export default function Home(props) {
           return (
             <article className="card" key={local._id}>
               <h2>{local.nome}</h2>
-              <p>se vira aí</p>
+              <p>Descrição: {local.descrição}</p>
+              <p>Endereço: {local.endereço}</p>
             </article>
           );
         })}

@@ -4,8 +4,6 @@ export default async function local(req, res) {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
 
-  console.log(req.body);
-
   if (req.method === 'POST') {
     const db = await connectToDatabase();
     const listaDeLocais = await db.db.collection("listaDeLocais");

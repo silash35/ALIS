@@ -11,6 +11,7 @@
     "sass": "^1.29.0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.1",
     "mongodb": "^3.5.9",
     "next": "latest",
     "react": "^16.13.1",
