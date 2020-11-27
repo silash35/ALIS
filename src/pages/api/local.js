@@ -6,32 +6,45 @@ export default async function local(req, res) {
 
   const db = await connectToDatabase();
   const listaDeLocais = await db.db.collection("listaDeLocais");
+  let locais = 0;
 
-  switch (req.method) {
-    case "GET":
-      const locais = await listaDeLocais.find({}).toArray();
+  const methods = {
+    async GET() {
+      locais = await listaDeLocais.find({}).toArray();
       res.end(
         JSON.stringify({
           body: locais,
           status: "ok",
         })
       );
-      break;
+    },
 
-    case "POST":
+    async POST() {
       await listaDeLocais.insertOne(req.body);
       res.end(JSON.stringify({ status: "ok" }));
-      break;
+    },
 
-    case "DELETE":
+    async OPTIONS() {
+      locais = await listaDeLocais.find(req.body).toArray();
+      res.end(
+        JSON.stringify({
+          body: locais,
+          status: "ok",
+        })
+      );
+    },
+
+    async DELETE() {
       await listaDeLocais.insertOne(req.body);
       //res.end(JSON.stringify({ status: "ok" }));
-
       //db.inventory.deleteOne({ status: "D" });
-      break;
+    },
+  };
 
-    default:
-      res.end(JSON.stringify({ status: "Operação não permitida" }));
-      break;
+  const requestedMethod = methods[req.method];
+  if (requestedMethod != undefined) {
+    await requestedMethod();
+  } else {
+    res.end(JSON.stringify({ status: "Operação não permitida" }));
   }
 }
