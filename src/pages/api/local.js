@@ -9,7 +9,7 @@ export default async function local(req, res) {
 
   switch (req.method) {
     case "GET":
-      const locais = await listaDeLocais.find(req.body).toArray();
+      const locais = await listaDeLocais.find({}).toArray();
       res.end(
         JSON.stringify({
           body: locais,
@@ -21,6 +21,13 @@ export default async function local(req, res) {
     case "POST":
       await listaDeLocais.insertOne(req.body);
       res.end(JSON.stringify({ status: "ok" }));
+      break;
+
+    case "DELETE":
+      await listaDeLocais.insertOne(req.body);
+      //res.end(JSON.stringify({ status: "ok" }));
+
+      //db.inventory.deleteOne({ status: "D" });
       break;
 
     default:
