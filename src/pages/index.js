@@ -10,6 +10,7 @@ export default function Home(props) {
           rel="stylesheet"
         />
         <title>ALIS</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <a className="linkCanto card" href="/novo">

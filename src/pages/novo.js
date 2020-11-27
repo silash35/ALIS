@@ -40,6 +40,7 @@ export default function novo(props) {
           rel="stylesheet"
         />
         <title>Adicionar Local</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <header className="novo">
