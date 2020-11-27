@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { connectToDatabase } from "../util/mongodb";
 
 export default function Home(props) {
   return (
@@ -13,7 +12,9 @@ export default function Home(props) {
         <title>ALIS</title>
       </Head>
 
-      <a className="linkCanto card" href="/novo">Adicionar Local</a>
+      <a className="linkCanto card" href="/novo">
+        Adicionar Local
+      </a>
       <header>
         <h1 className="title">
           Bem vindo ao <span>alis</span>
@@ -37,14 +38,12 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(context) {
-  const db = await connectToDatabase();
-
-  const listaDeLocais = await db.db.collection("listaDeLocais");
-  const locais = await listaDeLocais.find({}).toArray();
+  const res = await fetch("http://localhost:3000/api/local");
+  const data = await res.json();
 
   return {
     props: {
-      locais: JSON.parse(JSON.stringify(locais)),
+      locais: data.body,
     },
   };
 }

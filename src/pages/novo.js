@@ -52,17 +52,45 @@ export default function novo(props) {
       <main>
         <MuiThemeProvider theme={theme}>
           <form className="card" id="addLocal" onSubmit={addLocal}>
-            <TextField name="nomeDaPessoa" label="Seu Nome" variant="outlined" required />
-            <br/>
-            <TextField name="email" label="Seu E-Mail" variant="outlined" required />
-            <br/>
-            <TextField name="nome" label="Nome do Local" variant="outlined" required />
-            <br/>
-            <TextField name="endereço" label="Endereço do Local" variant="outlined" required />
-            <br/>
-            <TextField name="descrição" label="Descrição" variant="outlined" multiline required />
-            <br/>
-            <Button variant="outlined" color="primary" type="submit">Send</Button>
+            <TextField
+              name="nomeDaPessoa"
+              label="Seu Nome"
+              variant="outlined"
+              required
+            />
+            <br />
+            <TextField
+              name="email"
+              label="Seu E-Mail"
+              variant="outlined"
+              required
+            />
+            <br />
+            <TextField
+              name="nome"
+              label="Nome do Local"
+              variant="outlined"
+              required
+            />
+            <br />
+            <TextField
+              name="endereço"
+              label="Endereço do Local"
+              variant="outlined"
+              required
+            />
+            <br />
+            <TextField
+              name="descrição"
+              label="Descrição"
+              variant="outlined"
+              multiline
+              required
+            />
+            <br />
+            <Button variant="outlined" color="primary" type="submit">
+              Send
+            </Button>
           </form>
         </MuiThemeProvider>
       </main>
