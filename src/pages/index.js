@@ -3,7 +3,14 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const deleteLocal = async (_id) => {
-  
+  const data = {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({_id}),
+  };
+
+  await fetch("/api/local", data);
+  window.location.href = "/";
 };
 
 export default function Home(props) {
@@ -38,7 +45,7 @@ export default function Home(props) {
                 <p>Descrição: {local.descrição}</p>
                 <p>Endereço: {local.endereço}</p>
               </section>
-              <IconButton aria-label="delete" className="corner" onClick={deleteLocal(local._id)}>
+              <IconButton aria-label="delete" className="corner" onClick={() => deleteLocal(local._id)}>
                 <DeleteIcon fontSize="large" />
               </IconButton>
             </article>

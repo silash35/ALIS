@@ -1,4 +1,5 @@
 import { connectToDatabase } from "../../util/mongodb";
+import { ObjectID } from "mongodb";
 
 export default async function local(req, res) {
   res.statusCode = 200;
@@ -36,7 +37,7 @@ export default async function local(req, res) {
 
     async DELETE() {
       let id = req.body._id;
-      await db.inventory.deleteOne({ _id: id });
+      let a = await listaDeLocais.deleteOne({ _id: new ObjectID(id) });
       res.end(JSON.stringify({ status: "ok" }));
     },
   };

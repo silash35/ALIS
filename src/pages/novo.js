@@ -11,7 +11,7 @@ const theme = createMuiTheme({
   },
 });
 
-const addLocal = () => {
+const addLocal = async () => {
   const formData = new FormData(document.getElementById("addLocal"));
   let formDataObject = {};
 
@@ -25,9 +25,8 @@ const addLocal = () => {
     body: JSON.stringify(formDataObject),
   };
 
-  fetch("/api/local", data).then(() => {
-    window.location.href = "/";
-  });
+  await fetch("/api/local", data);
+  window.location.href = "/";
 };
 
 export default function novo(props) {
