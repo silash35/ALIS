@@ -24,7 +24,7 @@ export default async function local(req, res) {
       res.end(JSON.stringify({ status: "ok" }));
     },
 
-    async OPTIONS() {
+    async PUT() {
       locais = await listaDeLocais.find(req.body).toArray();
       res.end(
         JSON.stringify({
@@ -35,9 +35,9 @@ export default async function local(req, res) {
     },
 
     async DELETE() {
-      await listaDeLocais.insertOne(req.body);
-      //res.end(JSON.stringify({ status: "ok" }));
-      //db.inventory.deleteOne({ status: "D" });
+      let id = req.body._id;
+      await db.inventory.deleteOne({ _id: id });
+      res.end(JSON.stringify({ status: "ok" }));
     },
   };
 

@@ -71,6 +71,7 @@ p {
 
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 
   margin: 1rem;
   padding: 1.5rem;
@@ -97,4 +98,10 @@ p {
   label{
     align-self: center;
   }
+
+  .corner{
+    align-self: flex-end;
+    width: min-content;
+  }
+
 }
