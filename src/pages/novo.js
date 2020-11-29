@@ -89,7 +89,7 @@ export default function novo(props) {
             />
             <br />
             <Button variant="outlined" color="primary" type="submit">
-              Send
+              Cadastrar
             </Button>
           </form>
         </MuiThemeProvider>
