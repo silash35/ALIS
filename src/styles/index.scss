@@ -15,14 +15,14 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
-    .card {
-      width: 400px;
-      height: 300px;
-    }
-    form.card {
-      height: auto;
-    }
+  }
+  .card {
+    width: 400px;
+    height: 300px;
+  }
+  form.card {
+    height: auto;
+    width: 400px;
   }
 }
 

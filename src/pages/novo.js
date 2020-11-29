@@ -1,33 +1,5 @@
 import Head from "next/head";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#0070f3",
-    },
-  },
-});
-
-const addLocal = async () => {
-  const formData = new FormData(document.getElementById("addLocal"));
-  let formDataObject = {};
-
-  for (let [key, value] of formData.entries()) {
-    formDataObject[key] = value;
-  }
-
-  const data = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formDataObject),
-  };
-
-  await fetch("/api/local", data);
-  window.location.href = "/";
-};
+import FormCadastrar from "../components/formCadastrar";
 
 export default function novo(props) {
   return (
@@ -50,49 +22,7 @@ export default function novo(props) {
       </header>
 
       <main>
-        <MuiThemeProvider theme={theme}>
-          <form className="card" id="addLocal" onSubmit={addLocal}>
-            <TextField
-              name="nomeDaPessoa"
-              label="Seu Nome"
-              variant="outlined"
-              required
-            />
-            <br />
-            <TextField
-              name="email"
-              label="Seu E-Mail"
-              variant="outlined"
-              required
-            />
-            <br />
-            <TextField
-              name="nome"
-              label="Nome do Local"
-              variant="outlined"
-              required
-            />
-            <br />
-            <TextField
-              name="endereço"
-              label="Endereço do Local"
-              variant="outlined"
-              required
-            />
-            <br />
-            <TextField
-              name="descrição"
-              label="Descrição"
-              variant="outlined"
-              multiline
-              required
-            />
-            <br />
-            <Button variant="outlined" color="primary" type="submit">
-              Cadastrar
-            </Button>
-          </form>
-        </MuiThemeProvider>
+        <FormCadastrar />
       </main>
     </div>
   );

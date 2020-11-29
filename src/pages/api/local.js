@@ -1,5 +1,7 @@
 import { connectToDatabase } from "../../util/mongodb";
 import { ObjectID } from "mongodb";
+import md5 from "md5";
+import { Repeat } from "@material-ui/icons";
 
 export default async function local(req, res) {
   res.statusCode = 200;
@@ -21,6 +23,8 @@ export default async function local(req, res) {
     },
 
     async POST() {
+      req.body.chave = md5(req.body.chave);
+
       await listaDeLocais.insertOne(req.body);
       res.end(JSON.stringify({ status: "ok" }));
     },
@@ -37,8 +41,15 @@ export default async function local(req, res) {
 
     async DELETE() {
       let id = req.body._id;
-      let a = await listaDeLocais.deleteOne({ _id: new ObjectID(id) });
-      res.end(JSON.stringify({ status: "ok" }));
+      let chave = md5(req.body.chave);
+      let local = await listaDeLocais.findOne({ _id: new ObjectID(id) });
+
+      if (local.chave == chave) {
+        await listaDeLocais.deleteOne({ _id: new ObjectID(id) });
+        res.end(JSON.stringify({ status: "ok" }));
+      } else {
+        res.end(JSON.stringify({ status: "falhou" }));
+      }
     },
   };
 

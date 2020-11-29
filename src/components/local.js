@@ -23,11 +23,12 @@ export default function Local(props) {
     setOpen(false);
   };
 
-  const deleteLocal = async (_id, chave) => {
+  const deleteLocal = async (_id) => {
+    const chave = document.getElementById("chave-" + _id).value;
     const data = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ _id }),
+      body: JSON.stringify({ _id, chave }),
     };
 
     await fetch("/api/local", data);
@@ -36,38 +37,49 @@ export default function Local(props) {
   };
 
   return (
-
-          <article className="card">
-            <h2>{local.nome}</h2>
-            <section>
-              <p>Descrição: {local.descrição}</p>
-              <p>Endereço: {local.endereço}</p>
-            </section>
-            <IconButton
-              aria-label="delete"
-              className="corner"
-              onClick={handleClickOpen}
-            >
-              <DeleteIcon fontSize="large" />
-            </IconButton>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-              <DialogTitle id="form-dialog-title">Digite a chave do local</DialogTitle>
-              <DialogContent>
-                <DialogContentText>
-                  Para excluir um local, você precisa da chave cadastrada.
-                </DialogContentText>
-                <TextField autoFocus margin="dense" id="name" label="chave" type="password" fullWidth/>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                  cancelar
-                </Button>
-                <Button onClick={() => deleteLocal(local._id, chave)} color="primary">
-                  Deletar
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </article>
-
+    <article className="card">
+      <h2>{local.nome}</h2>
+      <section>
+        <p>Descrição: {local.descrição}</p>
+        <p>Endereço: {local.endereço}</p>
+      </section>
+      <IconButton
+        aria-label="delete"
+        className="corner"
+        onClick={handleClickOpen}
+      >
+        <DeleteIcon fontSize="large" />
+      </IconButton>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">
+          Digite a chave do local
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Para excluir um local, você precisa da chave cadastrada.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id={"chave-"+local._id}
+            label="chave"
+            type="password"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            cancelar
+          </Button>
+          <Button onClick={() => deleteLocal(local._id)} color="primary">
+            Deletar
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </article>
   );
 }
