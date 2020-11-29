@@ -65,7 +65,7 @@ export default function Local(props) {
           <TextField
             autoFocus
             margin="dense"
-            id={"chave-"+local._id}
+            id={"chave-" + local._id}
             label="chave"
             type="password"
             fullWidth
@@ -75,7 +75,11 @@ export default function Local(props) {
           <Button onClick={handleClose} color="primary">
             cancelar
           </Button>
-          <Button onClick={() => deleteLocal(local._id)} color="primary">
+          <Button
+            onClick={() => deleteLocal(local._id)}
+            variant="outlined"
+            color="primary"
+          >
             Deletar
           </Button>
         </DialogActions>
