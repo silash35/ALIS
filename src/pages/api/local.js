@@ -1,7 +1,6 @@
 import { connectToDatabase } from "../../util/mongodb";
 import { ObjectID } from "mongodb";
 import md5 from "md5";
-import { Repeat } from "@material-ui/icons";
 
 export default async function local(req, res) {
   res.statusCode = 200;
