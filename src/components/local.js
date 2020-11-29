@@ -14,6 +14,8 @@ export default function Local(props) {
   let local = props.local;
 
   const [open, setOpen] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [errorText, setErrorText] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -21,19 +23,33 @@ export default function Local(props) {
 
   const handleClose = () => {
     setOpen(false);
+    setError(false);
+    setErrorText("");
   };
 
   const deleteLocal = async (_id) => {
     const chave = document.getElementById("chave-" + _id).value;
+
     const data = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ _id, chave }),
     };
 
-    await fetch("/api/local", data);
-    window.location.href = "/";
-    handleClose();
+    let res = {};
+    if (chave != "") {
+      res = await fetch("/api/local", data);
+    }else{
+      res.status = 401;
+    }
+
+    if (res.status == 200) {
+      handleClose();
+      window.location.href = "/";
+    } else {
+      setError(true);
+      setErrorText("Senha incorreta");
+    }
   };
 
   return (
@@ -69,6 +85,8 @@ export default function Local(props) {
             label="chave"
             type="password"
             fullWidth
+            error={error}
+            helperText={errorText}
           />
         </DialogContent>
         <DialogActions>
