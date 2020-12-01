@@ -1,5 +1,6 @@
-import Link from "next/link";
+import Header from "../components/Header";
 import Locais from "../components/locais";
+import Title from "../components/title";
 import DefaultHead from "../components/defaultHead";
 
 export default function Home(props) {
@@ -9,17 +10,16 @@ export default function Home(props) {
         <title>ALIS</title>
       </DefaultHead>
 
-      <Link as="/novo" href="/novo">
-        <a className="linkCanto card">Adicionar Local</a>
-      </Link>
-      <header>
-        <h1 className="title">
-          Bem&nbsp;vindo ao&nbsp;<span>alis</span>
-        </h1>
-        <p>O Agregador de Locais Inclusivos para Surdos</p>
-      </header>
+      <Header />
 
       <main>
+        <Title cursive>
+          <h1>
+            Bem&nbsp;vindo ao&nbsp;<span>alis</span>
+          </h1>
+          <p>O Agregador de Locais Inclusivos para Surdos</p>
+        </Title>
+
         <Locais locais={props.locais} />
       </main>
     </div>
