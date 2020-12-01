@@ -2,25 +2,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 export default function FormCadastrar() {
-  const addLocal = async () => {
-    const formData = new FormData(document.getElementById("addLocal"));
-    let formDataObject = {};
-
-    for (let [key, value] of formData.entries()) {
-      formDataObject[key] = value;
-    }
-
-    const data = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formDataObject),
-    };
-
-    await fetch("/api/local", data);
-  };
-
   return (
-    <form className="card" id="addLocal" onSubmit={addLocal} method="POST">
+    <form className="card" action="/api/local" method="POST">
       <TextField
         name="nomeDaPessoa"
         label="Seu Nome"

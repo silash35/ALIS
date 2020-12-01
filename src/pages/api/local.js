@@ -3,40 +3,45 @@ import { ObjectID } from "mongodb";
 import md5 from "md5";
 
 export default async function local(req, res) {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-
   const db = await connectToDatabase();
   const listaDeLocais = await db.db.collection("listaDeLocais");
   let locais = 0;
 
   const methods = {
     async GET() {
+      res.setHeader("Content-Type", "application/json");
       locais = await listaDeLocais.find({}).toArray();
       res.end(
         JSON.stringify({
-          body: locais
+          body: locais,
         })
       );
+      res.statusCode = 200;
     },
 
     async POST() {
       req.body.chave = md5(req.body.chave);
-
       await listaDeLocais.insertOne(req.body);
-      res.statusCode = 201;
+
+      res.writeHead(302, {
+        Location: "/",
+      });
+      res.end();
     },
 
     async PUT() {
+      res.setHeader("Content-Type", "application/json");
       locais = await listaDeLocais.find(req.body).toArray();
       res.end(
         JSON.stringify({
-          body: locais
+          body: locais,
         })
       );
+      res.statusCode = 200;
     },
 
     async DELETE() {
+      res.setHeader("Content-Type", "application/json");
       const id = req.body._id;
       const chave = md5(req.body.chave);
       const local = await listaDeLocais.findOne({ _id: new ObjectID(id) });
@@ -46,6 +51,8 @@ export default async function local(req, res) {
       } else {
         res.statusCode = 401;
       }
+      res.statusCode = 200;
+      res.end();
     },
   };
 
@@ -55,5 +62,4 @@ export default async function local(req, res) {
   } else {
     res.statusCode = 404;
   }
-  res.send('ok')
 }
