@@ -17,6 +17,9 @@ p {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+
   section {
     display: flex;
     flex-wrap: wrap;
@@ -26,6 +29,7 @@ main {
   .card {
     width: 400px;
     height: 300px;
+    align-self: center;
   }
   form.card {
     height: auto;

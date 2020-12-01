@@ -8,6 +8,9 @@ export default function Header(props) {
         <Link as="/novo" href="/novo">
           <a className="card">Adicionar Local</a>
         </Link>
+        <Link as="/sobre" href="/sobre">
+          <a className="card">Sobre</a>
+        </Link>
       </nav>
     </header>
   );

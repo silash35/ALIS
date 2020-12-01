@@ -9,14 +9,14 @@ export default function novo(props) {
         <title>Adicionar Local</title>
       </DefaultHead>
 
-      <Title>
-        <h1>
-          Adicionar novo <span>Local</span>
-        </h1>
-        <p>Insira os dados abaixo para efetuar o cadastro de um novo local</p>
-      </Title>
-
       <main>
+        <Title>
+          <h1>
+            Adicionar novo <span>Local</span>
+          </h1>
+          <p>Insira os dados abaixo para efetuar o cadastro de um novo local</p>
+        </Title>
+
         <FormCadastrar />
       </main>
     </div>
