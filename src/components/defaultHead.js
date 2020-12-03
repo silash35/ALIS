@@ -48,10 +48,6 @@ export default function DefaultHead(props) {
       <meta name="msapplication-TileColor" content="#2d89ef" />
       <meta name="theme-color" content="#ffffff" />
 
-      <meta
-        name="description"
-        content="O Agregador de Locais Inclusivos para Surdos"
-      />
       <link rel="manifest" href="/manifest.json" />
 
       {props.children}
