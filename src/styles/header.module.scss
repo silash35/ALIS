@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  nav {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      margin-top: 50px;
+      margin-right: 50px;
+    }
+
+    @media (max-width: 1000px) {
+      justify-content: center;
+      a {
+        margin: 10px 25px;
+      }
+    }
+  }
+}

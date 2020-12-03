@@ -1,37 +1,65 @@
 import { connectToDatabase } from "../../util/mongodb";
+import { ObjectID } from "mongodb";
+import md5 from "md5";
 
 export default async function local(req, res) {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-
   const db = await connectToDatabase();
   const listaDeLocais = await db.db.collection("listaDeLocais");
+  let locais = 0;
 
-  switch (req.method) {
-    case "GET":
-      const locais = await listaDeLocais.find({}).toArray();
+  const methods = {
+    async GET() {
+      res.setHeader("Content-Type", "application/json");
+      locais = await listaDeLocais.find({}).toArray();
       res.end(
         JSON.stringify({
           body: locais,
-          status: "ok",
         })
       );
-      break;
+      res.statusCode = 200;
+    },
 
-    case "POST":
+    async POST() {
+      req.body.chave = md5(req.body.chave);
       await listaDeLocais.insertOne(req.body);
-      res.end(JSON.stringify({ status: "ok" }));
-      break;
 
-    case "DELETE":
-      await listaDeLocais.insertOne(req.body);
-      //res.end(JSON.stringify({ status: "ok" }));
+      res.writeHead(302, {
+        Location: "/",
+      });
+      res.end();
+    },
 
-      //db.inventory.deleteOne({ status: "D" });
-      break;
+    async PUT() {
+      res.setHeader("Content-Type", "application/json");
+      locais = await listaDeLocais.find(req.body).toArray();
+      res.end(
+        JSON.stringify({
+          body: locais,
+        })
+      );
+      res.statusCode = 200;
+    },
 
-    default:
-      res.end(JSON.stringify({ status: "Operação não permitida" }));
-      break;
+    async DELETE() {
+      res.setHeader("Content-Type", "application/json");
+      const id = req.body._id;
+      const chave = md5(req.body.chave);
+      const local = await listaDeLocais.findOne({ _id: new ObjectID(id) });
+
+      if (local.chave == chave) {
+        await listaDeLocais.deleteOne({ _id: new ObjectID(id) });
+      } else {
+        res.statusCode = 401;
+      }
+      res.statusCode = 200;
+      res.end();
+    },
+  };
+
+  const requestedMethod = methods[req.method];
+  if (requestedMethod != undefined) {
+    await requestedMethod();
+  } else {
+    res.statusCode = 404;
   }
 }
