@@ -3,6 +3,7 @@ import Head from "next/head";
 export default function DefaultHead(props) {
   return (
     <Head>
+      {/* usual meta tags */}
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
@@ -11,6 +12,8 @@ export default function DefaultHead(props) {
         content="O Agregador de Locais Inclusivos para Surdos"
       />
       <meta name="author" content="Silas Henrique Alves Araújo" />
+
+      {/* Cards */}
       <meta property="og:title" content="ALIS" />
       <meta
         property="og:description"
@@ -18,14 +21,17 @@ export default function DefaultHead(props) {
       />
       <meta property="og:image" content="/card.png" />
       <meta property="og:url" content="https://alis.silash35.vercel.app/" />
-      <meta name="twitter:card" content="/card.png" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="/card.png"></meta>
 
+      {/* Fonts */}
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
         rel="stylesheet"
       />
 
+      {/* PWA */}
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -50,6 +56,7 @@ export default function DefaultHead(props) {
 
       <link rel="manifest" href="/manifest.json" />
 
+      {/* etc */}
       {props.children}
     </Head>
   );
