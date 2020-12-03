@@ -2,7 +2,7 @@ import Title from "../components/title";
 import DefaultHead from "../components/defaultHead";
 import FormCadastrar from "../components/formCadastrar";
 
-export default function novo(props) {
+export default function novo() {
   return (
     <div className="container">
       <DefaultHead>
