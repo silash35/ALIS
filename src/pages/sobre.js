@@ -16,14 +16,10 @@ export default function sobre(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <p
-          className="card"
-          style={{textAlign: "justify"}}
-        >
-          O ALIS é uma plataforma voltada para a comunidade surda a fim de
-          minimizar as dificuldades desse público na procura de locais
-          inclusivos. Aqui você pode contribuir registrando um lugar que você
-          foi e tinha uma tecnologia pra facilitar a comunicação com surdos ou
+        <p className="card" style={{ textAlign: "justify" }}>
+          O ALIS é uma plataforma voltada para a comunidade surda a fim de minimizar as dificuldades
+          desse público na procura de locais inclusivos. Aqui você pode contribuir registrando um
+          lugar que você foi e tinha uma tecnologia pra facilitar a comunicação com surdos ou
           interprete.
         </p>
       </main>

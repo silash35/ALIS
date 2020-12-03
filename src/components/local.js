@@ -39,7 +39,7 @@ export default function Local(props) {
     let res = {};
     if (chave != "") {
       res = await fetch("/api/local", data);
-    }else{
+    } else {
       res.status = 401;
     }
 
@@ -59,21 +59,11 @@ export default function Local(props) {
         <p>Descrição: {local.descrição}</p>
         <p>Endereço: {local.endereço}</p>
       </section>
-      <IconButton
-        aria-label="delete"
-        className="corner"
-        onClick={handleClickOpen}
-      >
+      <IconButton aria-label="delete" className="corner" onClick={handleClickOpen}>
         <DeleteIcon fontSize="large" />
       </IconButton>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle id="form-dialog-title">
-          Digite a chave do local
-        </DialogTitle>
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Digite a chave do local</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Para excluir um local, você precisa da chave cadastrada.
@@ -93,11 +83,7 @@ export default function Local(props) {
           <Button onClick={handleClose} color="primary">
             cancelar
           </Button>
-          <Button
-            onClick={() => deleteLocal(local._id)}
-            variant="outlined"
-            color="primary"
-          >
+          <Button onClick={() => deleteLocal(local._id)} variant="outlined" color="primary">
             Deletar
           </Button>
         </DialogActions>

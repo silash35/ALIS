@@ -8,6 +8,13 @@
   },
   "license": "Unlicense",
   "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-simple-import-sort": "^6.0.1",
+    "prettier": "^2.2.1",
     "sass": "^1.29.0"
   },
   "dependencies": {

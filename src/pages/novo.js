@@ -1,6 +1,6 @@
+import Title from "../components/title";
 import DefaultHead from "../components/defaultHead";
 import FormCadastrar from "../components/formCadastrar";
-import Title from "../components/title";
 
 export default function novo(props) {
   return (

@@ -4,17 +4,16 @@
     display: flex;
     justify-content: flex-end;
 
-    a{
+    a {
       margin-top: 50px;
       margin-right: 50px;
     }
 
     @media (max-width: 1000px) {
       justify-content: center;
-      a{
+      a {
         margin: 10px 25px;
       }
     }
-
   }
 }
