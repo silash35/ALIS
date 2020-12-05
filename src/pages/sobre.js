@@ -1,5 +1,17 @@
 import DefaultHead from "../components/defaultHead";
 import Title from "../components/title";
+import Image from "next/image";
+
+const style = {
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+
+  justifyContent: "center",
+  alignItems: "center",
+  width: "auto",
+  height: "auto",
+};
 
 export default function sobre(props) {
   return (
@@ -16,12 +28,16 @@ export default function sobre(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <p className="card" style={{ textAlign: "justify" }}>
-          O ALIS é uma plataforma voltada para a comunidade surda a fim de minimizar as dificuldades
-          desse público na procura de locais inclusivos. Aqui você pode contribuir registrando um
-          lugar que você foi e tinha uma tecnologia pra facilitar a comunicação com surdos ou
-          interprete.
-        </p>
+        <article className="card" style={style}>
+          <p style={{ textAlign: "justify", maxWidth: "400px" }}>
+            O ALIS é uma plataforma voltada para a comunidade surda a fim de minimizar as
+            dificuldades desse público na procura de locais inclusivos. Aqui você pode contribuir
+            registrando um lugar que você foi e tinha uma tecnologia pra facilitar a comunicação com
+            surdos ou interprete.
+          </p>
+
+          <Image src="/love.svg" alt="Ícone de Amor em libras com um coração" width={250} height={250} />
+        </article>
       </main>
     </div>
   );
