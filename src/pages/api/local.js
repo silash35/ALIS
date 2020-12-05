@@ -31,7 +31,7 @@ export default async function local(req, res) {
 
     async PUT() {
       res.setHeader("Content-Type", "application/json");
-      locais = await listaDeLocais.find(req.body).toArray();
+      locais = await listaDeLocais.find({ $text: { $search: req.body.pesquisa } }).toArray();
       res.end(
         JSON.stringify({
           body: locais,

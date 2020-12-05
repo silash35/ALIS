@@ -1,0 +1,31 @@
+.form {
+  margin: auto;
+}
+
+.pesquisa {
+  display: flex;
+  place-items: center;
+
+  padding: 5px 20px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+
+  border: 1px solid #eaeaea;
+  transition: border-color 0.15s ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: #0070f3;
+    svg {
+      color: #0070f3;
+    }
+  }
+
+  input {
+    all: unset;
+    width: 500px;
+    max-width: 70vw;
+    height: 30px;
+  }
+}
