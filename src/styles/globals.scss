@@ -44,3 +44,40 @@ body {
     width: min-content;
   }
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    width: 400px;
+    height: 300px;
+    align-self: center;
+  }
+  form.card {
+    height: auto;
+    width: 400px;
+  }
+}
