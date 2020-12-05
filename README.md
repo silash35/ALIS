@@ -1,2 +1,8 @@
-# movie-finder
-This repository is an experiment. A simple movie finder that uses the OMDd API
+# ALIS
+
+> This entire repository is in Portuguese. And as it is a science
+> outreach project, it does not need contribution from third parties. If
+> you are interested in help, look for other repositories, such as Qpdf
+> Tools.
+
+O [ALIS](https://alis.silash35.vercel.app/) é um agregador de Locais Inclusivos para Surdos. Mais informações na pagina de [sobre](https://alis.silash35.vercel.app/sobre)
