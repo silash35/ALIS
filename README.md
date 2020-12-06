@@ -5,4 +5,4 @@
 > you are interested in help, look for other repositories, such as Qpdf
 > Tools.
 
-O [ALIS](https://alis.silash35.vercel.app/) é um agregador de Locais Inclusivos para Surdos. Mais informações na pagina de [sobre](https://alis.silash35.vercel.app/sobre)
+O [ALIS](https://alis.vercel.app/) é um agregador de Locais Inclusivos para Surdos. Mais informações na pagina de [sobre](https://alis.vercel.app/sobre)
