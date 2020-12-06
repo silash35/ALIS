@@ -20,18 +20,11 @@ export default function DefaultHead(props) {
       <meta name="twitter:image" content="/card.png"></meta>
 
       {/* Fonts */}
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
-        rel="preload"
         href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-        as="style"
-        onload="this.onload=null;this.rel='stylesheet'"
+        rel="stylesheet"
       />
-      <noscript>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-        />
-      </noscript>
 
       {/* PWA */}
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
