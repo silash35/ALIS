@@ -15,7 +15,7 @@ export default function DefaultHead(props) {
       <meta property="og:description" content="O Agregador de Locais Inclusivos para Surdos" />
       <meta property="og:image" content="/card.png" />
       <meta property="og:image:alt" content="ALIS logo: um texto azul escrito alis" />
-      <meta property="og:url" content="https://alis.silash35.vercel.app/" />
+      <meta property="og:url" content="https://alis.vercel.app/" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:image" content="/card.png"></meta>
 
