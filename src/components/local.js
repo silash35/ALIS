@@ -1,5 +1,4 @@
 import IconButton from "@material-ui/core/IconButton";
-
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -9,6 +8,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 import DeleteIcon from "@material-ui/icons/Delete";
+import styles from "../styles/card.module.scss";
 
 export default function Local(props) {
   let local = props.local;
@@ -53,7 +53,7 @@ export default function Local(props) {
   };
 
   return (
-    <article className="card">
+    <article className={styles.card}>
       <h2>{local.nome}</h2>
       <section>
         <p>Descrição: {local.descrição}</p>

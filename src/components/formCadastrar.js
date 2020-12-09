@@ -1,9 +1,11 @@
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+import styles from "../styles/card.module.scss";
+
 export default function FormCadastrar() {
   return (
-    <form className="card" action="/api/local" method="POST">
+    <form className={styles.card} action="/api/local" method="POST">
       <TextField name="nomeDaPessoa" label="Seu Nome" variant="outlined" fullWidth />
       <br />
       <TextField name="email" label="Seu E-Mail" variant="outlined" type="email" fullWidth />

@@ -1,3 +1,4 @@
+import styles from "../styles/card.module.scss";
 import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
 import Title from "../components/title";
@@ -31,7 +32,7 @@ export default function sobre(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <article className="card" style={style}>
+        <article className={styles.card} style={style}>
           <p style={{ textAlign: "justify", maxWidth: "400px" }}>
             O ALIS é uma plataforma voltada para a comunidade surda a fim de minimizar as
             dificuldades desse público na procura de locais inclusivos. Aqui você pode contribuir
