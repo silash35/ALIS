@@ -1,4 +1,5 @@
 import DefaultHead from "../components/defaultHead";
+import Header from "../components/header";
 import Title from "../components/title";
 import Image from "next/image";
 
@@ -19,6 +20,8 @@ export default function sobre(props) {
       <DefaultHead>
         <title>Sobre</title>
       </DefaultHead>
+
+      <Header about/>
 
       <main>
         <Title>

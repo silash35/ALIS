@@ -1,5 +1,5 @@
 import DefaultHead from "../components/defaultHead";
-import Header from "../components/Header";
+import Header from "../components/header";
 import Title from "../components/title";
 import Pesquisa from "../components/pesquisa";
 import Locais from "../components/locais";
@@ -12,7 +12,7 @@ export default function Home(props) {
         <title>ALIS</title>
       </DefaultHead>
 
-      <Header />
+      <Header home/>
 
       <main>
         <Title cursive>

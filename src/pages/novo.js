@@ -1,3 +1,4 @@
+import Header from "../components/header";
 import Title from "../components/title";
 import DefaultHead from "../components/defaultHead";
 import FormCadastrar from "../components/formCadastrar";
@@ -8,6 +9,8 @@ export default function novo() {
       <DefaultHead>
         <title>Adicionar Local</title>
       </DefaultHead>
+
+      <Header new/>
 
       <main>
         <Title>

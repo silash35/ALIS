@@ -1,19 +1,51 @@
 .header {
   width: 100%;
+  display: flex;
+  justify-content: center;
+
+  border-bottom: 1px solid #eaeaea;
   nav {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
 
     a {
-      margin-top: 20px;
-      margin-right: 20px;
+      text-decoration: none;
     }
 
-    @media (max-width: 1000px) {
-      justify-content: center;
+    div {
+      display: flex;
+
       a {
-        margin: 10px 25px;
+        align-self: center;
+        margin: 0;
+        margin-left: 30px;
+
+        font-size: large;
+        font-weight: 600;
+        color: black;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: #0070f3;
+        }
       }
     }
   }
+}
+
+.logo {
+  font-family: "Pacifico", cursive;
+  color: #0070f3;
+  font-weight: 400;
+  font-size: 80px;
+
+  line-height: 60px;
+  transform: translateY(-15px);
+}
+
+#active{
+  color: #0070f3;
 }
