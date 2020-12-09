@@ -5,12 +5,12 @@ import FormCadastrar from "../components/formCadastrar";
 
 export default function novo() {
   return (
-    <div className="container">
+    <React.Fragment>
       <DefaultHead>
         <title>Adicionar Local</title>
       </DefaultHead>
 
-      <Header new/>
+      <Header new />
 
       <main>
         <Title>
@@ -22,6 +22,6 @@ export default function novo() {
 
         <FormCadastrar />
       </main>
-    </div>
+    </React.Fragment>
   );
 }

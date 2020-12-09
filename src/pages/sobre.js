@@ -17,12 +17,12 @@ const style = {
 
 export default function sobre(props) {
   return (
-    <div className="container">
+    <React.Fragment>
       <DefaultHead>
         <title>Sobre</title>
       </DefaultHead>
 
-      <Header about/>
+      <Header about />
 
       <main>
         <Title>
@@ -40,9 +40,14 @@ export default function sobre(props) {
             surdos ou interprete.
           </p>
 
-          <Image src="/love.svg" alt="Ícone de Amor em libras com um coração" width={250} height={250} />
+          <Image
+            src="/love.svg"
+            alt="Ícone de Amor em libras com um coração"
+            width={250}
+            height={250}
+          />
         </article>
       </main>
-    </div>
+    </React.Fragment>
   );
 }

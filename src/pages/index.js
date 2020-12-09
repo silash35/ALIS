@@ -7,12 +7,12 @@ import Locais from "../components/locais";
 export default function Home(props) {
   const [locais, setLocais] = React.useState(props.locais);
   return (
-    <div className="container">
+    <React.Fragment>
       <DefaultHead>
         <title>ALIS</title>
       </DefaultHead>
 
-      <Header home/>
+      <Header home />
 
       <main>
         <Title cursive>
@@ -22,10 +22,10 @@ export default function Home(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <Pesquisa setLocais={setLocais}/>
+        <Pesquisa setLocais={setLocais} />
         <Locais locais={locais} />
       </main>
-    </div>
+    </React.Fragment>
   );
 }
 
