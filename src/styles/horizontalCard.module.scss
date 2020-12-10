@@ -1,0 +1,17 @@
+@use "card.module";
+
+#horizontalCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+
+  p {
+    text-align: justify;
+    width: 400px;
+  }
+}
