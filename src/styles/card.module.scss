@@ -1,3 +1,5 @@
+@use "./variables" as v;
+
 .card {
   display: flex;
   flex-direction: column;
@@ -25,12 +27,12 @@
   &:hover,
   &:focus,
   &:active {
-    color: #0070f3;
-    border-color: #0070f3;
+    color: v.$blue;
+    border-color: v.$blue;
 
     svg {
-      color: #0070f3;
-      fill: #0070f3;
+      color: v.$blue;
+      fill: v.$blue;
     }
   }
 }

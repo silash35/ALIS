@@ -1,3 +1,5 @@
+@use "./variables" as v;
+
 .form {
   margin: auto;
 }
@@ -16,9 +18,9 @@
   &:hover,
   &:focus,
   &:active {
-    border-color: #0070f3;
+    border-color: v.$blue;
     svg {
-      color: #0070f3;
+      color: v.$blue;
     }
   }
 

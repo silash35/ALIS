@@ -1,3 +1,5 @@
+@use "./variables" as v;
+
 .title {
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@
     text-align: center;
 
     span {
-      color: #0070f3;
+      color: v.$blue;
       text-decoration: none;
     }
   }
