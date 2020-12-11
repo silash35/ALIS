@@ -16,8 +16,9 @@ export default function DefaultHead(props) {
       <meta property="og:image" content="/card.png" />
       <meta property="og:image:alt" content="ALIS logo: um texto azul escrito alis" />
       <meta property="og:url" content="https://alis.vercel.app/" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:image" content="/card.png"></meta>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content="https://alis.vercel.app/tCard.png" />
+      <meta name="twitter:creator" content="@silash35" />
 
       {/* Fonts */}
       <link rel="preconnect" href="https://fonts.gstatic.com" />
