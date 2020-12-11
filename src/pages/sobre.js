@@ -3,6 +3,7 @@ import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
 import Title from "../components/title";
 import Love from "../components/loveIcon";
+import ThemeButton from "../components/themeButton";
 
 export default function sobre(props) {
   return (
@@ -11,7 +12,7 @@ export default function sobre(props) {
         <title>Sobre</title>
       </DefaultHead>
 
-      <Header about />
+      <Header setTheme={props.setTheme} about />
 
       <main>
         <Title>
@@ -32,6 +33,7 @@ export default function sobre(props) {
           <Love />
         </article>
       </main>
+      <ThemeButton setTheme={props.setTheme} />
     </React.Fragment>
   );
 }

@@ -3,9 +3,11 @@ import Header from "../components/header";
 import Title from "../components/title";
 import Pesquisa from "../components/pesquisa";
 import Locais from "../components/locais";
+import ThemeButton from "../components/themeButton";
 
 export default function Home(props) {
   const [locais, setLocais] = React.useState(props.locais);
+
   return (
     <React.Fragment>
       <DefaultHead>
@@ -25,6 +27,8 @@ export default function Home(props) {
         <Pesquisa setLocais={setLocais} />
         <Locais locais={locais} />
       </main>
+
+      <ThemeButton setTheme={props.setTheme} />
     </React.Fragment>
   );
 }

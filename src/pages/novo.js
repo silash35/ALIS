@@ -2,8 +2,9 @@ import Header from "../components/header";
 import Title from "../components/title";
 import DefaultHead from "../components/defaultHead";
 import FormCadastrar from "../components/formCadastrar";
+import ThemeButton from "../components/themeButton";
 
-export default function novo() {
+export default function novo(props) {
   return (
     <React.Fragment>
       <DefaultHead>
@@ -22,6 +23,7 @@ export default function novo() {
 
         <FormCadastrar />
       </main>
+      <ThemeButton setTheme={props.setTheme} />
     </React.Fragment>
   );
 }
