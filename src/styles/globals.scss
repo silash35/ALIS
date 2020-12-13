@@ -37,3 +37,18 @@ main {
   align-self: flex-end;
   width: min-content;
 }
+
+// Dark Theme
+.dark {
+  min-height: 100vh;
+  background-color: #121212;
+  color: white;
+  a {
+    color: white;
+  }
+
+  svg {
+    color: white;
+    fill: white;
+  }
+}

@@ -5,19 +5,21 @@ import styles from "../styles/themeButton.module.scss";
 
 export default function ThemeButton(props) {
   let theme = "light";
+  let body;
 
   const changeTheme = () => {
     if (theme == "light") {
-      props.setTheme("dark");
       theme = "dark";
     } else {
-      props.setTheme("light");
       theme = "light";
     }
     localStorage.setItem("theme", theme);
+    body.className = theme;
+    props.setTheme(theme);
   };
 
   if (typeof window !== "undefined") {
+    body = document.getElementsByTagName("body")[0];
     if (localStorage.getItem("theme") == undefined) {
       localStorage.setItem("theme", theme);
     } else {

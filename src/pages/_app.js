@@ -1,5 +1,4 @@
 import "../styles/globals.scss";
-import dark from "../styles/dark.module.scss";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 function MyApp({ Component, pageProps }) {
@@ -14,21 +13,11 @@ function MyApp({ Component, pageProps }) {
     },
   });
 
-  if (theme == "light") {
-    return (
-      <MuiThemeProvider theme={muiTheme}>
-        <Component {...pageProps} setTheme={setTheme} />
-      </MuiThemeProvider>
-    );
-  } else {
-    return (
-      <MuiThemeProvider theme={muiTheme}>
-        <div className={dark.dark}>
-          <Component {...pageProps} setTheme={setTheme} />
-        </div>
-      </MuiThemeProvider>
-    );
-  }
+  return (
+    <MuiThemeProvider theme={muiTheme}>
+      <Component {...pageProps} setTheme={setTheme} />
+    </MuiThemeProvider>
+  );
 }
 
 export default MyApp;
