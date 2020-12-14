@@ -4,13 +4,13 @@ import md5 from "md5";
 
 export default async function local(req, res) {
   const db = await connectToDatabase();
-  const listaDeLocais = await db.db.collection("listaDeLocais");
-  let locais = 0;
+  const locations = await db.db.collection("locations");
+  let locais;
 
   const methods = {
     async GET() {
       res.setHeader("Content-Type", "application/json");
-      locais = await listaDeLocais.find({}).toArray();
+      locais = await locations.find({}).toArray();
       res.end(
         JSON.stringify({
           body: locais,
@@ -21,7 +21,7 @@ export default async function local(req, res) {
 
     async POST() {
       req.body.chave = md5(req.body.chave);
-      await listaDeLocais.insertOne(req.body);
+      await locations.insertOne(req.body);
 
       res.writeHead(302, {
         Location: "/",
@@ -31,7 +31,7 @@ export default async function local(req, res) {
 
     async PUT() {
       res.setHeader("Content-Type", "application/json");
-      locais = await listaDeLocais.find({ $text: { $search: req.body.pesquisa } }).toArray();
+      locais = await locations.find({ $text: { $search: req.body.pesquisa } }).toArray();
       res.end(
         JSON.stringify({
           body: locais,
@@ -44,10 +44,10 @@ export default async function local(req, res) {
       res.setHeader("Content-Type", "application/json");
       const id = req.body._id;
       const chave = md5(req.body.chave);
-      const local = await listaDeLocais.findOne({ _id: new ObjectID(id) });
+      const local = await locations.findOne({ _id: new ObjectID(id) });
 
       if (local.chave == chave) {
-        await listaDeLocais.deleteOne({ _id: new ObjectID(id) });
+        await locations.deleteOne({ _id: new ObjectID(id) });
       } else {
         res.statusCode = 401;
       }
