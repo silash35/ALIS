@@ -5,7 +5,7 @@ import md5 from "md5";
 export default async function local(req, res) {
   const db = await connectToDatabase();
   const locales = await db.db.collection("locales");
-  let locais = 0;
+  let locais;
 
   const methods = {
     async GET() {
