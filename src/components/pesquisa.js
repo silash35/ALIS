@@ -8,7 +8,7 @@ export default function Pesquisa(props) {
     event.preventDefault();
     const pesquisa = document.getElementById("campo").value;
 
-    const res = await fetch("https://alis.vercel.app/api/local", {
+    const res = await fetch("/api/local", {
       method: "PUT",
       headers: {
         Accept: "application/json",
