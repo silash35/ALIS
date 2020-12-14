@@ -5,7 +5,6 @@ import styles from "../styles/pesquisa.module.scss";
 
 export default function Pesquisa(props) {
   const handleSearch = async (event) => {
-
     event.preventDefault();
     const pesquisa = document.getElementById("campo").value;
 
