@@ -3,5 +3,14 @@
   "useTabs": false,
   "printWidth": 100,
   "semi": true,
-  "singleQuote": false
+  "singleQuote": false,
+
+  "overrides": [
+    {
+      "files": ["defaultHead.js"],
+      "options": {
+        "printWidth": 999
+      }
+    }
+  ]
 }
