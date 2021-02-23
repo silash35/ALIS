@@ -16,8 +16,8 @@
     "@material-ui/icons": "^4.9.1",
     "md5": "^2.3.0",
     "mongodb": "^3.5.9",
-    "next": "latest",
-    "next-pwa": "latest",
+    "next": "^10.0.7",
+    "next-pwa": "^5.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
