@@ -4,9 +4,9 @@ export default function DefaultHead(props) {
   return (
     <Head>
       {/* Primary Meta Tags */}
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="content-type" content="text/html" />
+      <meta httpEquiv="content-type" content="text/html" />
 
       {/* SEO Meta Tags */}
       <meta name="author" content="Silas Henrique Alves Araújo" />
