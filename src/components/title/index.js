@@ -7,5 +7,5 @@ export default function Title(props) {
   } else {
     className = styles.title;
   }
-  return <article className={className}>{props.children}</article>;
+  return <div className={className}>{props.children}</div>;
 }

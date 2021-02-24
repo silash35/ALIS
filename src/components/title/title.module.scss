@@ -15,15 +15,12 @@
 
     span {
       color: v.$blue;
-      text-decoration: none;
     }
   }
 }
 
 .cursiveTitle {
   @extend .title;
-  margin-bottom: 30px;
-  margin-top: 20px;
   h1 {
     font-family: "Pacifico", cursive;
     font-weight: 400;
