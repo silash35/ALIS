@@ -1,6 +1,7 @@
 import Fab from "@material-ui/core/Fab";
-import SunIcon from "@material-ui/icons/Brightness7";
 import MoonIcon from "@material-ui/icons/Brightness4";
+import SunIcon from "@material-ui/icons/Brightness7";
+
 import styles from "../styles/themeButton.module.scss";
 
 export default function ThemeButton(props) {

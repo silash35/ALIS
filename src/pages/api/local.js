@@ -1,6 +1,7 @@
-import { connectToDatabase } from "../../util/mongodb";
-import { ObjectID } from "mongodb";
 import md5 from "md5";
+import { ObjectID } from "mongodb";
+
+import { connectToDatabase } from "../../util/mongodb";
 
 export default async function local(req, res) {
   const db = await connectToDatabase();

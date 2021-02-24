@@ -1,10 +1,11 @@
+import React from "react";
+
 import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
-import Title from "../components/title";
-import Pesquisa from "../components/pesquisa";
 import Locais from "../components/locais";
+import Pesquisa from "../components/pesquisa";
 import ThemeButton from "../components/themeButton";
-import React from "react";
+import Title from "../components/title";
 
 export default function Home(props) {
   const [locais, setLocais] = React.useState(props.locais);

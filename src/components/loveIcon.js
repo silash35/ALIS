@@ -1,5 +1,3 @@
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
 export default function Love() {
   return (
     <svg width="296" height="300" version="1.1" xmlns="http://www.w3.org/2000/svg">

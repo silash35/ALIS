@@ -1,9 +1,9 @@
-import styles from "../styles/horizontalCard.module.scss";
 import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
-import Title from "../components/title";
 import Love from "../components/loveIcon";
 import ThemeButton from "../components/themeButton";
+import Title from "../components/title";
+import styles from "../styles/horizontalCard.module.scss";
 
 export default function sobre(props) {
   return (

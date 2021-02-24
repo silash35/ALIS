@@ -1,8 +1,8 @@
-import Header from "../components/header";
-import Title from "../components/title";
 import DefaultHead from "../components/defaultHead";
 import FormCadastrar from "../components/formCadastrar";
+import Header from "../components/header";
 import ThemeButton from "../components/themeButton";
+import Title from "../components/title";
 
 export default function novo(props) {
   return (
