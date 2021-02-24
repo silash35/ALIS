@@ -7,7 +7,7 @@ import ThemeButton from "../components/themeButton";
 
 export default function sobre(props) {
   return (
-    <React.Fragment>
+    <>
       <DefaultHead>
         <title>Sobre</title>
       </DefaultHead>
@@ -34,6 +34,6 @@ export default function sobre(props) {
         </article>
       </main>
       <ThemeButton setTheme={props.setTheme} />
-    </React.Fragment>
+    </>
   );
 }

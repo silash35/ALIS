@@ -6,7 +6,7 @@ import ThemeButton from "../components/themeButton";
 
 export default function novo(props) {
   return (
-    <React.Fragment>
+    <>
       <DefaultHead>
         <title>Adicionar Local</title>
       </DefaultHead>
@@ -24,6 +24,6 @@ export default function novo(props) {
         <FormCadastrar />
       </main>
       <ThemeButton setTheme={props.setTheme} />
-    </React.Fragment>
+    </>
   );
 }

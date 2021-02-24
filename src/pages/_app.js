@@ -1,5 +1,6 @@
 import "../styles/globals.scss";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import React from "react";
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = React.useState("light");
