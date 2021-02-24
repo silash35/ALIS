@@ -1,8 +1,7 @@
 @use "./variables" as v;
 
-.card {
+%card {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
 
   margin: 1rem;
@@ -37,13 +36,23 @@
   }
 }
 
-main .card {
-  width: 400px;
-  height: 300px;
-  align-self: center;
+%verticalCard {
+  @extend %card;
+  flex-direction: column;
 }
 
-form.card {
+%horizontalCard {
+  @extend %card;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+  width: auto;
   height: auto;
-  width: 400px;
+
+  p {
+    text-align: justify;
+    width: 400px;
+  }
 }

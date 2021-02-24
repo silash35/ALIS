@@ -9,9 +9,9 @@ import TextField from "@material-ui/core/TextField";
 import DeleteIcon from "@material-ui/icons/Delete";
 import React from "react";
 
-import styles from "../styles/card.module.scss";
+import styles from "./place.module.scss";
 
-export default function Local(props) {
+export default function Place(props) {
   let local = props.local;
 
   const [open, setOpen] = React.useState(false);

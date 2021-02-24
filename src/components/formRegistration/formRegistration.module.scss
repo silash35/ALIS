@@ -1,0 +1,9 @@
+@import "../../styles/card";
+
+.card {
+  @extend %verticalCard;
+
+  height: auto;
+  width: 400px;
+  align-self: center;
+}

@@ -1,7 +1,7 @@
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 
-import styles from "../styles/pesquisa.module.scss";
+import styles from "./pesquisa.module.scss";
 
 export default function Pesquisa(props) {
   const handleSearch = async (event) => {

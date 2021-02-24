@@ -1,4 +1,4 @@
-@use "./variables" as v;
+@use "../../styles/variables.scss" as v;
 
 .header {
   width: 100%;
@@ -43,6 +43,6 @@
   transform: translateY(-15px);
 }
 
-#active{
+#active {
   color: v.$blue;
 }

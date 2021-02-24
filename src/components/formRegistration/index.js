@@ -1,7 +1,7 @@
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-import styles from "../styles/card.module.scss";
+import styles from "./formRegistration.module.scss";
 
 export default function FormCadastrar() {
   return (

@@ -1,9 +1,8 @@
+import AboutCard from "../components/aboutCard";
 import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
-import Love from "../components/loveIcon";
 import ThemeButton from "../components/themeButton";
 import Title from "../components/title";
-import styles from "../styles/horizontalCard.module.scss";
 
 export default function sobre(props) {
   return (
@@ -22,16 +21,7 @@ export default function sobre(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <article className={styles.card} id={styles.horizontalCard}>
-          <p>
-            O ALIS é uma plataforma voltada para a comunidade surda a fim de minimizar as
-            dificuldades desse público na procura de locais inclusivos. Aqui você pode contribuir
-            registrando um lugar que você foi e tinha uma tecnologia pra facilitar a comunicação com
-            surdos ou interprete.
-          </p>
-
-          <Love />
-        </article>
+        <AboutCard />
       </main>
       <ThemeButton setTheme={props.setTheme} />
     </>

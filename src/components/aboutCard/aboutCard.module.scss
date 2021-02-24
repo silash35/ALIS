@@ -1,0 +1,7 @@
+@import "../../styles/card";
+
+.card {
+  @extend %horizontalCard;
+
+  align-self: center;
+}

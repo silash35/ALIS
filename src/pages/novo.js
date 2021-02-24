@@ -1,5 +1,5 @@
 import DefaultHead from "../components/defaultHead";
-import FormCadastrar from "../components/formCadastrar";
+import FormRegistration from "../components/formRegistration";
 import Header from "../components/header";
 import ThemeButton from "../components/themeButton";
 import Title from "../components/title";
@@ -21,7 +21,7 @@ export default function novo(props) {
           <p>Insira os dados abaixo para efetuar o cadastro de um novo local</p>
         </Title>
 
-        <FormCadastrar />
+        <FormRegistration />
       </main>
       <ThemeButton setTheme={props.setTheme} />
     </>
