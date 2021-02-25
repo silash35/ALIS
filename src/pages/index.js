@@ -36,7 +36,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("https://alis.vercel.app/api/local");
+  const res = await fetch(process.env.VERCEL_URL + "api/local");
   const data = await res.json();
 
   return {

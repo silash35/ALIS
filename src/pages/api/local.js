@@ -1,28 +1,23 @@
-import md5 from "md5";
-import { ObjectID } from "mongodb";
-
-import { connectToDatabase } from "../../util/mongodb";
+import locationsManager from "../../database/locationsManager";
 
 export default async function local(req, res) {
-  const db = await connectToDatabase();
-  const locations = await db.db.collection("locations");
-  let locais;
+  let places;
 
   const methods = {
     async GET() {
       res.setHeader("Content-Type", "application/json");
-      locais = await locations.find({}).toArray();
+      places = await locationsManager.getAllPlaces();
+
+      res.statusCode = 200;
       res.end(
         JSON.stringify({
-          body: locais,
+          body: places,
         })
       );
-      res.statusCode = 200;
     },
 
     async POST() {
-      req.body.chave = md5(req.body.chave);
-      await locations.insertOne(req.body);
+      await locationsManager.insertPlace(req.body);
 
       res.writeHead(302, {
         Location: "/",
@@ -32,27 +27,20 @@ export default async function local(req, res) {
 
     async PUT() {
       res.setHeader("Content-Type", "application/json");
-      locais = await locations.find({ $text: { $search: req.body.pesquisa } }).toArray();
+      places = await locationsManager.findPlaces(req.body.pesquisa);
+
+      res.statusCode = 200;
       res.end(
         JSON.stringify({
-          body: locais,
+          body: places,
         })
       );
-      res.statusCode = 200;
     },
 
     async DELETE() {
       res.setHeader("Content-Type", "application/json");
-      const id = req.body._id;
-      const chave = md5(req.body.chave);
-      const local = await locations.findOne({ _id: new ObjectID(id) });
+      res.statusCode = await locationsManager.deletePlace(id, req.body._id);
 
-      if (local.chave == chave) {
-        await locations.deleteOne({ _id: new ObjectID(id) });
-      } else {
-        res.statusCode = 401;
-      }
-      res.statusCode = 200;
       res.end();
     },
   };
