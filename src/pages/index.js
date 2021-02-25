@@ -36,7 +36,14 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(process.env.VERCEL_URL + "api/local");
+  let url = process.env.VERCEL_URL;
+  if (url == undefined) {
+    url = "http://localhost:3000";
+  } else {
+    url = "https://" + url;
+  }
+
+  const res = await fetch(url + "/api/local");
   const data = await res.json();
 
   return {
