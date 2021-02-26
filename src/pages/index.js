@@ -1,6 +1,6 @@
+import Head from "next/head";
 import React from "react";
 
-import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
 import Places from "../components/places";
 import Search from "../components/search";
@@ -12,9 +12,9 @@ export default function Home(props) {
 
   return (
     <React.Fragment>
-      <DefaultHead>
+      <Head>
         <title>ALIS</title>
-      </DefaultHead>
+      </Head>
 
       <Header home />
 

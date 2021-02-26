@@ -1,4 +1,5 @@
-import DefaultHead from "../components/defaultHead";
+import Head from "next/head";
+
 import FormRegistration from "../components/formRegistration";
 import Header from "../components/header";
 import ThemeButton from "../components/themeButton";
@@ -7,9 +8,9 @@ import Title from "../components/title";
 export default function novo(props) {
   return (
     <>
-      <DefaultHead>
+      <Head>
         <title>Adicionar Local</title>
-      </DefaultHead>
+      </Head>
 
       <Header new />
 
