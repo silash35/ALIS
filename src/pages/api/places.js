@@ -27,7 +27,7 @@ export default async function local(req, res) {
 
     async PUT() {
       res.setHeader("Content-Type", "application/json");
-      places = await locationsManager.findPlaces(req.body.pesquisa);
+      places = await locationsManager.findPlaces(req.body.search);
 
       res.statusCode = 200;
       res.end(
@@ -39,7 +39,7 @@ export default async function local(req, res) {
 
     async DELETE() {
       res.setHeader("Content-Type", "application/json");
-      res.statusCode = await locationsManager.deletePlace(req.body._id, req.body.chave);
+      res.statusCode = await locationsManager.deletePlace(req.body.id, req.body.key);
 
       res.end();
     },

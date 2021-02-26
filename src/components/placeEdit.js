@@ -30,12 +30,12 @@ export default function PlaceEdit({ id }) {
     const data = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ _id, key }),
+      body: JSON.stringify({ id, key }),
     };
 
     let res = {};
     if (key != "") {
-      res = await fetch("/api/local", data);
+      res = await fetch("/api/places", data);
     } else {
       res.status = 401;
     }

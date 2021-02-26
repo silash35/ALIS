@@ -5,17 +5,17 @@ import styles from "./formRegistration.module.scss";
 
 export default function FormCadastrar() {
   return (
-    <form className={styles.card} action="/api/local" method="POST">
-      <TextField name="nomeDaPessoa" label="Seu Nome" variant="outlined" fullWidth />
+    <form className={styles.card} action="/api/places" method="POST">
+      <TextField name="personName" label="Seu Nome" variant="outlined" fullWidth />
       <br />
       <TextField name="email" label="Seu E-Mail" variant="outlined" type="email" fullWidth />
       <br />
-      <TextField name="nome" label="Nome do Local" variant="outlined" required fullWidth />
+      <TextField name="name" label="Nome do Local" variant="outlined" required fullWidth />
       <br />
-      <TextField name="endereço" label="Endereço do Local" variant="outlined" required fullWidth />
+      <TextField name="address" label="Endereço do Local" variant="outlined" required fullWidth />
       <br />
       <TextField
-        name="chave"
+        name="key"
         label="Chave para alteração"
         variant="outlined"
         type="password"
@@ -24,8 +24,8 @@ export default function FormCadastrar() {
       />
       <br />
       <TextField
-        name="descrição"
-        label="Descrição"
+        name="description"
+        label="Descrição do local"
         variant="outlined"
         multiline
         required

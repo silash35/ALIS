@@ -35,7 +35,7 @@ class LocationsManager {
     // Write functions
     this.insertPlace = async (place) => {
       await loadCollection();
-      place.chave = md5(place.chave);
+      place.chave = md5(place.key);
       await locations.insertOne(place);
     };
 

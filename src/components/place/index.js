@@ -4,10 +4,10 @@ import styles from "./place.module.scss";
 export default function Place({ place }) {
   return (
     <article className={styles.card}>
-      <h2>{place.nome}</h2>
+      <h2>{place.name}</h2>
       <section>
-        <p>Descrição: {place.descrição}</p>
-        <p>Endereço: {place.endereço}</p>
+        <p>Descrição: {place.description}</p>
+        <p>Endereço: {place.address}</p>
       </section>
       <PlaceEdit id={place._id} />
     </article>

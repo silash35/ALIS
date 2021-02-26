@@ -2,8 +2,8 @@ import React from "react";
 
 import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
-import Pesquisa from "../components/pesquisa";
 import Places from "../components/places";
+import Search from "../components/search";
 import ThemeButton from "../components/themeButton";
 import Title from "../components/title";
 
@@ -26,7 +26,7 @@ export default function Home(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <Pesquisa setLocais={setPlaces} />
+        <Search setPlaces={setPlaces} />
         <Places places={places} />
       </main>
 
@@ -43,7 +43,7 @@ export async function getServerSideProps() {
     url = "https://" + url;
   }
 
-  const res = await fetch(url + "/api/local");
+  const res = await fetch(url + "/api/places");
   const data = await res.json();
 
   return {
