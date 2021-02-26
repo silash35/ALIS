@@ -42,7 +42,7 @@ class LocationsManager {
     this.deletePlace = async (id, key) => {
       await loadCollection();
       const place = await this.getByID(id);
-      if (place.chave == key) {
+      if (place.chave == md5(key)) {
         await locations.deleteOne({ _id: new ObjectID(id) });
         return 200;
       }
