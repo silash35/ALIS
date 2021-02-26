@@ -2,13 +2,13 @@ import React from "react";
 
 import DefaultHead from "../components/defaultHead";
 import Header from "../components/header";
-import Locais from "../components/locais";
 import Pesquisa from "../components/pesquisa";
+import Places from "../components/places";
 import ThemeButton from "../components/themeButton";
 import Title from "../components/title";
 
 export default function Home(props) {
-  const [locais, setLocais] = React.useState(props.locais);
+  const [places, setPlaces] = React.useState(props.places);
 
   return (
     <React.Fragment>
@@ -26,8 +26,8 @@ export default function Home(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <Pesquisa setLocais={setLocais} />
-        <Locais locais={locais} />
+        <Pesquisa setLocais={setPlaces} />
+        <Places places={places} />
       </main>
 
       <ThemeButton setTheme={props.setTheme} />
@@ -48,7 +48,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      locais: data.body,
+      places: data.body,
     },
   };
 }
