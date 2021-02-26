@@ -39,7 +39,7 @@ export default async function local(req, res) {
 
     async DELETE() {
       res.setHeader("Content-Type", "application/json");
-      res.statusCode = await locationsManager.deletePlace(id, req.body._id);
+      res.statusCode = await locationsManager.deletePlace(req.body._id, req.body.chave);
 
       res.end();
     },
