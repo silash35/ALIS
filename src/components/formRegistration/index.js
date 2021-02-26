@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 
 import styles from "./formRegistration.module.scss";
 
-export default function FormCadastrar() {
+export default function FormRegistration() {
   return (
     <form className={styles.card} action="/api/places" method="POST">
       <TextField name="personName" label="Seu Nome" variant="outlined" fullWidth />
