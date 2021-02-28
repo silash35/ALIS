@@ -10,7 +10,7 @@ const isActive = (bool) => {
 
 export default function Header(props) {
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${styles[props.theme]}`}>
       <nav>
         <Link as="/" href="/">
           <a className={styles.logo}>a</a>

@@ -12,7 +12,7 @@ export default function novo(props) {
         <title>Adicionar Local</title>
       </Head>
 
-      <Header new />
+      <Header new theme={props.theme} />
 
       <main>
         <Title>

@@ -24,7 +24,7 @@ export default function Search(props) {
 
   return (
     <form onSubmit={handleSearch} className={styles.form}>
-      <label className={styles.pesquisa}>
+      <label className={`${styles.pesquisa} ${styles[props.theme]}`}>
         <input type="text" id="searchField"></input>
         <IconButton aria-label="pesquisar" type="submit">
           <SearchIcon />

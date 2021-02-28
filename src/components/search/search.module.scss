@@ -31,3 +31,11 @@
     height: 30px;
   }
 }
+
+.light {
+  border: 1px solid v.$borderLight;
+}
+
+.dark {
+  border: 1px solid v.$borderDark;
+}
