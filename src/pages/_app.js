@@ -1,6 +1,7 @@
 import "../styles/globals.scss";
-import Head from "next/head";
+
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import Head from "next/head";
 import Router from "next/router";
 import NProgress from "nprogress";
 import React from "react";
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
       },
       type: theme,
     },
+    shape: { borderRadius: 10 },
   });
 
   return (
