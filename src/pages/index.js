@@ -16,7 +16,7 @@ export default function Home(props) {
         <title>ALIS</title>
       </Head>
 
-      <Header home theme={props.theme} />
+      <Header home />
 
       <main>
         <Title cursive>
@@ -26,11 +26,11 @@ export default function Home(props) {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <Search setPlaces={setPlaces} theme={props.theme} />
+        <Search setPlaces={setPlaces} />
         <Places places={places} />
       </main>
 
-      <ThemeButton setTheme={props.setTheme} />
+      <ThemeButton />
     </React.Fragment>
   );
 }
