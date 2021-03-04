@@ -1,9 +1,9 @@
 import Head from "next/head";
 
-import AboutCard from "../components/aboutCard";
-import Header from "../components/header";
-import ThemeButton from "../components/themeButton";
-import Title from "../components/title";
+import AboutCard from "../components/AboutCard";
+import Header from "../components/Header";
+import ThemeButton from "../components/ThemeSwitch";
+import Title from "../components/Title";
 
 export default function sobre(props) {
   return (

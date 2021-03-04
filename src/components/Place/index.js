@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { ThemeContext } from "../../contexts/ThemeContext";
-import PlaceEdit from "../placeEdit";
+import PlaceEdit from "../PlaceEditButton";
 import styles from "./place.module.scss";
 
 export default function Place({ place }) {

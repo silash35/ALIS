@@ -1,11 +1,11 @@
 import Head from "next/head";
 import React from "react";
 
-import Header from "../components/header";
-import Places from "../components/places";
-import Search from "../components/search";
-import ThemeButton from "../components/themeButton";
-import Title from "../components/title";
+import Header from "../components/Header";
+import Places from "../components/PlacesContainer";
+import Search from "../components/Search";
+import ThemeButton from "../components/ThemeSwitch";
+import Title from "../components/Title";
 
 export default function Home(props) {
   const [places, setPlaces] = React.useState(props.places);

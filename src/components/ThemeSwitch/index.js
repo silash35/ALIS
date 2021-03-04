@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./themeButton.module.scss";
 
-export default function ThemeButton() {
+export default function ThemeSwitch() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   if (theme == "light") {

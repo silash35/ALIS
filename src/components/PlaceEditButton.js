@@ -7,12 +7,12 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import DeleteIcon from "@material-ui/icons/Delete";
-import React from "react";
+import { useState } from "react";
 
-export default function PlaceEdit({ id }) {
-  const [open, setOpen] = React.useState(false);
-  const [error, setError] = React.useState(false);
-  const [errorText, setErrorText] = React.useState("");
+export default function PlaceEditButton({ id }) {
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);

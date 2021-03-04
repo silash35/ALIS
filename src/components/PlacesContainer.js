@@ -1,6 +1,6 @@
-import Place from "./place";
+import Place from "./Place";
 
-export default function Places({ places }) {
+export default function PlacesContainer({ places }) {
   return (
     <section>
       {places.map((place) => {
