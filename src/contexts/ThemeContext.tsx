@@ -1,12 +1,17 @@
+import { PaletteType } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import { createContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 const ThemeContext = createContext({});
 export { ThemeContext };
 
-export function ThemeContextProvider({ children }) {
-  const [theme, setTheme] = useState("light");
-  let body;
+interface Props {
+  children: ReactNode;
+}
+
+export const ThemeContextProvider = (props: Props): ReactNode => {
+  const [theme, setTheme] = useState<PaletteType>("light");
+  let body: Element;
 
   const toggleTheme = () => {
     const newTheme = theme == "light" ? "dark" : "light";
@@ -44,7 +49,7 @@ export function ThemeContextProvider({ children }) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <MuiThemeProvider theme={muiTheme}>{children}</MuiThemeProvider>
+      <MuiThemeProvider theme={muiTheme}>{props.children}</MuiThemeProvider>
     </ThemeContext.Provider>
   );
-}
+};

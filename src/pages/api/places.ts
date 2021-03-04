@@ -1,7 +1,10 @@
-import locationsManager from "../../database/locationsManager";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function local(req, res) {
-  let places;
+import locationsManager from "@/database/locationsManager";
+import { IPlace } from "@/types/IPlace";
+
+const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+  let places: IPlace[];
 
   const methods = {
     async GET() {
@@ -51,4 +54,6 @@ export default async function local(req, res) {
   } else {
     res.statusCode = 404;
   }
-}
+};
+
+export default place;
