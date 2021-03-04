@@ -12,7 +12,7 @@ export default function sobre(props) {
         <title>Sobre</title>
       </Head>
 
-      <Header setTheme={props.setTheme} about />
+      <Header about />
 
       <main>
         <Title>
@@ -24,7 +24,7 @@ export default function sobre(props) {
 
         <AboutCard />
       </main>
-      <ThemeButton setTheme={props.setTheme} />
+      <ThemeButton />
     </>
   );
 }

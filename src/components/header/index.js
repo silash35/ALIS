@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { useContext } from "react";
 
+import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./header.module.scss";
 
 const isActive = (bool) => {
@@ -9,8 +11,10 @@ const isActive = (bool) => {
 };
 
 export default function Header(props) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${styles[theme]}`}>
       <nav>
         <Link as="/" href="/">
           <a className={styles.logo}>a</a>

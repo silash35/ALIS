@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
 
-  border-bottom: 1px solid #eaeaea;
   nav {
     display: flex;
     flex-direction: row;
@@ -46,4 +45,12 @@
 
 #active {
   color: v.$blue;
+}
+
+.light {
+  border-bottom: 1px solid v.$borderLight;
+}
+
+.dark {
+  border-bottom: 1px solid v.$borderDark;
 }

@@ -1,9 +1,59 @@
+@use "../../styles/variables.scss" as v;
 @import "../../styles/card";
 
 .card {
-  @extend %verticalCard;
+  @extend %cardOnlyStyle;
+  margin: 1rem;
+  overflow: hidden;
 
   width: 400px;
   height: 300px;
-  align-self: center;
+
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: cover;
+
+  display: grid;
+  grid-template-rows: 200px auto;
+  grid-template-areas: "empty" "content";
+
+  h2,
+  svg {
+    color: white;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    h2 {
+      color: v.$blue;
+    }
+  }
+}
+
+.content {
+  grid-area: content;
+
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-areas: "name delete";
+  background-color: rgba(0, 0, 0, 0.8);
+  h2 {
+    grid-area: name;
+    padding-left: 1.5rem;
+    align-self: center;
+
+    // Limit title to 2 lines
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  button {
+    grid-area: delete;
+    place-self: center;
+  }
 }

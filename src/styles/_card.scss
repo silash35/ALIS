@@ -1,6 +1,27 @@
 @use "./variables" as v;
 
+%cardOnlyStyle {
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  box-shadow: rgba(0, 0, 0, 8%) 0px 4px 12px 0px, rgba(0, 0, 0, 2%) 0px 0px 0px 1px;
+  border-radius: 20px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: v.$blue;
+    border-color: v.$blue;
+    box-shadow: rgba(0, 112, 243, 15%) 0px 10px 20px 0px;
+
+    svg {
+      color: v.$blue;
+      fill: v.$blue;
+    }
+  }
+}
+
 %card {
+  @extend %cardOnlyStyle;
   display: flex;
   justify-content: space-around;
 
@@ -9,9 +30,6 @@
   text-align: left;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
 
   h2 {
     text-align: center;
@@ -21,18 +39,6 @@
 
   label {
     align-self: center;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: v.$blue;
-    border-color: v.$blue;
-
-    svg {
-      color: v.$blue;
-      fill: v.$blue;
-    }
   }
 }
 
@@ -55,4 +61,12 @@
     text-align: justify;
     width: 400px;
   }
+}
+
+.dark {
+  border: 1px solid v.$borderDark;
+}
+
+.light {
+  border: 1px solid v.$borderLight;
 }

@@ -1,11 +1,15 @@
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import { useContext } from "react";
 
+import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./formRegistration.module.scss";
 
 export default function FormRegistration() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <form className={styles.card} action="/api/places" method="POST">
+    <form className={`${styles.card} ${styles[theme]}`} action="/api/places" method="POST">
       <TextField name="personName" label="Seu Nome" variant="outlined" fullWidth />
       <br />
       <TextField name="email" label="Seu E-Mail" variant="outlined" type="email" fullWidth />

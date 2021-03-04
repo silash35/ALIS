@@ -24,7 +24,7 @@ export default function novo(props) {
 
         <FormRegistration />
       </main>
-      <ThemeButton setTheme={props.setTheme} />
+      <ThemeButton />
     </>
   );
 }

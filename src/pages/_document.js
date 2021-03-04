@@ -7,7 +7,6 @@ class MyDocument extends Document {
         <Head>
           {/* Primary Meta Tags */}
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta httpEquiv="content-type" content="text/html" />
 
           {/* SEO Meta Tags */}

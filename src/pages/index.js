@@ -30,7 +30,7 @@ export default function Home(props) {
         <Places places={places} />
       </main>
 
-      <ThemeButton setTheme={props.setTheme} />
+      <ThemeButton />
     </React.Fragment>
   );
 }
