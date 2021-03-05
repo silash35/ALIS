@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-import FormRegistration from "../components/FormRegistration";
-import Header from "../components/Header";
-import ThemeButton from "../components/ThemeSwitch";
-import Title from "../components/Title";
+import FormRegistration from "@/components/FormRegistration";
+import Header from "@/components/Header";
+import ThemeButton from "@/components/ThemeSwitch";
+import Title from "@/components/Title";
 
-export default function novo(props) {
+export default function novo() {
   return (
     <>
       <Head>

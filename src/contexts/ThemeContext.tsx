@@ -9,7 +9,7 @@ interface Props {
   children: ReactNode;
 }
 
-export const ThemeContextProvider = (props: Props): ReactNode => {
+export const ThemeContextProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<PaletteType>("light");
   let body: Element;
 
@@ -49,7 +49,7 @@ export const ThemeContextProvider = (props: Props): ReactNode => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <MuiThemeProvider theme={muiTheme}>{props.children}</MuiThemeProvider>
+      <MuiThemeProvider theme={muiTheme}>{children}</MuiThemeProvider>
     </ThemeContext.Provider>
   );
 };

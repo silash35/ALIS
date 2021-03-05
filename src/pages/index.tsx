@@ -1,17 +1,23 @@
+import { GetServerSideProps } from "next";
 import Head from "next/head";
-import React from "react";
+import { useState } from "react";
 
-import Header from "../components/Header";
-import Places from "../components/PlacesContainer";
-import Search from "../components/Search";
-import ThemeButton from "../components/ThemeSwitch";
-import Title from "../components/Title";
+import Header from "@/components/Header";
+import Places from "@/components/PlacesContainer";
+import Search from "@/components/Search";
+import ThemeButton from "@/components/ThemeSwitch";
+import Title from "@/components/Title";
+import { IPlace } from "@/types/IPlace";
 
-export default function Home(props) {
-  const [places, setPlaces] = React.useState(props.places);
+interface Props {
+  places: IPlace[];
+}
+
+export default function Home(props: Props) {
+  const [places, setPlaces] = useState(props.places);
 
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>ALIS</title>
       </Head>
@@ -31,11 +37,11 @@ export default function Home(props) {
       </main>
 
       <ThemeButton />
-    </React.Fragment>
+    </>
   );
 }
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   let url = process.env.VERCEL_URL;
   if (url == undefined) {
     url = "http://localhost:3000";
@@ -51,4 +57,4 @@ export async function getServerSideProps() {
       places: data.body,
     },
   };
-}
+};
