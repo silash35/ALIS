@@ -1,4 +1,4 @@
-export default function Love() {
+const Love = () => {
   return (
     <svg width="296" height="300" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <g transform="matrix(1.4213 0 0 1.4213 -36.37 -21.406)">
@@ -7,4 +7,6 @@ export default function Love() {
       </g>
     </svg>
   );
-}
+};
+
+export default Love;

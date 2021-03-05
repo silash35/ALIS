@@ -13,7 +13,7 @@ interface Props {
   places: IPlace[];
 }
 
-export default function Home(props: Props) {
+const Home = (props: Props) => {
   const [places, setPlaces] = useState(props.places);
 
   return (
@@ -39,7 +39,9 @@ export default function Home(props: Props) {
       <ThemeButton />
     </>
   );
-}
+};
+
+export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   let url = process.env.VERCEL_URL;

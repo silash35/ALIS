@@ -1,6 +1,12 @@
+import { IPlace } from "@/types/IPlace";
+
 import Place from "./Place";
 
-export default function PlacesContainer({ places }) {
+interface Props {
+  places: IPlace[];
+}
+
+const PlacesContainer = ({ places }: Props) => {
   return (
     <section>
       {places.map((place) => {
@@ -8,4 +14,6 @@ export default function PlacesContainer({ places }) {
       })}
     </section>
   );
-}
+};
+
+export default PlacesContainer;

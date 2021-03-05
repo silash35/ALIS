@@ -1,10 +1,16 @@
 import { useContext } from "react";
 
-import { ThemeContext } from "../../contexts/ThemeContext";
+import { ThemeContext } from "@/contexts/ThemeContext";
+import { IPlace } from "@/types/IPlace";
+
 import PlaceEdit from "../PlaceEditButton";
 import styles from "./place.module.scss";
 
-export default function Place({ place }) {
+interface Props {
+  place: IPlace;
+}
+
+export default function Place({ place }: Props) {
   const { theme } = useContext(ThemeContext);
 
   return (

@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import ThemeButton from "@/components/ThemeSwitch";
 import Title from "@/components/Title";
 
-export default function novo() {
+const novo = () => {
   return (
     <>
       <Head>
@@ -27,4 +27,6 @@ export default function novo() {
       <ThemeButton />
     </>
   );
-}
+};
+
+export default novo;

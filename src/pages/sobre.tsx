@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import ThemeButton from "@/components/ThemeSwitch";
 import Title from "@/components/Title";
 
-export default function sobre() {
+const sobre = () => {
   return (
     <>
       <Head>
@@ -27,4 +27,6 @@ export default function sobre() {
       <ThemeButton />
     </>
   );
-}
+};
+
+export default sobre;

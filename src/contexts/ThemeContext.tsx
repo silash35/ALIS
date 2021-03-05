@@ -2,7 +2,11 @@ import { PaletteType } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-const ThemeContext = createContext({});
+const ThemeContext = createContext({
+  theme: "light" as PaletteType,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  toggleTheme: function (): void {},
+});
 export { ThemeContext };
 
 interface Props {

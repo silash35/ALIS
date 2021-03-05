@@ -9,7 +9,11 @@ import TextField from "@material-ui/core/TextField";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useState } from "react";
 
-export default function PlaceEditButton({ id }) {
+interface Props {
+  id: string;
+}
+
+const PlaceEditButton = ({ id }: Props) => {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -25,7 +29,7 @@ export default function PlaceEditButton({ id }) {
   };
 
   const editPlace = async () => {
-    const key = document.getElementById("chave-" + id).value;
+    const key = (document.getElementById("chave-" + id) as HTMLInputElement).value;
 
     const data = {
       method: "DELETE",
@@ -33,7 +37,7 @@ export default function PlaceEditButton({ id }) {
       body: JSON.stringify({ id, key }),
     };
 
-    let res = {};
+    let res = { status: undefined };
     if (key != "") {
       res = await fetch("/api/places", data);
     } else {
@@ -82,4 +86,6 @@ export default function PlaceEditButton({ id }) {
       </Dialog>
     </>
   );
-}
+};
+
+export default PlaceEditButton;
