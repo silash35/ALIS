@@ -1,6 +1,6 @@
 import { PaletteType } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext({
   theme: "light" as PaletteType,
@@ -10,7 +10,7 @@ const ThemeContext = createContext({
 export { ThemeContext };
 
 interface Props {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export const ThemeContextProvider = ({ children }: Props) => {

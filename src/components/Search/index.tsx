@@ -1,16 +1,22 @@
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-import { useContext } from "react";
+import { SyntheticEvent, useContext } from "react";
+
+import { IPlace } from "@/types/IPlace";
 
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./search.module.scss";
 
-export default function Search(props) {
+interface Props {
+  setPlaces(places: IPlace[]): void;
+}
+
+export default function Search({ setPlaces }: Props) {
   const { theme } = useContext(ThemeContext);
 
-  const handleSearch = async (event) => {
+  const handleSearch = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const search = document.getElementById("searchField").value;
+    const search = (document.getElementById("searchField") as HTMLInputElement).value;
 
     const res = await fetch("/api/places", {
       method: "PUT",
@@ -23,7 +29,7 @@ export default function Search(props) {
 
     const data = await res.json();
 
-    props.setPlaces(data.body);
+    setPlaces(data.body);
   };
 
   return (

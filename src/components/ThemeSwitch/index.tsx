@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./themeButton.module.scss";
 
-export default function ThemeSwitch() {
+const ThemeSwitch = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   if (theme == "light") {
@@ -32,4 +32,6 @@ export default function ThemeSwitch() {
       </Fab>
     );
   }
-}
+};
+
+export default ThemeSwitch;

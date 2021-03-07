@@ -16,6 +16,10 @@ interface Props {
 const Home = (props: Props) => {
   const [places, setPlaces] = useState(props.places);
 
+  const ChangePlaces = (places: IPlace[]) => {
+    setPlaces(places);
+  };
+
   return (
     <>
       <Head>
@@ -32,7 +36,7 @@ const Home = (props: Props) => {
           <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <Search setPlaces={setPlaces} />
+        <Search setPlaces={ChangePlaces} />
         <Places places={places} />
       </main>
 

@@ -1,11 +1,18 @@
 import styles from "./title.module.scss";
 
-export default function Title(props) {
-  let className;
+interface Props {
+  cursive: boolean;
+  children: React.ReactNode;
+}
+
+const Title = (props: Props) => {
+  let className: string;
   if (props.cursive) {
     className = styles.cursiveTitle;
   } else {
     className = styles.title;
   }
   return <div className={className}>{props.children}</div>;
-}
+};
+
+export default Title;
