@@ -18,10 +18,7 @@ class MyDocument extends Document {
           <meta property="og:url" content="https://alis.vercel.app/" />
           <meta property="og:title" content="ALIS" />
           <meta property="og:image" content="https://alis.vercel.app/card.png" />
-          <meta
-            property="og:image:alt"
-            content="A letra 'a' azul e cursiva, que a um olhar atento lembra uma orelha"
-          />
+          <meta property="og:image:alt" content="A letra 'a' azul e cursiva, que a um olhar atento lembra uma orelha" />
           <meta property="og:locale" content="pt_BR" />
           <meta property="og:description" content="O Agregador de Locais Inclusivos para Surdos" />
 
@@ -48,10 +45,7 @@ class MyDocument extends Document {
 
           {/* Fonts */}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-            rel="stylesheet"
-          />
+          <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

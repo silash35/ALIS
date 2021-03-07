@@ -7,7 +7,7 @@
 
   "overrides": [
     {
-      "files": ["defaultHead.js"],
+      "files": ["_document.tsx"],
       "options": {
         "printWidth": 999
       }
