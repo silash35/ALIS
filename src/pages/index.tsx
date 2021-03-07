@@ -2,10 +2,10 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Places from "@/components/PlacesContainer";
 import Search from "@/components/Search";
-import ThemeButton from "@/components/ThemeSwitch";
 import Title from "@/components/Title";
 import { IPlace } from "@/types/IPlace";
 
@@ -40,7 +40,7 @@ const Home = (props: Props) => {
         <Places places={places} />
       </main>
 
-      <ThemeButton />
+      <Footer />
     </>
   );
 };

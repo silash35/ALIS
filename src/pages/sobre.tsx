@@ -1,8 +1,8 @@
 import Head from "next/head";
 
 import AboutCard from "@/components/AboutCard";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ThemeButton from "@/components/ThemeSwitch";
 import Title from "@/components/Title";
 
 const sobre = () => {
@@ -24,7 +24,7 @@ const sobre = () => {
 
         <AboutCard />
       </main>
-      <ThemeButton />
+      <Footer />
     </>
   );
 };

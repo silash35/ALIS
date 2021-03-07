@@ -1,7 +1,7 @@
 import styles from "./title.module.scss";
 
 interface Props {
-  cursive: boolean;
+  cursive?: boolean;
   children: React.ReactNode;
 }
 

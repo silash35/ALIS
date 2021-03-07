@@ -1,0 +1,17 @@
+@use "../../styles/variables.scss" as v;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.light {
+  border-top: 1px solid v.$borderLight;
+}
+
+.dark {
+  border-top: 1px solid v.$borderDark;
+}

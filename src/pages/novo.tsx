@@ -1,8 +1,8 @@
 import Head from "next/head";
 
+import Footer from "@/components/Footer";
 import FormRegistration from "@/components/FormRegistration";
 import Header from "@/components/Header";
-import ThemeButton from "@/components/ThemeSwitch";
 import Title from "@/components/Title";
 
 const novo = () => {
@@ -11,9 +11,7 @@ const novo = () => {
       <Head>
         <title>Adicionar Local</title>
       </Head>
-
       <Header new />
-
       <main>
         <Title>
           <h1>
@@ -24,7 +22,7 @@ const novo = () => {
 
         <FormRegistration />
       </main>
-      <ThemeButton />
+      <Footer />
     </>
   );
 };

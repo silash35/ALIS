@@ -1,6 +1,7 @@
 import { IPlace } from "@/types/IPlace";
 
-import Place from "./Place";
+import Place from "../Place";
+import styles from "./placesContainer.module.scss";
 
 interface Props {
   places: IPlace[];
@@ -8,7 +9,7 @@ interface Props {
 
 const PlacesContainer = ({ places }: Props) => {
   return (
-    <section>
+    <section className={styles.container}>
       {places.map((place) => {
         return <Place place={place} key={place._id}></Place>;
       })}
