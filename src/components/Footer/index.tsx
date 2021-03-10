@@ -9,7 +9,16 @@ const Footer = () => {
 
   return (
     <header className={`${styles.footer} ${styles[theme]}`}>
-      <p>No rights reserved. Maintained by Silas Henrique.</p>
+      <p>
+        Nenhum direito reservado. Mantido por{" "}
+        <a
+          href="https://silash35.github.io/"
+          title="Website of Silas Henrique"
+          rel="noopener noreferrer"
+        >
+          Silas Henrique
+        </a>
+      </p>
       <ThemeSwitch />
     </header>
   );
