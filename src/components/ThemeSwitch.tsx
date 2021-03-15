@@ -8,7 +8,16 @@ const ThemeSwitch = () => {
 
   const checked = theme == "light" ? true : false;
 
-  return <Switch color="primary" onChange={toggleTheme} checked={checked} />;
+  return (
+    <form>
+      <Switch
+        color="primary"
+        onChange={toggleTheme}
+        checked={checked}
+        aria-label="Toggle Theme (light dark)"
+      />
+    </form>
+  );
 };
 
 export default ThemeSwitch;
