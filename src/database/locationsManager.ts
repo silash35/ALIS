@@ -3,7 +3,7 @@ import { Collection, ObjectID } from "mongodb";
 
 import { IPlace } from "@/types/IPlace";
 
-import { getLocations } from "./getCollections";
+import { getPlaces } from "./getPlaces";
 
 class LocationsManager {
   locations: Collection;
@@ -14,7 +14,7 @@ class LocationsManager {
 
   async loadCollection() {
     if (this.locations == undefined) {
-      this.locations = await getLocations();
+      this.locations = await getPlaces();
     }
   }
 
