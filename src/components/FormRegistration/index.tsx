@@ -10,23 +10,21 @@ export default function FormRegistration() {
 
   return (
     <form className={`${styles.card} ${styles[theme]}`} action="/api/places" method="POST">
-      <TextField name="personName" label="Seu Nome" variant="outlined" fullWidth />
-      <br />
-      <TextField name="email" label="Seu E-Mail" variant="outlined" type="email" fullWidth />
-      <br />
-      <TextField name="name" label="Nome do Local" variant="outlined" required fullWidth />
-      <br />
-      <TextField name="address" label="Endereço do Local" variant="outlined" required fullWidth />
-      <br />
+      <TextField name="personName" label="Seu Nome" variant="outlined" fullWidth required />
+
       <TextField
-        name="key"
-        label="Chave para alteração"
+        name="email"
+        label="Seu E-Mail"
         variant="outlined"
-        type="password"
-        required
+        type="email"
         fullWidth
+        required
       />
-      <br />
+
+      <TextField name="name" label="Nome do Local" variant="outlined" required fullWidth />
+
+      <TextField name="address" label="Endereço do Local" variant="outlined" required fullWidth />
+
       <TextField
         name="description"
         label="Descrição do local"
@@ -35,7 +33,16 @@ export default function FormRegistration() {
         required
         fullWidth
       />
-      <br />
+
+      <TextField
+        name="key"
+        label="Chave para alteração"
+        variant="outlined"
+        type="password"
+        required
+        fullWidth
+      />
+
       <Button variant="outlined" color="primary" type="submit">
         Cadastrar
       </Button>
