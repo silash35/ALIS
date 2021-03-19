@@ -10,7 +10,7 @@ export default function FormRegistration() {
 
   return (
     <form className={`${styles.card} ${styles[theme]}`} action="/api/places" method="POST">
-      <TextField name="personName" label="Seu Nome" variant="outlined" fullWidth required />
+      <TextField name="userName" label="Seu Nome" variant="outlined" fullWidth required />
 
       <TextField
         name="email"

@@ -31,7 +31,7 @@ class LocationsManager {
     return places;
   }
 
-  async getByID(id: string) {
+  async getPlaceByID(id: string) {
     await this.loadCollection();
     const place: IPlace = await this.locations.findOne({ _id: new ObjectID(id) });
     return place;
@@ -46,7 +46,7 @@ class LocationsManager {
 
   async deletePlace(id: string, key: string) {
     await this.loadCollection();
-    const place: IPlace = await this.getByID(id);
+    const place: IPlace = await this.getPlaceByID(id);
 
     if (place.key == md5(key)) {
       await this.locations.deleteOne({ _id: new ObjectID(id) });

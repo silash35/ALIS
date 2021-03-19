@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import locationsManager from "@/database/locationsManager";
 import { IPlace } from "@/types/IPlace";
 
-const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   let places: IPlace[];
 
   const methods = {
@@ -39,13 +39,6 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
         })
       );
     },
-
-    async DELETE() {
-      res.setHeader("Content-Type", "application/json");
-      res.statusCode = await locationsManager.deletePlace(req.body.id, req.body.key);
-
-      res.end();
-    },
   };
 
   const requestedMethod = methods[req.method];
@@ -56,4 +49,4 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
   }
 };
 
-export default place;
+export default places;

@@ -34,12 +34,12 @@ const PlaceEditButton = ({ id }: Props) => {
     const data = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, key }),
+      body: JSON.stringify({ key }),
     };
 
     let res = { status: undefined };
     if (key != "") {
-      res = await fetch("/api/places", data);
+      res = await fetch(`/api/place?id=${id}`, data);
     } else {
       res.status = 401;
     }
