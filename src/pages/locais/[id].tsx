@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
-import Head from "next/head";
 import Error from "next/error";
+import Head from "next/head";
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Place from "@/components/Place";

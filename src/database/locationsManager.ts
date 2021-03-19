@@ -18,6 +18,15 @@ class LocationsManager {
     }
   }
 
+  idIsValid(id: string) {
+    try {
+      new ObjectID(id);
+    } catch (error) {
+      return false;
+    }
+    return true;
+  }
+
   // Read functions
   async findPlaces(search: string) {
     await this.loadCollection();
@@ -33,8 +42,11 @@ class LocationsManager {
 
   async getPlaceByID(id: string) {
     await this.loadCollection();
-    const place: IPlace = await this.locations.findOne({ _id: new ObjectID(id) });
-    return place;
+    if (this.idIsValid(id)) {
+      const place: IPlace = await this.locations.findOne({ _id: new ObjectID(id) });
+      return place;
+    }
+    return null;
   }
 
   // Write functions
@@ -46,12 +58,15 @@ class LocationsManager {
 
   async deletePlace(id: string, key: string) {
     await this.loadCollection();
-    const place: IPlace = await this.getPlaceByID(id);
 
-    if (place.key == md5(key)) {
-      await this.locations.deleteOne({ _id: new ObjectID(id) });
-      return 200;
+    if (this.idIsValid(id)) {
+      const place: IPlace = await this.getPlaceByID(id);
+      if (place.key == md5(key)) {
+        await this.locations.deleteOne({ _id: new ObjectID(id) });
+        return 200;
+      }
     }
+
     return 401;
   }
 }
