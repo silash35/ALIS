@@ -12,7 +12,7 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
       res.setHeader("Content-Type", "application/json");
       place = await locationsManager.getPlaceByID(id);
 
-      res.statusCode = 200;
+      res.statusCode = place ? 200 : 404;
       res.end(
         JSON.stringify({
           body: place,

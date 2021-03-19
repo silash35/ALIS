@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-
+import Error from "next/error";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Place from "@/components/Place";
@@ -9,9 +9,14 @@ import { IPlace } from "@/types/IPlace";
 
 interface Props {
   place: IPlace;
+  placeExists: boolean;
 }
 
-const PlacePage = ({ place }: Props) => {
+const PlacePage = ({ place, placeExists }: Props) => {
+  if (!placeExists) {
+    return <Error statusCode={404} />;
+  }
+
   return (
     <>
       <Head>
@@ -48,6 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       place: data.body,
+      placeExists: res.status == 200,
     },
   };
 };
