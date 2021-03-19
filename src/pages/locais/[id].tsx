@@ -4,8 +4,7 @@ import Head from "next/head";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Place from "@/components/Place";
-import Title from "@/components/Title";
+import PlaceInformation from "@/components/PlaceInformation";
 import { IPlace } from "@/types/IPlace";
 
 interface Props {
@@ -24,13 +23,10 @@ const PlacePage = ({ place, placeExists }: Props) => {
         <title>{place.name}</title>
       </Head>
 
-      <Header home />
+      <Header />
 
       <main>
-        <Title>
-          <h1 style={{ overflowWrap: "anywhere" }}>{place.name}</h1>
-        </Title>
-        <Place place={place} key={place._id}></Place>
+        <PlaceInformation place={place} />
       </main>
 
       <Footer />

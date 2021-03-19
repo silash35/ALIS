@@ -5,13 +5,13 @@ import { ThemeContext } from "@/contexts/ThemeContext";
 import { IPlace } from "@/types/IPlace";
 
 import PlaceEdit from "../PlaceEditButton";
-import styles from "./place.module.scss";
+import styles from "./placeCard.module.scss";
 
 interface Props {
   place: IPlace;
 }
 
-export default function Place({ place }: Props) {
+export default function PlaceCard({ place }: Props) {
   const { theme } = useContext(ThemeContext);
 
   return (

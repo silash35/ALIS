@@ -1,0 +1,14 @@
+@use "../../styles/variables.scss" as v;
+
+.title {
+  overflow-wrap: anywhere;
+}
+
+.content {
+  display: flex;
+  padding: 50px 100px;
+}
+
+.info {
+  align-self: center;
+}
