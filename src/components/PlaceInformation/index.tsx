@@ -1,3 +1,4 @@
+import DeletePlaceButton from "@/components/DeletePlaceButton";
 import PlaceImage from "@/components/PlaceImage";
 import { IPlace } from "@/types/IPlace";
 
@@ -21,6 +22,7 @@ export default function PlaceInformation({ place }: Props) {
           <p>{place.description}</p>
           <p>Endereço: {place.address}</p>
         </section>
+        <DeletePlaceButton id={place._id} />
       </div>
     </article>
   );

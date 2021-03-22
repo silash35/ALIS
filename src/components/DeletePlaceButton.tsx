@@ -13,7 +13,7 @@ interface Props {
   id: string;
 }
 
-const PlaceEditButton = ({ id }: Props) => {
+const DeletePlaceButton = ({ id }: Props) => {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -55,7 +55,7 @@ const PlaceEditButton = ({ id }: Props) => {
 
   return (
     <>
-      <IconButton aria-label="delete" className="corner" onClick={handleClickOpen}>
+      <IconButton aria-label="delete place" onClick={handleClickOpen}>
         <DeleteIcon fontSize="large" />
       </IconButton>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -88,4 +88,4 @@ const PlaceEditButton = ({ id }: Props) => {
   );
 };
 
-export default PlaceEditButton;
+export default DeletePlaceButton;
