@@ -1,10 +1,11 @@
+import IconButton from "@material-ui/core/IconButton";
+import Explore from "@material-ui/icons/Explore";
 import Link from "next/link";
 import { useContext } from "react";
 
 import { ThemeContext } from "@/contexts/ThemeContext";
 import { IPlace } from "@/types/IPlace";
 
-import PlaceEdit from "../PlaceEditButton";
 import styles from "./placeCard.module.scss";
 
 interface Props {
@@ -23,7 +24,9 @@ export default function PlaceCard({ place }: Props) {
         >
           <div className={styles.content}>
             <h2>{place.name}</h2>
-            <PlaceEdit id={place._id} />
+            <IconButton aria-label="Discover the place">
+              <Explore fontSize="large" />
+            </IconButton>
           </div>
         </article>
       </a>
