@@ -1,3 +1,4 @@
+import PlaceImage from "@/components/PlaceImage";
 import { IPlace } from "@/types/IPlace";
 
 import styles from "./placeInformation.module.scss";
@@ -9,9 +10,7 @@ interface Props {
 export default function PlaceInformation({ place }: Props) {
   return (
     <article className={styles.container}>
-      <div className={styles.image}>
-        <img src="/images/empty.png" alt="Logo do alis (a letra a) com fundo preto" />
-      </div>
+      <PlaceImage src="/images/empty.png" alt="Logo do alis (a letra a) com fundo preto" />
 
       <div className={styles.title}>
         <h1>{place.name}</h1>

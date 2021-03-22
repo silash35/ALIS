@@ -1,7 +1,7 @@
 @use "./variables" as v;
 
 main {
-  animation: fadeIn 0.5s both;
+  animation: fadeIn 0.5s none;
 }
 
 @keyframes fadeIn {

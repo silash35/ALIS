@@ -8,7 +8,7 @@ const Footer = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <header className={`${styles.footer} ${styles[theme]}`}>
+    <footer className={`${styles.footer} ${styles[theme]}`}>
       <p>
         Nenhum direito reservado. Mantido por{" "}
         <a
@@ -20,7 +20,7 @@ const Footer = () => {
         </a>
       </p>
       <ThemeSwitch />
-    </header>
+    </footer>
   );
 };
 

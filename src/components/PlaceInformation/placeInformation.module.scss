@@ -8,26 +8,6 @@
   }
 }
 
-.image {
-  display: flex;
-  margin: 0;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 20px;
-
-  img {
-    width: 100%;
-    height: fit-content;
-    align-self: center;
-  }
-
-  @media screen and (max-width: 750px) {
-    height: 300px;
-
-    border-radius: 0;
-  }
-}
-
 .title {
   overflow-wrap: anywhere;
 
