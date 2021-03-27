@@ -20,7 +20,9 @@ export default function PlaceCard({ place }: Props) {
       <a>
         <article
           className={`${styles.card} ${styles[theme]}`}
-          style={{ backgroundImage: "url(/images/empty.png)" }}
+          style={{
+            backgroundImage: place.imageURL ? `url(${place.imageURL})` : "url(/images/empty.png)",
+          }}
         >
           <div className={styles.content}>
             <h2>{place.name}</h2>
