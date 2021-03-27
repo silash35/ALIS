@@ -41,7 +41,7 @@ export default function FormRegistration() {
         {...common}
       />
 
-      <Button variant="outlined" color="primary" type="submit">
+      <Button variant="outlined" color="primary" size="large" type="submit">
         Cadastrar
       </Button>
     </form>
