@@ -1,11 +1,17 @@
 export interface IPlace {
   _id: string;
   userName: string;
-  email: string;
+  userMail: string;
+
   name: string;
   address: string;
-  key: string;
   description: string;
+  key: string;
+
+  email?: string;
+  phone?: string;
+  website?: string;
+  imageURL?: string;
 }
 
 /*
