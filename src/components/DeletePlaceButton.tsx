@@ -28,7 +28,7 @@ const DeletePlaceButton = ({ id }: Props) => {
     setErrorText("");
   };
 
-  const editPlace = async () => {
+  const deletePlace = async () => {
     const key = (document.getElementById("chave-" + id) as HTMLInputElement).value;
 
     const data = {
@@ -79,7 +79,7 @@ const DeletePlaceButton = ({ id }: Props) => {
           <Button onClick={handleClose} color="primary">
             cancelar
           </Button>
-          <Button onClick={editPlace} variant="outlined" color="primary">
+          <Button onClick={deletePlace} variant="outlined" color="primary">
             Deletar
           </Button>
         </DialogActions>
