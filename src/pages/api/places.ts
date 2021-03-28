@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import locationsManager from "@/database/locationsManager";
+import placesManager from "@/database/placesManager";
 import { IPlace } from "@/types/IPlace";
 
 const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
@@ -9,7 +9,7 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
   const methods = {
     async GET() {
       res.setHeader("Content-Type", "application/json");
-      places = await locationsManager.getAllPlaces();
+      places = await placesManager.getAll();
 
       res.statusCode = 200;
       res.end(
@@ -20,7 +20,7 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     },
 
     async POST() {
-      await locationsManager.insertPlace(req.body);
+      await placesManager.insert(req.body);
 
       res.writeHead(302, {
         Location: "/",
@@ -30,7 +30,7 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
     async PUT() {
       res.setHeader("Content-Type", "application/json");
-      places = await locationsManager.findPlaces(req.body.search);
+      places = await placesManager.find(req.body.search);
 
       res.statusCode = 200;
       res.end(

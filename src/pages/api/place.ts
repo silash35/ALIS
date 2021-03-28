@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import locationsManager from "@/database/locationsManager";
+import placesManager from "@/database/placesManager";
 import { IPlace } from "@/types/IPlace";
 
 const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
@@ -10,7 +10,7 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
   const methods = {
     async GET() {
       res.setHeader("Content-Type", "application/json");
-      place = await locationsManager.getPlaceByID(id);
+      place = await placesManager.getByID(id);
 
       res.statusCode = place ? 200 : 404;
       res.end(
@@ -20,18 +20,18 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
       );
     },
 
-    /* TODO: Modify place status
-      async POST() {
-        res.writeHead(302, {
-          Location: "/",
-        });
-        res.end();
-      },
-    */
+    async POST() {
+      await placesManager.update(req.body.place, req.body.key);
+
+      res.writeHead(302, {
+        Location: "/",
+      });
+      res.end();
+    },
 
     async DELETE() {
       res.setHeader("Content-Type", "application/json");
-      res.statusCode = await locationsManager.deletePlace(id, req.body.key);
+      res.statusCode = await placesManager.delete(id, req.body.key);
 
       res.end();
     },
