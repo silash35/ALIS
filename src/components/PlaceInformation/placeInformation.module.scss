@@ -30,16 +30,22 @@
     margin-bottom: 1.5rem;
     font-size: 1.4rem;
   }
+
   a {
     margin-left: 10px;
     color: v.$blue;
 
     border-bottom: 1px solid;
     transition: border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    line-break: anywhere;
 
     &:hover {
       border-color: transparent;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 50px 20px 0;
   }
 }
 
