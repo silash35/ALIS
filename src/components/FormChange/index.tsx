@@ -59,8 +59,21 @@ export default function FormChange({ place }: Props) {
       />
 
       <h2>Informações extras</h2>
-      <TextField defaultValue={place.email} name="email" label="Email do local" {...common} />
-      <TextField defaultValue={place.phone} name="phone" label="Telefone do local" {...common} />
+      <TextField
+        defaultValue={place.email}
+        name="email"
+        label="Email do local"
+        type="email"
+        {...common}
+      />
+      <TextField
+        defaultValue={place.phone}
+        name="phone"
+        label="Telefone do local"
+        type="tel"
+        inputProps={{ pattern: "[0-9,\\-,\\(,\\), ]{8,}" }}
+        {...common}
+      />
       <TextField
         defaultValue={place.website}
         name="website"

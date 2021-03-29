@@ -30,8 +30,14 @@ export default function FormRegistration() {
       />
 
       <h2>Informações extras</h2>
-      <TextField name="email" label="Email do local" {...common} />
-      <TextField name="phone" label="Telefone do local" {...common} />
+      <TextField name="email" label="Email do local" {...common} type="email" />
+      <TextField
+        name="phone"
+        label="Telefone do local"
+        type="tel"
+        {...common}
+        inputProps={{ pattern: "[0-9,\\-,\\(,\\), ]{8,}" }}
+      />
       <TextField name="website" label="Site do local" type="url" {...common} />
       <TextField
         name="imageURL"
