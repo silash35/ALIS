@@ -21,11 +21,7 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
     },
 
     async POST() {
-      await placesManager.update(req.body.place, req.body.key);
-
-      res.writeHead(302, {
-        Location: "/",
-      });
+      res.statusCode = await placesManager.update(req.body.id, req.body.place, req.body.key);
       res.end();
     },
 

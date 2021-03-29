@@ -21,7 +21,7 @@ const PlacePage = ({ place, placeExists }: Props) => {
   return (
     <>
       <Head>
-        <title>{place.name}</title>
+        <title>Editar {place.name}</title>
       </Head>
 
       <Header />
@@ -29,12 +29,12 @@ const PlacePage = ({ place, placeExists }: Props) => {
       <main>
         <Title>
           <h1>
-            Modificar <span>Local</span>
+            Atualizar <span>dados</span>
           </h1>
-          <p>Atualize as informações do local abaixo</p>
+          <p>Modifique os dados do Local por aqui</p>
         </Title>
 
-        <FormChange />
+        <FormChange place={place} />
       </main>
 
       <Footer />

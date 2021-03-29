@@ -70,19 +70,14 @@ class PlacesManager {
     return 401;
   }
 
-  async update(newPlace: IPlace, key: string) {
+  async update(id: string, newPlace: IPlace, key: string) {
     await this.loadCollection();
 
-    if (this.idIsValid(newPlace._id)) {
-      const oldPlace: IPlace = await this.getByID(newPlace._id);
-
-      // if the user change the Key
-      if (newPlace.key != undefined) {
-        newPlace.key = md5(newPlace.key);
-      }
+    if (this.idIsValid(id)) {
+      const oldPlace: IPlace = await this.getByID(id);
 
       if (oldPlace.key == md5(key)) {
-        await this.locations.updateOne({ _id: new ObjectID(newPlace._id) }, { $set: newPlace });
+        await this.locations.updateOne({ _id: new ObjectID(id) }, { $set: newPlace });
         return 200;
       }
     }
