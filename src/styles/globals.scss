@@ -8,15 +8,13 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   min-width: 320px;
+}
 
+#__next {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-}
-
-#__next {
-  display: contents;
 }
 
 main {
