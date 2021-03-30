@@ -17,6 +17,10 @@
       color: v.$blue;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    margin: 50px;
+  }
 }
 
 .cursiveTitle {
