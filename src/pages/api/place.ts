@@ -21,7 +21,7 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
     },
 
     async POST() {
-      res.statusCode = await placesManager.update(req.body.id, req.body.place, req.body.key);
+      res.statusCode = await placesManager.update(id, req.body.place, req.body.key);
       res.end();
     },
 
