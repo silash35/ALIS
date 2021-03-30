@@ -11,6 +11,11 @@
     width: 100%;
     height: fit-content;
     align-self: center;
+
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   @media screen and (max-width: 750px) {
