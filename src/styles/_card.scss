@@ -47,22 +47,6 @@
   flex-direction: column;
 }
 
-%horizontalCard {
-  @extend %card;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: auto;
-
-  p {
-    text-align: justify;
-    width: 400px;
-  }
-}
-
 .dark {
   border: 1px solid v.$borderDark;
 }

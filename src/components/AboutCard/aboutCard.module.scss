@@ -1,7 +1,21 @@
 @import "../../styles/card";
 
 .card {
-  @extend %horizontalCard;
+  @extend %card;
 
   align-self: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: fit-content;
+
+  justify-content: center;
+  align-items: center;
+
+  p {
+    text-align: justify;
+    width: 400px;
+
+    max-width: 80vw;
+  }
 }
