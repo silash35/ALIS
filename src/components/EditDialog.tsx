@@ -32,7 +32,7 @@ const EditDialog = (props: Props) => {
     const data = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ place: formDataObject, id: props.id, key: key.value }),
+      body: JSON.stringify({ place: formDataObject, key: key.value }),
     };
 
     let res = { status: undefined };
