@@ -3,5 +3,14 @@
   "useTabs": false,
   "printWidth": 100,
   "semi": true,
-  "singleQuote": false
+  "singleQuote": false,
+
+  "overrides": [
+    {
+      "files": ["_document.tsx"],
+      "options": {
+        "printWidth": 999
+      }
+    }
+  ]
 }

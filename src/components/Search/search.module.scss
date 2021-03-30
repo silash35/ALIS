@@ -1,0 +1,41 @@
+@use "../../styles/variables.scss" as v;
+
+.form {
+  margin: auto;
+}
+
+.pesquisa {
+  display: flex;
+  place-items: center;
+
+  padding: 5px 20px;
+  border-radius: 50px;
+  margin-bottom: 100px;
+
+  border: 1px solid #eaeaea;
+  transition: border-color 0.15s ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: v.$blue;
+    svg {
+      color: v.$blue;
+    }
+  }
+
+  input {
+    all: unset;
+    width: 500px;
+    max-width: 70vw;
+    height: 30px;
+  }
+}
+
+.light {
+  border: 1px solid v.$borderLight;
+}
+
+.dark {
+  border: 1px solid v.$borderDark;
+}

@@ -1,0 +1,25 @@
+@use "../../styles/variables.scss" as v;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 20px;
+  margin-top: 50px;
+
+  p {
+    font-size: 1em;
+    a {
+      color: v.$blue;
+    }
+  }
+}
+
+.light {
+  border-top: 1px solid v.$borderLight;
+}
+
+.dark {
+  border-top: 1px solid v.$borderDark;
+}
