@@ -7,7 +7,9 @@
   overflow: hidden;
 
   width: 400px;
+  max-width: 90vw;
   height: 300px;
+  box-sizing: border-box;
 
   background-position: 50%;
   background-repeat: no-repeat;
@@ -36,7 +38,7 @@
   grid-area: content;
 
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 3fr 1fr;
   grid-template-areas: "name delete";
   background-color: rgba(0, 0, 0, 0.8);
   h2 {
