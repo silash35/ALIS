@@ -3,7 +3,7 @@ name: TypeScript
 on: [push, pull_request]
 
 jobs:
-  Type checking:
+  Check_Type:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
