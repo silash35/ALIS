@@ -6,14 +6,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
       - name: Setup Node.js 14
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2
         with:
           node-version: 14.x
       - name: Install Yarn
         run: npm install -g yarn
-      - name: Enter the project folder
-        run: ls
       - name: Install Packages
         run: yarn install
       - name: Run linter
