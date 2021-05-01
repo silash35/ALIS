@@ -13,7 +13,7 @@ jobs:
       - name: Install Yarn
         run: npm install -g yarn
       - name: Enter the project folder
-        run: cd ALIS
+        run: ls
       - name: Install Packages
         run: yarn install
       - name: Run linter
