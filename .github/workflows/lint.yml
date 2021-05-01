@@ -3,7 +3,7 @@ name: Lint
 on: [push, pull_request]
 
 jobs:
-  deploy:
+  ESLint:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
