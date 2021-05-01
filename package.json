@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint src --ext js,ts,tsx"
   },
   "license": "Unlicense",
   "devDependencies": {
