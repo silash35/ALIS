@@ -1,9 +1,9 @@
-name: Lint
+name: ESLint
 
 on: [push, pull_request]
 
 jobs:
-  ESLint:
+  Lint code:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo

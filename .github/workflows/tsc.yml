@@ -1,9 +1,9 @@
-name: Type checking
+name: TypeScript
 
 on: [push, pull_request]
 
 jobs:
-  TypeScript:
+  Type checking:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
