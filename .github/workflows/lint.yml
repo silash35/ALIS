@@ -3,7 +3,7 @@ name: ESLint
 on: [push, pull_request]
 
 jobs:
-  Lint_code:
+  ESLint:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo

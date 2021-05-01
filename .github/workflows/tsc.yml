@@ -3,7 +3,7 @@ name: TypeScript
 on: [push, pull_request]
 
 jobs:
-  Check_Type:
+  TypeScript:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
@@ -16,5 +16,5 @@ jobs:
         run: npm install -g yarn
       - name: Install Packages
         run: yarn install
-      - name: Run TypeScript
+      - name: Run Type Checking
         run: yarn tsc
