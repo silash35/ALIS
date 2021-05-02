@@ -4,9 +4,11 @@ import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./header.module.scss";
 
-const isActive = (bool: boolean): string => {
+const isActive = (bool: boolean | undefined): string => {
   if (bool) {
     return styles.active;
+  } else {
+    return "";
   }
 };
 

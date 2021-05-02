@@ -15,16 +15,16 @@ interface Props {
 
 export const ThemeContextProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<PaletteType>("light");
-  let body: Element;
+
+  let body: HTMLBodyElement;
 
   const toggleTheme = () => {
     const newTheme = theme == "light" ? "dark" : "light";
 
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-
     if (body == undefined) {
-      body = document.querySelector("body");
+      body = document.querySelector("body") as HTMLBodyElement;
     }
     body.className = newTheme;
   };

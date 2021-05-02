@@ -1,8 +1,8 @@
-import { Collection } from "mongodb";
+import { Collection, Db } from "mongodb";
 
 import connectToDatabase from "./connectToMongo";
 
-let db;
+let db: Db;
 
 export const getPlaces = async (): Promise<Collection> => {
   if (db === undefined) {

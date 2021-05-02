@@ -11,8 +11,8 @@ interface Props {
   id: string;
   error: boolean;
   errorText: string;
-  setError: (boolean) => void;
-  setErrorText: (string) => void;
+  setError: (value: boolean) => void;
+  setErrorText: (value: string) => void;
   handleClose: () => void;
 }
 
@@ -20,14 +20,9 @@ const EditDialog = (props: Props) => {
   const sendData = async () => {
     const form = document.querySelector("#formChange") as HTMLFormElement;
     const key = document.querySelector("#key") as HTMLInputElement;
-    const formData = new FormData(form);
 
-    const formDataObject = {};
-    formData.forEach((value, key) => {
-      if (value != "") {
-        formDataObject[key] = value;
-      }
-    });
+    const formData = new FormData(form);
+    const formDataObject = Object.fromEntries(formData);
 
     const data = {
       method: "POST",
@@ -35,11 +30,9 @@ const EditDialog = (props: Props) => {
       body: JSON.stringify({ place: formDataObject, key: key.value }),
     };
 
-    let res = { status: undefined };
+    let res = {} as Response;
     if (key.value != "") {
       res = await fetch(`/api/place?id=${props.id}`, data);
-    } else {
-      res.status = 401;
     }
 
     if (res.status == 200) {
