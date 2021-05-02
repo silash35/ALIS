@@ -11,7 +11,7 @@ interface Props {
   setPlaces(places: IPlace[]): void;
 }
 
-export default function Search({ setPlaces }: Props) {
+export default function SearchBar({ setPlaces }: Props) {
   const { theme } = useContext(ThemeContext);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
