@@ -7,7 +7,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 interface Props {
   id: string;
@@ -17,6 +17,8 @@ const DeletePlaceButton = ({ id }: Props) => {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
+
+  const keyInputRef = useRef<HTMLInputElement>(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,7 +31,7 @@ const DeletePlaceButton = ({ id }: Props) => {
   };
 
   const deletePlace = async () => {
-    const key = (document.getElementById("chave-" + id) as HTMLInputElement).value;
+    const key = keyInputRef.current?.value;
 
     const data = {
       method: "DELETE",
@@ -65,7 +67,7 @@ const DeletePlaceButton = ({ id }: Props) => {
           <TextField
             autoFocus
             margin="dense"
-            id={"chave-" + id}
+            inputRef={keyInputRef}
             label="chave"
             type="password"
             fullWidth

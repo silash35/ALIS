@@ -1,6 +1,6 @@
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-import { SyntheticEvent, useContext } from "react";
+import { SyntheticEvent, useContext, useRef } from "react";
 
 import { IPlace } from "@/types/IPlace";
 
@@ -13,10 +13,11 @@ interface Props {
 
 export default function Search({ setPlaces }: Props) {
   const { theme } = useContext(ThemeContext);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const search = (document.getElementById("searchField") as HTMLInputElement).value;
+    const search = searchInputRef.current?.value;
 
     const res = await fetch("/api/places", {
       method: "PUT",
@@ -35,7 +36,7 @@ export default function Search({ setPlaces }: Props) {
   return (
     <form onSubmit={handleSearch} className={styles.form}>
       <label className={`${styles.pesquisa} ${styles[theme]}`}>
-        <input type="text" id="searchField"></input>
+        <input type="text" ref={searchInputRef}></input>
         <IconButton aria-label="pesquisar" type="submit">
           <SearchIcon />
         </IconButton>

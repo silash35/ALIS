@@ -5,10 +5,12 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
+import { useRef } from "react";
 
 interface Props {
   open: boolean;
   id: string;
+  form: HTMLFormElement;
   error: boolean;
   errorText: string;
   setError: (value: boolean) => void;
@@ -17,21 +19,22 @@ interface Props {
 }
 
 const EditDialog = (props: Props) => {
-  const sendData = async () => {
-    const form = document.querySelector("#formChange") as HTMLFormElement;
-    const key = document.querySelector("#key") as HTMLInputElement;
+  const keyInputRef = useRef<HTMLInputElement>(null);
 
-    const formData = new FormData(form);
+  const sendData = async () => {
+    const key = keyInputRef.current?.value;
+
+    const formData = new FormData(props.form);
     const formDataObject = Object.fromEntries(formData);
 
     const data = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ place: formDataObject, key: key.value }),
+      body: JSON.stringify({ place: formDataObject, key: key }),
     };
 
     let res = {} as Response;
-    if (key.value != "") {
+    if (key != "") {
       res = await fetch(`/api/place?id=${props.id}`, data);
     }
 
@@ -56,7 +59,7 @@ const EditDialog = (props: Props) => {
           margin="dense"
           label="chave"
           type="password"
-          id="key"
+          inputRef={keyInputRef}
           fullWidth
           error={props.error}
           helperText={props.errorText}
