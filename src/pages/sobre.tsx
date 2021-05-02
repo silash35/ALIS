@@ -12,7 +12,7 @@ const sobre = () => {
         <title>Sobre</title>
       </Head>
 
-      <Header about />
+      <Header />
 
       <main>
         <Title>

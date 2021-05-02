@@ -11,7 +11,7 @@ const novo = () => {
       <Head>
         <title>Adicionar Local</title>
       </Head>
-      <Header new />
+      <Header />
       <main>
         <Title>
           <h1>

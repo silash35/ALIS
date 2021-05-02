@@ -26,7 +26,7 @@ const Home = (props: Props) => {
         <title>ALIS</title>
       </Head>
 
-      <Header home />
+      <Header />
 
       <main>
         <Title cursive>
