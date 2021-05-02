@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Places from "@/components/PlacesContainer";
+import Places from "@/components/PlaceCardsContainer";
 import Search from "@/components/Search";
 import Title from "@/components/Title";
 import { IPlace } from "@/types/IPlace";

@@ -2,9 +2,9 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import { SyntheticEvent, useContext, useRef } from "react";
 
+import { ThemeContext } from "@/contexts/ThemeContext";
 import { IPlace } from "@/types/IPlace";
 
-import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./search.module.scss";
 
 interface Props {

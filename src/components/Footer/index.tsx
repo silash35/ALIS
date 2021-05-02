@@ -1,8 +1,9 @@
 import { useContext } from "react";
 
-import { ThemeContext } from "../../contexts/ThemeContext";
-import ThemeSwitch from "../ThemeSwitch";
+import { ThemeContext } from "@/contexts/ThemeContext";
+
 import styles from "./footer.module.scss";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Footer = () => {
   const { theme } = useContext(ThemeContext);

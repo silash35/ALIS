@@ -3,11 +3,11 @@ import TextField, { TextFieldProps } from "@material-ui/core/TextField";
 import { FormEvent, useContext, useRef } from "react";
 import { useState } from "react";
 
-import EditDialog from "@/components/EditDialog";
+import EditDialog from "@/components/FormChange/Dialog";
+import { ThemeContext } from "@/contexts/ThemeContext";
 import { IPlace } from "@/types/IPlace";
 
-import { ThemeContext } from "../../contexts/ThemeContext";
-import styles from "./FormChange.module.scss";
+import styles from "./formChange.module.scss";
 
 interface Props {
   place: IPlace;

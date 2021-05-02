@@ -1,8 +1,8 @@
-import DeletePlaceButton from "@/components/DeletePlaceButton";
-import EditPlaceButton from "@/components/EditPlaceButton";
-import PlaceImage from "@/components/PlaceImage";
 import { IPlace } from "@/types/IPlace";
 
+import DeletePlaceButton from "./DeleteButton";
+import EditPlaceButton from "./EditButton";
+import PlaceImage from "./Image";
 import styles from "./placeInformation.module.scss";
 
 interface Props {

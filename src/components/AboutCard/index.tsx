@@ -1,7 +1,8 @@
 import { useContext } from "react";
 
-import { ThemeContext } from "../../contexts/ThemeContext";
-import Love from "../LoveIcon";
+import { ThemeContext } from "@/contexts/ThemeContext";
+
+import Love from "../icons/Love";
 import styles from "./aboutCard.module.scss";
 
 export default function AboutCard() {

@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import { IPlace } from "@/types/IPlace";
 
-import styles from "./placeCard.module.scss";
+import styles from "./card.module.scss";
 
 interface Props {
   place: IPlace;

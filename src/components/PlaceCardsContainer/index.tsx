@@ -1,7 +1,7 @@
 import { IPlace } from "@/types/IPlace";
 
-import PlaceCard from "../PlaceCard";
-import styles from "./placesContainer.module.scss";
+import PlaceCard from "./Card";
+import styles from "./placeCardsContainer.module.scss";
 
 interface Props {
   places: IPlace[];

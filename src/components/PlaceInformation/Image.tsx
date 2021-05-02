@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from "./PlaceImage.module.scss";
+import styles from "./image.module.scss";
 
 interface Props {
   src: string;
