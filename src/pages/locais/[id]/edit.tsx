@@ -40,7 +40,7 @@ export default PlacePage;
 
 export const getStaticPaths = async () => {
   return {
-    paths: [{ params: { id: "1" } }],
+    paths: [],
     fallback: "blocking",
   };
 };
