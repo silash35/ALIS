@@ -12,14 +12,7 @@ interface Props {
 export default function PlaceInformation({ place }: Props) {
   return (
     <article className={styles.container}>
-      <PlaceImage
-        src={place.imageURL ? place.imageURL : "/images/empty.png"}
-        alt={
-          place.imageURL
-            ? `Foto do local ${place.name}`
-            : "Logo do alis (a letra a) com fundo preto"
-        }
-      />
+      <PlaceImage src={place.imageURL} name={place.name} />
 
       <div className={styles.title}>
         <h1>{place.name}</h1>
