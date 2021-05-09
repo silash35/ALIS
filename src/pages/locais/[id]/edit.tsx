@@ -1,5 +1,4 @@
-import { GetServerSideProps } from "next";
-import Error from "next/error";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 
 import Footer from "@/components/Footer";
@@ -10,14 +9,9 @@ import { IPlace } from "@/types/IPlace";
 
 interface Props {
   place: IPlace;
-  placeExists: boolean;
 }
 
-const PlacePage = ({ place, placeExists }: Props) => {
-  if (!placeExists) {
-    return <Error statusCode={404} />;
-  }
-
+const PlacePage = ({ place }: Props) => {
   return (
     <>
       <Head>
@@ -44,7 +38,14 @@ const PlacePage = ({ place, placeExists }: Props) => {
 
 export default PlacePage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticPaths = async () => {
+  return {
+    paths: [{ params: { id: "1" } }],
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   let url = process.env.VERCEL_URL;
   if (url == undefined) {
     url = "http://localhost:3000";
@@ -52,13 +53,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     url = "https://" + url;
   }
 
-  const res = await fetch(url + `/api/place?id=${context.query.id}`);
+  const res = await fetch(url + `/api/place?id=${context.params?.id}`);
   const data = await res.json();
 
   return {
     props: {
       place: data.body,
-      placeExists: res.status == 200,
     },
+    revalidate: 2,
+    notFound: res.status != 200,
   };
 };
