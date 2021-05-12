@@ -48,12 +48,7 @@ const Home = (props: Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  let url = process.env.VERCEL_URL;
-  if (url == undefined) {
-    url = "http://localhost:3000";
-  } else {
-    url = "https://" + url;
-  }
+  const url = process.env.VERCEL_URL;
 
   const res = await fetch(url + "/api/places");
   const data = await res.json();

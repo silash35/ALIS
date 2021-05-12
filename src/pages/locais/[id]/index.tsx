@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import Error from "next/error";
 import Head from "next/head";
 
 import Footer from "@/components/Footer";
@@ -9,14 +8,9 @@ import { IPlace } from "@/types/IPlace";
 
 interface Props {
   place: IPlace;
-  placeExists: boolean;
 }
 
-const PlacePage = ({ place, placeExists }: Props) => {
-  if (!placeExists) {
-    return <Error statusCode={404} />;
-  }
-
+const PlacePage = ({ place }: Props) => {
   return (
     <>
       <Head>
@@ -37,12 +31,7 @@ const PlacePage = ({ place, placeExists }: Props) => {
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let url = process.env.VERCEL_URL;
-  if (url == undefined) {
-    url = "http://localhost:3000";
-  } else {
-    url = "https://" + url;
-  }
+  const url = process.env.VERCEL_URL;
 
   const res = await fetch(url + `/api/place?id=${context.query.id}`);
   const data = await res.json();
@@ -50,7 +39,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       place: data.body,
-      placeExists: res.status == 200,
     },
+    notFound: res.status != 200,
   };
 };
