@@ -8,6 +8,7 @@ import Places from "@/components/PlaceCardsContainer";
 import Search from "@/components/Search";
 import Title from "@/components/Title";
 import { IPlace } from "@/types/IPlace";
+import url from "@/utils/url";
 
 interface Props {
   places: IPlace[];
@@ -48,8 +49,6 @@ const Home = (props: Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const url = process.env.VERCEL_URL;
-
   const res = await fetch(url + "/api/places");
   const data = await res.json();
 

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PlaceInformation from "@/components/PlaceInformation";
 import { IPlace } from "@/types/IPlace";
+import url from "@/utils/url";
 
 interface Props {
   place: IPlace;
@@ -31,8 +32,6 @@ const PlacePage = ({ place }: Props) => {
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const url = process.env.VERCEL_URL;
-
   const res = await fetch(url + `/api/place?id=${context.query.id}`);
   const data = await res.json();
 
