@@ -39,12 +39,7 @@ const PlacePage = ({ place }: Props) => {
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let url = process.env.VERCEL_URL;
-  if (url == undefined) {
-    url = "http://localhost:3000";
-  } else {
-    url = "https://" + url;
-  }
+  const url = process.env.VERCEL_URL;
 
   const res = await fetch(url + `/api/place?id=${context.query.id}`);
   const data = await res.json();
