@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 
 import Footer from "@/components/Footer";
@@ -38,14 +38,7 @@ const PlacePage = ({ place }: Props) => {
 
 export default PlacePage;
 
-export const getStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   let url = process.env.VERCEL_URL;
   if (url == undefined) {
     url = "http://localhost:3000";
@@ -53,14 +46,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     url = "https://" + url;
   }
 
-  const res = await fetch(url + `/api/place?id=${context.params?.id}`);
+  const res = await fetch(url + `/api/place?id=${context.query.id}`);
   const data = await res.json();
 
   return {
     props: {
       place: data.body,
     },
-    revalidate: 2,
     notFound: res.status != 200,
   };
 };
