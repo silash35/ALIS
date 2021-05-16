@@ -18,17 +18,12 @@ class MyDocument extends Document {
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://alis.vercel.app/" />
-          <meta property="og:title" content="ALIS" />
-          <meta property="og:image" content="https://alis.vercel.app/card.png" />
-          <meta property="og:image:alt" content="A letra 'a' azul e cursiva, que a um olhar atento lembra uma orelha" />
           <meta property="og:locale" content="pt_BR" />
           <meta property="og:description" content="O Agregador de Locais Inclusivos para Surdos" />
 
           {/* Twitter */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content="https://alis.vercel.app/" />
-          <meta name="twitter:title" content="ALIS" />
-          <meta name="twitter:image" content="https://alis.vercel.app/card.png" />
           <meta name="twitter:creator" content="@silash35" />
           <meta name="twitter:description" content="O Agregador de Locais Inclusivos para Surdos" />
 
