@@ -19,13 +19,14 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://alis.vercel.app/" />
           <meta property="og:locale" content="pt_BR" />
-          <meta property="og:description" content="O Agregador de Locais Inclusivos para Surdos" />
+          <meta property="og:image" content="https://alis.vercel.app/card.png" />
+          <meta property="og:image:alt" content="A letra 'a' azul e cursiva, que a um olhar atento lembra uma orelha" />
 
           {/* Twitter */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content="https://alis.vercel.app/" />
           <meta name="twitter:creator" content="@silash35" />
-          <meta name="twitter:description" content="O Agregador de Locais Inclusivos para Surdos" />
+          <meta name="twitter:image" content="https://alis.vercel.app/card.png" />
 
           {/* Icons */}
           <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />

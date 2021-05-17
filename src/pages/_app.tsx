@@ -31,17 +31,18 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* These meta tags need to be here for the key attribute to work properly */}
-
         <meta property="og:title" content="ALIS" key="ogTitle" />
-        <meta property="og:image" content="https://alis.vercel.app/card.png" key="ogImage" />
-        <meta
-          property="og:image:alt"
-          content="A letra 'a' azul e cursiva, que a um olhar atento lembra uma orelha"
-          key="ogImageAlt"
-        />
-
         <meta name="twitter:title" content="ALIS" key="twitterTitle" />
-        <meta name="twitter:image" content="https://alis.vercel.app/card.png" key="twitterImage" />
+        <meta
+          property="og:description"
+          content="O Agregador de Locais Inclusivos para Surdos"
+          key="ogDescription"
+        />
+        <meta
+          name="twitter:description"
+          content="O Agregador de Locais Inclusivos para Surdos"
+          key="twitterDescription"
+        />
       </Head>
       <ThemeContextProvider>
         <Component {...pageProps} />

@@ -16,6 +16,11 @@ const PlacePage = ({ place }: Props) => {
     <>
       <Head>
         <title>{place.name}</title>
+
+        <meta property="og:title" content={place.name} key="ogTitle" />
+        <meta name="twitter:title" content={place.name} key="twitterTitle" />
+        <meta property="og:description" content={place.description} key="ogDescription" />
+        <meta name="twitter:description" content={place.description} key="twitterDescription" />
       </Head>
 
       <Header />
