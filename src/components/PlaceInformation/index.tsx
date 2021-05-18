@@ -1,9 +1,10 @@
-import DeletePlaceButton from "@/components/DeletePlaceButton";
-import EditPlaceButton from "@/components/EditPlaceButton";
-import PlaceImage from "@/components/PlaceImage";
 import { IPlace } from "@/types/IPlace";
 
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
+import PlaceImage from "./Image";
 import styles from "./placeInformation.module.scss";
+import ShareButton from "./ShareButton";
 
 interface Props {
   place: IPlace;
@@ -12,14 +13,7 @@ interface Props {
 export default function PlaceInformation({ place }: Props) {
   return (
     <article className={styles.container}>
-      <PlaceImage
-        src={place.imageURL ? place.imageURL : "/images/empty.png"}
-        alt={
-          place.imageURL
-            ? `Foto do local ${place.name}`
-            : "Logo do alis (a letra a) com fundo preto"
-        }
-      />
+      <PlaceImage src={place.imageURL} name={place.name} />
 
       <div className={styles.title}>
         <h1>{place.name}</h1>
@@ -61,8 +55,9 @@ export default function PlaceInformation({ place }: Props) {
       </section>
 
       <section className={styles.buttons}>
-        <EditPlaceButton id={place._id} />
-        <DeletePlaceButton id={place._id} />
+        <EditButton id={place._id} />
+        <DeleteButton id={place._id} />
+        <ShareButton />
       </section>
     </article>
   );

@@ -1,6 +1,6 @@
 import { PaletteType } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import { createContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 const ThemeContext = createContext({
   theme: "light" as PaletteType,
@@ -10,21 +10,21 @@ const ThemeContext = createContext({
 export { ThemeContext };
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const ThemeContextProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<PaletteType>("light");
-  let body: Element;
+
+  let body: HTMLBodyElement;
 
   const toggleTheme = () => {
     const newTheme = theme == "light" ? "dark" : "light";
 
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-
     if (body == undefined) {
-      body = document.querySelector("body");
+      body = document.querySelector("body") as HTMLBodyElement;
     }
     body.className = newTheme;
   };
@@ -49,6 +49,10 @@ export const ThemeContextProvider = ({ children }: Props) => {
       type: theme,
     },
     shape: { borderRadius: 10 },
+    typography: {
+      fontFamily:
+        "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+    },
   });
 
   return (

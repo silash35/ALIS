@@ -1,13 +1,13 @@
 import { IPlace } from "@/types/IPlace";
 
-import PlaceCard from "../PlaceCard";
-import styles from "./placesContainer.module.scss";
+import PlaceCard from "./Card";
+import styles from "./placeCardsContainer.module.scss";
 
 interface Props {
   places: IPlace[];
 }
 
-const PlacesContainer = ({ places }: Props) => {
+const PlaceCardsContainer = ({ places }: Props) => {
   return (
     <section className={styles.container}>
       {places.map((place) => {
@@ -17,4 +17,4 @@ const PlacesContainer = ({ places }: Props) => {
   );
 };
 
-export default PlacesContainer;
+export default PlaceCardsContainer;

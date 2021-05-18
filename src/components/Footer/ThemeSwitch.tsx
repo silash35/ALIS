@@ -1,7 +1,7 @@
 import Switch from "@material-ui/core/Switch";
 import { useContext } from "react";
 
-import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "@/contexts/ThemeContext";
 
 const ThemeSwitch = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);

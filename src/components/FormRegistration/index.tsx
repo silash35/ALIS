@@ -2,7 +2,8 @@ import Button from "@material-ui/core/Button";
 import TextField, { TextFieldProps } from "@material-ui/core/TextField";
 import { useContext } from "react";
 
-import { ThemeContext } from "../../contexts/ThemeContext";
+import { ThemeContext } from "@/contexts/ThemeContext";
+
 import styles from "./formRegistration.module.scss";
 
 export default function FormRegistration() {

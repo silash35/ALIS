@@ -1,5 +1,5 @@
-@use "../../styles/variables.scss" as v;
-@import "../../styles/card";
+@use "variables" as v;
+@import "card";
 
 .card {
   @extend %cardOnlyStyle;

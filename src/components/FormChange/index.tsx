@@ -1,19 +1,21 @@
 import Button from "@material-ui/core/Button";
 import TextField, { TextFieldProps } from "@material-ui/core/TextField";
-import { FormEvent, useContext } from "react";
+import { FormEvent, useContext, useRef } from "react";
 import { useState } from "react";
 
-import EditDialog from "@/components/EditDialog";
+import EditDialog from "@/components/FormChange/Dialog";
+import { ThemeContext } from "@/contexts/ThemeContext";
 import { IPlace } from "@/types/IPlace";
 
-import { ThemeContext } from "../../contexts/ThemeContext";
-import styles from "./FormChange.module.scss";
+import styles from "./formChange.module.scss";
 
 interface Props {
   place: IPlace;
 }
 
 export default function FormChange({ place }: Props) {
+  const formRef = useRef<HTMLFormElement>(null);
+
   // Dialog
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
@@ -39,7 +41,7 @@ export default function FormChange({ place }: Props) {
   };
 
   return (
-    <form className={`${styles.card} ${styles[theme]}`} onSubmit={handleSubmit} id="formChange">
+    <form className={`${styles.card} ${styles[theme]}`} onSubmit={handleSubmit} ref={formRef}>
       <h2>Dados básicos do local</h2>
       <TextField defaultValue={place.name} name="name" label="Nome" required {...common} />
       <TextField
@@ -101,6 +103,7 @@ export default function FormChange({ place }: Props) {
         errorText={errorText}
         setError={setError}
         setErrorText={setErrorText}
+        form={formRef.current as HTMLFormElement}
         id={place._id}
       />
     </form>

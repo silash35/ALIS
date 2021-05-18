@@ -4,10 +4,11 @@ import { useState } from "react";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Places from "@/components/PlacesContainer";
+import Places from "@/components/PlaceCardsContainer";
 import Search from "@/components/Search";
 import Title from "@/components/Title";
 import { IPlace } from "@/types/IPlace";
+import url from "@/utils/url";
 
 interface Props {
   places: IPlace[];
@@ -26,7 +27,7 @@ const Home = (props: Props) => {
         <title>ALIS</title>
       </Head>
 
-      <Header home />
+      <Header />
 
       <main>
         <Title cursive>
@@ -48,13 +49,6 @@ const Home = (props: Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  let url = process.env.VERCEL_URL;
-  if (url == undefined) {
-    url = "http://localhost:3000";
-  } else {
-    url = "https://" + url;
-  }
-
   const res = await fetch(url + "/api/places");
   const data = await res.json();
 

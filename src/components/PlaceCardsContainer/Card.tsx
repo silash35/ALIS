@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import { IPlace } from "@/types/IPlace";
 
-import styles from "./placeCard.module.scss";
+import styles from "./card.module.scss";
 
 interface Props {
   place: IPlace;
@@ -21,7 +21,7 @@ export default function PlaceCard({ place }: Props) {
         <article
           className={`${styles.card} ${styles[theme]}`}
           style={{
-            backgroundImage: place.imageURL ? `url(${place.imageURL})` : "url(/images/empty.png)",
+            backgroundImage: `url(${place.imageURL}), url(/images/empty.png)`,
           }}
         >
           <div className={styles.content}>

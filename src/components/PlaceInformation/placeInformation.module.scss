@@ -1,4 +1,4 @@
-@use "../../styles/variables.scss" as v;
+@use "variables" as v;
 
 .container {
   margin: 100px;
@@ -54,7 +54,7 @@
   justify-content: flex-end;
 
   > button {
-    margin: 5px;
+    margin: 10px;
   }
   a {
     display: contents;
