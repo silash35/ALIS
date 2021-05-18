@@ -19,15 +19,17 @@ const ShareButton = () => {
   const InputRef = useRef<HTMLInputElement>(null);
 
   const openDialog = async () => {
-    const shareData = {
-      title: "ALIS",
-      text: "Conheça esse local",
-      url: typeof window !== "undefined" ? window.location.href : "",
-    };
-
-    try {
-      await navigator.share(shareData);
-    } catch {
+    if (typeof navigator.share !== "undefined") {
+      try {
+        await navigator.share({
+          title: "ALIS",
+          text: "Conheça esse local",
+          url: typeof window !== "undefined" ? window.location.href : "",
+        });
+      } catch {
+        // do nothing
+      }
+    } else {
       setOpen(true);
     }
   };
@@ -55,7 +57,7 @@ const ShareButton = () => {
         Compartilhar
       </Button>
 
-      <Dialog open={open} aria-labelledby="dialog-title">
+      <Dialog open={open} onClose={closeDialog} aria-labelledby="dialog-title">
         <DialogTitle id="dialog-title">
           <div className={styles.title}>
             <div>Compartilhe esse local</div>
