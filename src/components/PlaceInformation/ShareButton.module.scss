@@ -1,3 +1,21 @@
 #button {
   border-radius: 50px;
 }
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-width: 500px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > * {
+    margin: 10px;
+  }
+}
