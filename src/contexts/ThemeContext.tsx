@@ -49,6 +49,10 @@ export const ThemeContextProvider = ({ children }: Props) => {
       type: theme,
     },
     shape: { borderRadius: 10 },
+    typography: {
+      fontFamily:
+        "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+    },
   });
 
   return (

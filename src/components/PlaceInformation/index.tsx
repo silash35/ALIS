@@ -1,9 +1,10 @@
 import { IPlace } from "@/types/IPlace";
 
-import DeletePlaceButton from "./DeleteButton";
-import EditPlaceButton from "./EditButton";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 import PlaceImage from "./Image";
 import styles from "./placeInformation.module.scss";
+import ShareButton from "./ShareButton";
 
 interface Props {
   place: IPlace;
@@ -54,8 +55,9 @@ export default function PlaceInformation({ place }: Props) {
       </section>
 
       <section className={styles.buttons}>
-        <EditPlaceButton id={place._id} />
-        <DeletePlaceButton id={place._id} />
+        <EditButton id={place._id} />
+        <DeleteButton id={place._id} />
+        <ShareButton />
       </section>
     </article>
   );
