@@ -17,7 +17,8 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended"
   ],
   "rules": {
     "simple-import-sort/imports": "error",
@@ -27,7 +28,8 @@
     "react/prop-types": "error",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@next/next/no-img-element": "off"
   },
   "settings": {
     "react": {

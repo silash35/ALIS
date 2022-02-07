@@ -1,4 +1,4 @@
-import Switch from "@material-ui/core/Switch";
+import Switch from "@mui/material/Switch";
 import { useContext } from "react";
 
 import { ThemeContext } from "@/contexts/ThemeContext";

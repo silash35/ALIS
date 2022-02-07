@@ -1,5 +1,5 @@
-import IconButton from "@material-ui/core/IconButton";
-import Explore from "@material-ui/icons/Explore";
+import IconButton from "@mui/material/IconButton";
+import Explore from "@mui/icons-material/Explore";
 import Link from "next/link";
 import { useContext } from "react";
 

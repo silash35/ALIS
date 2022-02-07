@@ -1,3 +1,4 @@
+import { ThemeContextProvider } from "@/contexts/ThemeContext";
 import "@/styles/globals.scss";
 
 import type { AppProps } from "next/app";
@@ -6,8 +7,6 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import React from "react";
 
-import { ThemeContextProvider } from "@/contexts/ThemeContext";
-
 // Configure the loading bar
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
@@ -15,14 +14,8 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-function MyApp({ Component, pageProps }: AppProps) {
-  // This is for the "Material UI" to work properly with server-side rendering
-  React.useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
+function MyApp(props: AppProps) {
+  const { Component, pageProps } = props;
 
   return (
     <>

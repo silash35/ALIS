@@ -1,15 +1,15 @@
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import IconButton from "@material-ui/core/IconButton";
-import Input from "@material-ui/core/Input";
-import CloseIcon from "@material-ui/icons/Close";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import ShareIcon from "@material-ui/icons/Share";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import IconButton from "@mui/material/IconButton";
+import Input from "@mui/material/Input";
+import CloseIcon from "@mui/icons-material/Close";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ShareIcon from "@mui/icons-material/Share";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { useRef, useState } from "react";
 
 import styles from "./ShareButton.module.scss";

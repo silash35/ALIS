@@ -1,5 +1,5 @@
-import Button from "@material-ui/core/Button";
-import TextField, { TextFieldProps } from "@material-ui/core/TextField";
+import Button from "@mui/material/Button";
+import TextField, { TextFieldProps } from "@mui/material/TextField";
 import { useContext } from "react";
 
 import { ThemeContext } from "@/contexts/ThemeContext";

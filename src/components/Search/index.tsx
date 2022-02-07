@@ -1,5 +1,5 @@
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
 import { SyntheticEvent, useContext, useRef } from "react";
 
 import { ThemeContext } from "@/contexts/ThemeContext";
