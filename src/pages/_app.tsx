@@ -1,4 +1,3 @@
-import { ThemeContextProvider } from "@/contexts/ThemeContext";
 import "@/styles/globals.scss";
 
 import type { AppProps } from "next/app";
@@ -6,6 +5,8 @@ import Head from "next/head";
 import Router from "next/router";
 import NProgress from "nprogress";
 import React from "react";
+
+import { ThemeContextProvider } from "@/contexts/ThemeContext";
 
 // Configure the loading bar
 Router.events.on("routeChangeStart", () => {

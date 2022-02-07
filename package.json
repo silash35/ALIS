@@ -1,13 +1,16 @@
 {
   "name": "alis",
   "version": "0.1.0",
+  "license": "Unlicense",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "license": "Unlicense",
+  "prisma": {
+    "schema": "src/database/schema.prisma"
+  },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.0.10",
     "@types/md5": "^2.3.1",
@@ -22,6 +25,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "^2.5.1",
+    "prisma": "^3.9.1",
     "sass": "^1.49.7",
     "typescript": "^4.5.5",
     "yarn-upgrade-all": "^0.6.1"
@@ -31,9 +35,9 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "^5.4.0",
+    "@prisma/client": "^3.9.1",
     "add": "^2.0.6",
     "md5": "^2.3.0",
-    "mongodb": "^4.3.1",
     "next": "^12.0.10",
     "next-pwa": "^5.4.4",
     "nprogress": "^0.2.0",
