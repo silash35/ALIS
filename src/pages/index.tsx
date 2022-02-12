@@ -1,3 +1,4 @@
+import { Place } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
@@ -7,17 +8,16 @@ import Header from "@/components/Header";
 import Places from "@/components/PlaceCardsContainer";
 import Search from "@/components/Search";
 import Title from "@/components/Title";
-import { IPlace } from "@/types/IPlace";
 import url from "@/utils/url";
 
 interface Props {
-  places: IPlace[];
+  places: Place[];
 }
 
 const Home = (props: Props) => {
   const [places, setPlaces] = useState(props.places);
 
-  const ChangePlaces = (places: IPlace[]) => {
+  const ChangePlaces = (places: Place[]) => {
     setPlaces(places);
   };
 

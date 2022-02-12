@@ -1,4 +1,4 @@
-import { IPlace } from "@/types/IPlace";
+import { Place } from "@prisma/client";
 
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
@@ -7,7 +7,7 @@ import styles from "./placeInformation.module.scss";
 import ShareButton from "./ShareButton";
 
 interface Props {
-  place: IPlace;
+  place: Place;
 }
 
 export default function PlaceInformation({ place }: Props) {
@@ -55,8 +55,8 @@ export default function PlaceInformation({ place }: Props) {
       </section>
 
       <section className={styles.buttons}>
-        <EditButton id={place._id} />
-        <DeleteButton id={place._id} />
+        <EditButton id={place.id} />
+        <DeleteButton id={place.id} />
         <ShareButton />
       </section>
     </article>

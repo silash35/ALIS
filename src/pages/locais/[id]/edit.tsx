@@ -1,3 +1,4 @@
+import { Place } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 
@@ -5,11 +6,10 @@ import Footer from "@/components/Footer";
 import FormChange from "@/components/FormChange";
 import Header from "@/components/Header";
 import Title from "@/components/Title";
-import { IPlace } from "@/types/IPlace";
 import url from "@/utils/url";
 
 interface Props {
-  place: IPlace;
+  place: Place;
 }
 
 const PlacePage = ({ place }: Props) => {

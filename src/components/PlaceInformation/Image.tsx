@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./image.module.scss";
 
 interface Props {
-  src?: string;
+  src?: string | null;
   name: string;
 }
 

@@ -1,22 +1,22 @@
 import Explore from "@mui/icons-material/Explore";
 import IconButton from "@mui/material/IconButton";
+import { Place } from "@prisma/client";
 import Link from "next/link";
 import { useContext } from "react";
 
 import { ThemeContext } from "@/contexts/ThemeContext";
-import { IPlace } from "@/types/IPlace";
 
 import styles from "./card.module.scss";
 
 interface Props {
-  place: IPlace;
+  place: Place;
 }
 
 export default function PlaceCard({ place }: Props) {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <Link as={`/locais/${place._id}`} href={`/locais/${place._id}`}>
+    <Link as={`/locais/${place.id}`} href={`/locais/${place.id}`}>
       <a>
         <article
           className={`${styles.card} ${styles[theme]}`}

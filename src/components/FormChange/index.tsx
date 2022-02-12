@@ -1,16 +1,16 @@
 import Button from "@mui/material/Button";
 import TextField, { TextFieldProps } from "@mui/material/TextField";
+import { Place } from "@prisma/client";
 import { FormEvent, useContext, useRef } from "react";
 import { useState } from "react";
 
 import EditDialog from "@/components/FormChange/Dialog";
 import { ThemeContext } from "@/contexts/ThemeContext";
-import { IPlace } from "@/types/IPlace";
 
 import styles from "./formChange.module.scss";
 
 interface Props {
-  place: IPlace;
+  place: Place;
 }
 
 export default function FormChange({ place }: Props) {
@@ -104,7 +104,7 @@ export default function FormChange({ place }: Props) {
         setError={setError}
         setErrorText={setErrorText}
         form={formRef.current as HTMLFormElement}
-        id={place._id}
+        id={place.id}
       />
     </form>
   );
