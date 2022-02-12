@@ -13,7 +13,7 @@ interface Props {
 export default function PlaceInformation({ place }: Props) {
   return (
     <article className={styles.container}>
-      <PlaceImage src={place.imageURL} name={place.name} />
+      {place.imageURL && <PlaceImage src={place.imageURL} name={place.name} />}
 
       <div className={styles.title}>
         <h1>{place.name}</h1>

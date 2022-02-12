@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./image.module.scss";
 
 interface Props {
-  src?: string | null;
+  src: string;
   name: string;
 }
 
@@ -13,11 +13,11 @@ export default function PlaceImage({ src, name }: Props) {
     setIsOpen(!isOpen);
   };
 
-  // If the image does not exist, the ALIS logo will be displayed.
+  // If the image do not load, the ALIS logo will be displayed.
   const image = (
     <img
-      src={src ? src : "/images/empty.png"}
-      alt={src ? `Foto do local ${name}` : "Logo do ALIS (a letra a) com fundo preto"}
+      src={src}
+      alt={`Foto do local ${name}`}
       onClick={handleOpenImage}
       onError={(e) => {
         e.currentTarget.src = "/images/empty.png";
