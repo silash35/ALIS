@@ -1,9 +1,9 @@
 import Head from "next/head";
 
-import AboutCard from "@/components/AboutCard";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Title from "@/components/Title";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import Title from "@/components/common/Title";
+import AboutCard from "@/components/sobre/AboutCard";
 
 const sobre = () => {
   return (

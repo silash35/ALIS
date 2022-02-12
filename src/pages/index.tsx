@@ -3,11 +3,11 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Places from "@/components/PlaceCardsContainer";
-import Search from "@/components/Search";
-import Title from "@/components/Title";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import Title from "@/components/common/Title";
+import Places from "@/components/index/PlaceCardsContainer";
+import Search from "@/components/index/Search";
 import url from "@/utils/url";
 
 interface Props {

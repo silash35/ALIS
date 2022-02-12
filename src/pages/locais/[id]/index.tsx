@@ -2,9 +2,9 @@ import { Place } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import PlaceInformation from "@/components/PlaceInformation";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import PlaceInformation from "@/components/locais/PlaceInformation";
 import url from "@/utils/url";
 
 interface Props {

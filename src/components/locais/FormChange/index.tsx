@@ -4,7 +4,7 @@ import { Place } from "@prisma/client";
 import { FormEvent, useContext, useRef } from "react";
 import { useState } from "react";
 
-import EditDialog from "@/components/FormChange/Dialog";
+import EditDialog from "@/components/locais/FormChange/Dialog";
 import { ThemeContext } from "@/contexts/ThemeContext";
 
 import styles from "./formChange.module.scss";
