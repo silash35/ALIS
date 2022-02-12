@@ -8,7 +8,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model places {
+model Place {
   id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
 
   userMail String?

@@ -1,6 +1,5 @@
+import { Place } from "@prisma/client";
 import md5 from "md5";
-
-import { IPlace } from "@/types/IPlace";
 
 import prisma from "./prisma";
 
@@ -11,7 +10,7 @@ class PlacesManager {
     // const places: TPlaces = await this.locations?.find({ $text: { $search: search } }).toArray();
     search;
 
-    const places = await prisma.places.findMany(); // Concertar depois
+    const places = await prisma.place.findMany(); // Concertar depois
     await prisma.$disconnect();
 
     return places;
@@ -19,7 +18,7 @@ class PlacesManager {
 
   async getAll() {
     await prisma.$connect();
-    const allPlaces = await prisma.places.findMany();
+    const allPlaces = await prisma.place.findMany();
     await prisma.$disconnect();
 
     return allPlaces;
@@ -27,25 +26,25 @@ class PlacesManager {
 
   async getByID(id: string) {
     await prisma.$connect();
-    const place = await prisma.places.findUnique({ where: { id: id } });
+    const place = await prisma.place.findUnique({ where: { id: id } });
     await prisma.$disconnect();
 
     return place;
   }
 
   // Write functions
-  async insert(place: IPlace) {
+  async insert(place: Place) {
     place.key = md5(place.key);
 
-    await prisma.places.create({ data: place });
+    await prisma.place.create({ data: place });
   }
 
   async delete(id: string, key: string) {
     await prisma.$connect();
-    const oldPlace = await prisma.places.findUnique({ where: { id: id } });
+    const oldPlace = await prisma.place.findUnique({ where: { id: id } });
 
     if (oldPlace?.key == md5(key)) {
-      await prisma.places.delete({ where: { id: id } });
+      await prisma.place.delete({ where: { id: id } });
 
       return 200;
     }
@@ -54,12 +53,12 @@ class PlacesManager {
     return 401;
   }
 
-  async update(id: string, newPlace: IPlace, key: string) {
+  async update(id: string, newPlace: Place, key: string) {
     await prisma.$connect();
-    const oldPlace = await prisma.places.findUnique({ where: { id: id } });
+    const oldPlace = await prisma.place.findUnique({ where: { id: id } });
 
     if (oldPlace?.key == md5(key)) {
-      prisma.places.update({
+      prisma.place.update({
         where: {
           id: id,
         },

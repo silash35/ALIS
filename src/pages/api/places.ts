@@ -1,12 +1,12 @@
+import { Place } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import placesManager from "@/database/placesManager";
-import { IPlace } from "@/types/IPlace";
 
 type TMethod = "GET" | "POST" | "POST";
 
 const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  let places: IPlace[] | undefined | null;
+  let places: Place[] | undefined | null;
 
   const methods = {
     async GET() {
