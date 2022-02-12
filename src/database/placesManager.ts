@@ -44,7 +44,7 @@ class PlacesManager {
   async insert(place: Place) {
     place.key = md5(place.key);
 
-    await prisma.place.create({ data: place });
+    await prisma.place.create({ data: parsePlace(place) });
   }
 
   async delete(id: string, key: string) {
@@ -70,7 +70,7 @@ class PlacesManager {
         where: {
           id: id,
         },
-        data: newPlace,
+        data: parsePlace(newPlace),
       });
       return 200;
     }
@@ -79,6 +79,31 @@ class PlacesManager {
     return 401;
   }
 }
+
+const parsePlace = (place: Place) => {
+  const parsedPlace = {
+    userName: parseString(place.userName),
+    userMail: parseString(place.userMail),
+    name: parseString(place.name),
+    description: parseString(place.description),
+    address: parseString(place.address),
+    key: parseString(place.key),
+    phone: parseString(place.phone),
+    email: parseString(place.email),
+    imageURL: parseString(place.imageURL),
+    website: parseString(place.website),
+  } as Place;
+
+  return parsedPlace;
+};
+
+const parseString = (string: string | null) => {
+  if (typeof string === "string" && string.length >= 1) {
+    return string;
+  } else {
+    return null;
+  }
+};
 
 const placesManager = new PlacesManager();
 export default placesManager;

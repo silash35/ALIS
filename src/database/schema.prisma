@@ -11,8 +11,8 @@ datasource db {
 model Place {
   id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
 
-  userMail String?
   userName String
+  userMail String?
 
   name        String
   description String
