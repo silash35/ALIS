@@ -1,4 +1,4 @@
-name: TypeScript
+name: Cypress
 
 on: [push, pull_request]
 
@@ -12,6 +12,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      - name: Copy .env file
+        run: cp .env.dev .env
       - name: Install Yarn
         run: npm install -g yarn
       - name: Install Packages
