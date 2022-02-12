@@ -1,6 +1,6 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["mongoDb"]
+  previewFeatures = ["mongoDb", "fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -22,4 +22,6 @@ model Place {
   email       String?
   imageURL    String?
   website     String?
+
+  @@fulltext([userName, name, address, description])
 }

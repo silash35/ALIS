@@ -7,10 +7,18 @@ class PlacesManager {
   // Read functions
   async find(search: string) {
     await prisma.$connect();
-    // const places: TPlaces = await this.locations?.find({ $text: { $search: search } }).toArray();
-    search;
 
-    const places = await prisma.place.findMany(); // Concertar depois
+    const places = await prisma.place.findMany({
+      where: {
+        OR: [
+          { userName: { contains: search, mode: "insensitive" } },
+          { name: { contains: search, mode: "insensitive" } },
+          { address: { contains: search, mode: "insensitive" } },
+          { description: { contains: search, mode: "insensitive" } },
+        ],
+      },
+    });
+
     await prisma.$disconnect();
 
     return places;
