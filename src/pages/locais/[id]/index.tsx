@@ -5,7 +5,7 @@ import Head from "next/head";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import PlaceInformation from "@/components/locais/PlaceInformation";
-import url from "@/utils/url";
+import placesManager from "@/database/placesManager";
 
 interface Props {
   place: Place;
@@ -37,13 +37,16 @@ const PlacePage = ({ place }: Props) => {
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(url + `/api/place?id=${context.query.id}`);
-  const data = await res.json();
+  let data = null;
+
+  if (context.query.id && !Array.isArray(context.query.id)) {
+    data = await placesManager.getByID(context.query.id);
+  }
 
   return {
     props: {
-      place: data.body,
+      place: data,
     },
-    notFound: res.status != 200,
+    notFound: !data,
   };
 };

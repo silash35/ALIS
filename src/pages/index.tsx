@@ -8,7 +8,7 @@ import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
 import Places from "@/components/index/PlaceCardsContainer";
 import Search from "@/components/index/Search";
-import url from "@/utils/url";
+import placesManager from "@/database/placesManager";
 
 interface Props {
   places: Place[];
@@ -49,12 +49,9 @@ const Home = (props: Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(url + "/api/places");
-  const data = await res.json();
-
   return {
     props: {
-      places: data.body,
+      places: await placesManager.getAll(),
     },
   };
 };
