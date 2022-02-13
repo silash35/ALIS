@@ -5,6 +5,7 @@
 /cypress/screenshots
 /cypress/support
 /cypress/videos
+/cypress/fixtures
 
 # dependencies
 /node_modules
