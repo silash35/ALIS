@@ -2,7 +2,6 @@ import tardis from "../fixtures/places/tardis.json";
 import unitHq from "../fixtures/places/unitHq.json";
 
 describe("CRUD example Place (TARDIS)", () => {
-  /*
   it("should create", () => {
     cy.visit("/novo");
 
@@ -29,9 +28,8 @@ describe("CRUD example Place (TARDIS)", () => {
     cy.get("input[name=imageURL]").click();
     cy.get("input[name=imageURL]").type(tardis.imageURL);
 
-    //cy.get("button[type=submit]").click();
-
-    //cy.location("pathname").should("eq", "/");
+    cy.get("button[type=submit]").click();
+    cy.location("pathname").should("eq", "/");
   });
 
   it("should read", () => {
@@ -55,7 +53,6 @@ describe("CRUD example Place (TARDIS)", () => {
     cy.get(`img[src="${tardis.imageURL}"]`).should("have.attr", "alt");
   });
 
-  
   it("should update", () => {
     cy.visit("/");
     cy.intercept("PUT", "/api/places").as("searchPlace");
@@ -115,7 +112,31 @@ describe("CRUD example Place (TARDIS)", () => {
     cy.get("img").should("not.exist");
   });
 
-  */
+  it("should delete", () => {
+    cy.visit("/");
+    cy.intercept("PUT", "/api/places").as("searchPlace");
+
+    cy.get("input[type=text]").click();
+    cy.get("input[type=text]").type(unitHq.description);
+    cy.get("button[type=submit]").click();
+
+    cy.wait("@searchPlace");
+    cy.contains(unitHq.name).click();
+
+    cy.location("pathname").should("contain", "locais");
+
+    cy.get('[data-testid="DeleteIcon"] > path').click();
+    cy.get("input[type=password]").clear();
+    cy.get("input[type=password]").type(tardis.key);
+    cy.contains("Deletar").click();
+
+    cy.intercept("PUT", "/api/places").as("searchPlace");
+    cy.get("input[type=text]").click();
+    cy.get("input[type=text]").type(unitHq.description + "{enter}");
+
+    cy.wait("@searchPlace");
+    cy.contains(unitHq.name).should("not.exist");
+  });
 });
 
 export {};
