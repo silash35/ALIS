@@ -44,7 +44,7 @@ class PlacesManager {
   async insert(place: Place) {
     place.key = md5(place.key);
 
-    await prisma.place.create({ data: parsePlace(place) });
+    await prisma.place.create({ data: parsePlaceCreate(place) });
   }
 
   async delete(id: string, key: string) {
@@ -66,11 +66,11 @@ class PlacesManager {
     const oldPlace = await prisma.place.findUnique({ where: { id: id } });
 
     if (oldPlace?.key == md5(key)) {
-      prisma.place.update({
+      await prisma.place.update({
         where: {
-          id: id,
+          id: String(id),
         },
-        data: parsePlace(newPlace),
+        data: parsePlaceUpdate(newPlace),
       });
       return 200;
     }
@@ -80,7 +80,21 @@ class PlacesManager {
   }
 }
 
-const parsePlace = (place: Place) => {
+const parsePlaceUpdate = (place: Place) => {
+  const parsedPlace = {
+    name: parseString(place.name),
+    description: parseString(place.description),
+    address: parseString(place.address),
+    phone: parseString(place.phone),
+    email: parseString(place.email),
+    imageURL: parseString(place.imageURL),
+    website: parseString(place.website),
+  } as Place;
+
+  return parsedPlace;
+};
+
+const parsePlaceCreate = (place: Place) => {
   const parsedPlace = {
     userName: parseString(place.userName),
     userMail: parseString(place.userMail),
