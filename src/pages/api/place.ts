@@ -2,6 +2,7 @@ import { Place } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import placesManager from "@/database/placesManager";
+import revalidate from "@/utils/revalidate";
 
 type TMethod = "GET" | "POST" | "POST" | "DELETE";
 
@@ -24,12 +25,13 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
 
     async POST() {
       res.statusCode = await placesManager.update(id, req.body.place, req.body.key);
+      await revalidate(res);
       res.end();
     },
 
     async DELETE() {
-      res.setHeader("Content-Type", "application/json");
       res.statusCode = await placesManager.delete(id, req.body.key);
+      await revalidate(res);
 
       res.end();
     },

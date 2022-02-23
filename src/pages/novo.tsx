@@ -5,7 +5,7 @@ import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
 import FormRegistration from "@/components/novo/FormRegistration";
 
-const novo = () => {
+const Novo = () => {
   return (
     <>
       <Head>
@@ -27,4 +27,4 @@ const novo = () => {
   );
 };
 
-export default novo;
+export default Novo;

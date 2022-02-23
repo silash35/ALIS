@@ -2,6 +2,7 @@ import { Place } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import placesManager from "@/database/placesManager";
+import revalidate from "@/utils/revalidate";
 
 type TMethod = "GET" | "POST" | "POST";
 
@@ -23,6 +24,7 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
     async POST() {
       await placesManager.insert(req.body);
+      await revalidate(res);
 
       res.writeHead(302, {
         Location: "/",

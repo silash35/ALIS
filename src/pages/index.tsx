@@ -1,26 +1,12 @@
-import { Place } from "@prisma/client";
-import { GetServerSideProps } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import { useState } from "react";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-import Title from "@/components/common/Title";
-import Places from "@/components/index/PlaceCardsContainer";
-import Search from "@/components/index/Search";
+import Main from "@/components/index/main";
 import placesManager from "@/database/placesManager";
 
-interface Props {
-  places: Place[];
-}
-
-const Home = (props: Props) => {
-  const [places, setPlaces] = useState(props.places);
-
-  const ChangePlaces = (places: Place[]) => {
-    setPlaces(places);
-  };
-
+const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
@@ -28,30 +14,18 @@ const Home = (props: Props) => {
       </Head>
 
       <Header />
-
-      <main>
-        <Title cursive>
-          <h1>
-            Bem&nbsp;vindo ao&nbsp;<span>alis</span>
-          </h1>
-          <p>O Agregador de Locais Inclusivos para Surdos</p>
-        </Title>
-
-        <Search setPlaces={ChangePlaces} />
-        <Places places={places} />
-      </main>
-
+      <Main places={places} />
       <Footer />
     </>
   );
 };
 
-export default Home;
-
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       places: await placesManager.getAll(),
     },
   };
 };
+
+export default Home;
