@@ -1,5 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
+import { SWRConfig } from "swr";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
@@ -14,7 +15,14 @@ const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
       </Head>
 
       <Header />
-      <Main places={places} />
+      <SWRConfig
+        value={{
+          fallback: places,
+          fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
+        }}
+      >
+        <Main />
+      </SWRConfig>
       <Footer />
     </>
   );
@@ -25,6 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       places: await placesManager.getAll(),
     },
+    revalidate: 3600, // 1 hour
   };
 };
 

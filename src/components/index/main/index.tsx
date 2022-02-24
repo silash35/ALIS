@@ -1,16 +1,13 @@
+import CircularProgress from "@mui/material/CircularProgress";
 import { Place } from "@prisma/client";
 import { useState } from "react";
 
 import Title from "@/components/common/Title";
-import Places from "@/components/index/PlaceCardsContainer";
+import Places from "@/components/index/PlaceCards";
 import Search from "@/components/index/Search";
 
-interface Props {
-  places: Place[];
-}
-
-const Main = (props: Props) => {
-  const [places, setPlaces] = useState(props.places);
+const Main = () => {
+  const [places, setPlaces] = useState([] as Place[]);
 
   return (
     <main>
@@ -22,6 +19,7 @@ const Main = (props: Props) => {
       </Title>
 
       <Search setPlaces={setPlaces} />
+
       <Places places={places} />
     </main>
   );

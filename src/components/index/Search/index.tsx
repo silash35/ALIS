@@ -29,7 +29,6 @@ export default function SearchBar({ setPlaces }: Props) {
     });
 
     const data = await res.json();
-
     setPlaces(data.body);
   };
 
