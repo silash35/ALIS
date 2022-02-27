@@ -41,7 +41,7 @@ const DeletePlaceButton = ({ id }: Props) => {
 
     let res = {} as Response;
     if (key != "") {
-      res = await fetch(`/api/place?id=${id}`, data);
+      res = await fetch(`/api/place/${id}`, data);
     }
 
     if (res.status == 200) {

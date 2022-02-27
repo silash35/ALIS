@@ -35,7 +35,7 @@ const EditDialog = (props: Props) => {
 
     let res = {} as Response;
     if (key != "") {
-      res = await fetch(`/api/place?id=${props.id}`, data);
+      res = await fetch(`/api/place/${props.id}`, data);
     }
 
     if (res.status == 200) {

@@ -12,6 +12,10 @@ import placesManager from "@/database/placesManager";
 const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [placeExists, setPlaceExists] = useState(true);
 
+  if (!placeExists) {
+    return <Error statusCode={404} />;
+  }
+
   return (
     <>
       <Head>
@@ -24,20 +28,17 @@ const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>
       </Head>
 
       <Header />
-      {placeExists ? (
-        <main>
-          <SWRConfig
-            value={{
-              fallback: { ["api/place?id=" + id]: { body: place } },
-              fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
-            }}
-          >
-            <PlaceInformation id={id} setPlaceExists={setPlaceExists} />
-          </SWRConfig>
-        </main>
-      ) : (
-        <Error statusCode={404} />
-      )}
+
+      <main>
+        <SWRConfig
+          value={{
+            fallback: { ["/api/place/" + id]: { body: place } },
+            fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
+          }}
+        >
+          <PlaceInformation id={id} setPlaceExists={setPlaceExists} />
+        </SWRConfig>
+      </main>
 
       <Footer />
     </>
