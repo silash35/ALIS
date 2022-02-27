@@ -2,14 +2,14 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Error from "next/error";
 import Head from "next/head";
 import { useState } from "react";
-import { SWRConfig, unstable_serialize } from "swr";
+import { SWRConfig } from "swr";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import PlaceInformation from "@/components/locais/PlaceInformation";
 import placesManager from "@/database/placesManager";
 
-const PlacePage = ({ place, id, fallback }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [placeExists, setPlaceExists] = useState(true);
 
   return (
@@ -28,7 +28,7 @@ const PlacePage = ({ place, id, fallback }: InferGetStaticPropsType<typeof getSt
         <main>
           <SWRConfig
             value={{
-              fallback: fallback,
+              fallback: { ["api/place?id=" + id]: { body: place } },
               fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
             }}
           >
@@ -76,9 +76,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       place: data,
       id: context?.params?.id,
-      fallback: {
-        [unstable_serialize(["api", "place", context?.params?.id])]: data,
-      },
     },
     revalidate: 3600, // 1 hour
     notFound: !data,

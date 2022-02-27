@@ -7,7 +7,7 @@ import Header from "@/components/common/Header";
 import Main from "@/components/index/main";
 import placesManager from "@/database/placesManager";
 
-const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({ fallback }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
@@ -17,7 +17,7 @@ const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Header />
       <SWRConfig
         value={{
-          fallback: { "/api/places": places },
+          fallback,
           fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
         }}
       >
@@ -29,10 +29,15 @@ const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const places = await placesManager.getAll();
+
   return {
     props: {
-      places: await placesManager.getAll(),
+      fallback: {
+        "/api/places": { body: places },
+      },
     },
+
     revalidate: 3600, // 1 hour
   };
 };
