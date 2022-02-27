@@ -1,14 +1,14 @@
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
-import { Place } from "@prisma/client";
 import { SyntheticEvent, useContext, useRef } from "react";
 
 import { ThemeContext } from "@/contexts/ThemeContext";
 
+import TPlaces from "../TPlaces";
 import styles from "./search.module.scss";
 
 interface Props {
-  setSearchPlaces(places: Place[] | "NotFound" | "Loading"): void;
+  setSearchPlaces(places: TPlaces): void;
   setIsSearching(isSearching: boolean): void;
 }
 
