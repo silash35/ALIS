@@ -1,15 +1,15 @@
+import { Place } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 
-import Footer from "@/components/Footer";
-import FormChange from "@/components/FormChange";
-import Header from "@/components/Header";
-import Title from "@/components/Title";
-import { IPlace } from "@/types/IPlace";
-import url from "@/utils/url";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import Title from "@/components/common/Title";
+import FormChange from "@/components/locais/FormChange";
+import placesManager from "@/database/placesManager";
 
 interface Props {
-  place: IPlace;
+  place: Place;
 }
 
 const PlacePage = ({ place }: Props) => {
@@ -40,13 +40,16 @@ const PlacePage = ({ place }: Props) => {
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(url + `/api/place?id=${context.query.id}`);
-  const data = await res.json();
+  let data = null;
+
+  if (context.query.id && !Array.isArray(context.query.id)) {
+    data = await placesManager.getByID(context.query.id);
+  }
 
   return {
     props: {
-      place: data.body,
+      place: data,
     },
-    notFound: res.status != 200,
+    notFound: !data,
   };
 };

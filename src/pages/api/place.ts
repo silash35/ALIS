@@ -1,12 +1,12 @@
+import { Place } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import placesManager from "@/database/placesManager";
-import { IPlace } from "@/types/IPlace";
 
 type TMethod = "GET" | "POST" | "POST" | "DELETE";
 
 const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  let place: IPlace | undefined | null;
+  let place: Place | undefined | null;
   const id = String(req.query.id);
 
   const methods = {
@@ -28,18 +28,22 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
     },
 
     async DELETE() {
-      res.setHeader("Content-Type", "application/json");
       res.statusCode = await placesManager.delete(id, req.body.key);
 
       res.end();
     },
   };
 
-  const requestedMethod = methods[req.method as TMethod];
-  if (requestedMethod != undefined || id != undefined) {
-    await requestedMethod();
-  } else {
+  try {
+    const requestedMethod = methods[req.method as TMethod];
+    if (requestedMethod != undefined) {
+      await requestedMethod();
+    } else {
+      throw "Invalid Method";
+    }
+  } catch (error) {
     res.statusCode = 404;
+    res.end();
   }
 };
 

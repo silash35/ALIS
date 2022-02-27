@@ -1,17 +1,17 @@
-import { GetServerSideProps } from "next";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import Error from "next/error";
 import Head from "next/head";
+import { useState } from "react";
+import { SWRConfig } from "swr";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import PlaceInformation from "@/components/PlaceInformation";
-import { IPlace } from "@/types/IPlace";
-import url from "@/utils/url";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import PlaceInformation from "@/components/locais/PlaceInformation";
+import placesManager from "@/database/placesManager";
 
-interface Props {
-  place: IPlace;
-}
+const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [placeExists, setPlaceExists] = useState(true);
 
-const PlacePage = ({ place }: Props) => {
   return (
     <>
       <Head>
@@ -24,10 +24,20 @@ const PlacePage = ({ place }: Props) => {
       </Head>
 
       <Header />
-
-      <main>
-        <PlaceInformation place={place} />
-      </main>
+      {placeExists ? (
+        <main>
+          <SWRConfig
+            value={{
+              fallback: place,
+              fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
+            }}
+          >
+            <PlaceInformation id={id} setPlaceExists={setPlaceExists} />
+          </SWRConfig>
+        </main>
+      ) : (
+        <Error statusCode={404} />
+      )}
 
       <Footer />
     </>
@@ -36,14 +46,38 @@ const PlacePage = ({ place }: Props) => {
 
 export default PlacePage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(url + `/api/place?id=${context.query.id}`);
-  const data = await res.json();
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPlaces = await placesManager.getAll();
+
+  return {
+    paths: allPlaces.map((place) => {
+      return { params: { id: place.id } };
+    }),
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  let data = null;
+
+  try {
+    if (context?.params?.id && !Array.isArray(context.params.id)) {
+      data = await placesManager.getByID(context.params.id);
+    }
+  } catch (error) {
+    return {
+      props: {},
+      revalidate: 3600, // 1 hour
+      notFound: !data,
+    };
+  }
 
   return {
     props: {
-      place: data.body,
+      place: data,
+      id: context?.params?.id,
     },
-    notFound: res.status != 200,
+    revalidate: 3600, // 1 hour
+    notFound: !data,
   };
 };

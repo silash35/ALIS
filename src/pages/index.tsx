@@ -1,26 +1,13 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { SWRConfig } from "swr";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Places from "@/components/PlaceCardsContainer";
-import Search from "@/components/Search";
-import Title from "@/components/Title";
-import { IPlace } from "@/types/IPlace";
-import url from "@/utils/url";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import Main from "@/components/index/main";
+import placesManager from "@/database/placesManager";
 
-interface Props {
-  places: IPlace[];
-}
-
-const Home = (props: Props) => {
-  const [places, setPlaces] = useState(props.places);
-
-  const ChangePlaces = (places: IPlace[]) => {
-    setPlaces(places);
-  };
-
+const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
@@ -28,33 +15,26 @@ const Home = (props: Props) => {
       </Head>
 
       <Header />
-
-      <main>
-        <Title cursive>
-          <h1>
-            Bem&nbsp;vindo ao&nbsp;<span>alis</span>
-          </h1>
-          <p>O Agregador de Locais Inclusivos para Surdos</p>
-        </Title>
-
-        <Search setPlaces={ChangePlaces} />
-        <Places places={places} />
-      </main>
-
+      <SWRConfig
+        value={{
+          fallback: places,
+          fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
+        }}
+      >
+        <Main />
+      </SWRConfig>
       <Footer />
     </>
   );
 };
 
-export default Home;
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(url + "/api/places");
-  const data = await res.json();
-
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      places: data.body,
+      places: await placesManager.getAll(),
     },
+    revalidate: 3600, // 1 hour
   };
 };
+
+export default Home;

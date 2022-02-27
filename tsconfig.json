@@ -1,7 +1,9 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["cypress"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +13,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
@@ -22,7 +23,9 @@
       "@/styles/*": ["styles/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"]
-    }
+    },
+    "incremental": true,
+    "isolatedModules": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", ".next"]

@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-import Footer from "@/components/Footer";
-import FormRegistration from "@/components/FormRegistration";
-import Header from "@/components/Header";
-import Title from "@/components/Title";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import Title from "@/components/common/Title";
+import FormRegistration from "@/components/novo/FormRegistration";
 
-const novo = () => {
+const Novo = () => {
   return (
     <>
       <Head>
@@ -27,4 +27,4 @@ const novo = () => {
   );
 };
 
-export default novo;
+export default Novo;

@@ -1,9 +1,11 @@
-import { PaletteType } from "@material-ui/core";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { createContext, ReactNode, useEffect, useState } from "react";
 
+type PaletteMode = "light" | "dark";
+
 const ThemeContext = createContext({
-  theme: "light" as PaletteType,
+  theme: "light" as PaletteMode,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   toggleTheme: function (): void {},
 });
@@ -14,7 +16,7 @@ interface Props {
 }
 
 export const ThemeContextProvider = ({ children }: Props) => {
-  const [theme, setTheme] = useState<PaletteType>("light");
+  const [theme, setTheme] = useState<PaletteMode>("light");
 
   let body: HTMLBodyElement;
 
@@ -41,12 +43,12 @@ export const ThemeContextProvider = ({ children }: Props) => {
     }
   }, []);
 
-  const muiTheme = createMuiTheme({
+  const muiTheme = createTheme({
     palette: {
       primary: {
         main: "#0070f3",
       },
-      type: theme,
+      mode: theme,
     },
     shape: { borderRadius: 10 },
     typography: {
@@ -57,7 +59,7 @@ export const ThemeContextProvider = ({ children }: Props) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <MuiThemeProvider theme={muiTheme}>{children}</MuiThemeProvider>
+      <ThemeProvider theme={muiTheme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
 };

@@ -15,14 +15,8 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-function MyApp({ Component, pageProps }: AppProps) {
-  // This is for the "Material UI" to work properly with server-side rendering
-  React.useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
+function MyApp(props: AppProps) {
+  const { Component, pageProps } = props;
 
   return (
     <>

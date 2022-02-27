@@ -1,0 +1,27 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["mongoDb", "fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Place {
+  id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+
+  userName String
+  userMail String?
+
+  name        String
+  description String
+  address     String
+  key         String
+  phone       String?
+  email       String?
+  imageURL    String?
+  website     String?
+
+  @@fulltext([userName, name, address, description])
+}

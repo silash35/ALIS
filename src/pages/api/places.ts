@@ -1,12 +1,12 @@
+import { Place } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import placesManager from "@/database/placesManager";
-import { IPlace } from "@/types/IPlace";
 
 type TMethod = "GET" | "POST" | "POST";
 
 const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  let places: IPlace[] | undefined | null;
+  let places: Place[] | undefined | null;
 
   const methods = {
     async GET() {
@@ -43,11 +43,16 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     },
   };
 
-  const requestedMethod = methods[req.method as TMethod];
-  if (requestedMethod != undefined) {
-    await requestedMethod();
-  } else {
+  try {
+    const requestedMethod = methods[req.method as TMethod];
+    if (requestedMethod != undefined) {
+      await requestedMethod();
+    } else {
+      throw "Invalid Method";
+    }
+  } catch (error) {
     res.statusCode = 404;
+    res.end();
   }
 };
 

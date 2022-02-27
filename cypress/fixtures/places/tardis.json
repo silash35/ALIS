@@ -1,0 +1,14 @@
+{
+  "userName": "John Smith",
+  "userMail": "john.smith@tardis.com",
+
+  "name": "TARDIS",
+  "description": "TARDIS stands for Time and Relative Dimensions in Space. Don't worry, the Doctor understands all languages, including LIBRAS",
+  "address": "232 Earls Ct Rd, Earl's Court, London SW5 9RD",
+  "key": "123",
+
+  "email": "tardis@tardis.com",
+  "phone": "07700900461",
+  "website": "https://pt.wikipedia.org/wiki/TARDIS",
+  "imageURL": "https://wallpaperaccess.com/full/1808366.jpg"
+}
