@@ -17,7 +17,7 @@ const Home = ({ places }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Header />
       <SWRConfig
         value={{
-          fallback: places,
+          fallback: { "/api/places": places },
           fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
         }}
       >
