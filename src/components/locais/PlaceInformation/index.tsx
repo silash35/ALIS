@@ -1,4 +1,6 @@
+import CircularProgress from "@mui/material/CircularProgress";
 import { Place } from "@prisma/client";
+import useSWR from "swr";
 
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
@@ -7,10 +9,28 @@ import styles from "./placeInformation.module.scss";
 import ShareButton from "./ShareButton";
 
 interface Props {
-  place: Place;
+  id: string;
+  setPlaceExists(placeExists: boolean): void;
 }
 
-export default function PlaceInformation({ place }: Props) {
+export default function PlaceInformation({ id, setPlaceExists }: Props) {
+  const { data, error } = useSWR("/api/place?id=" + id);
+  const place = data?.body as Place;
+
+  console.log(place);
+
+  if (error) {
+    setPlaceExists(false);
+  }
+
+  if (!place) {
+    return (
+      <article className={styles.loading}>
+        <CircularProgress />
+      </article>
+    );
+  }
+
   return (
     <article className={styles.container}>
       {place.imageURL && <PlaceImage src={place.imageURL} name={place.name} />}

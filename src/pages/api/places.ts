@@ -43,11 +43,16 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     },
   };
 
-  const requestedMethod = methods[req.method as TMethod];
-  if (requestedMethod != undefined) {
-    await requestedMethod();
-  } else {
+  try {
+    const requestedMethod = methods[req.method as TMethod];
+    if (requestedMethod != undefined) {
+      await requestedMethod();
+    } else {
+      throw "Invalid Method";
+    }
+  } catch (error) {
     res.statusCode = 404;
+    res.end();
   }
 };
 
