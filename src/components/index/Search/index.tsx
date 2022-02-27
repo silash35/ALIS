@@ -8,16 +8,24 @@ import { ThemeContext } from "@/contexts/ThemeContext";
 import styles from "./search.module.scss";
 
 interface Props {
-  setPlaces(places: Place[]): void;
+  setSearchPlaces(places: Place[] | "NotFound" | "Loading"): void;
+  setIsSearching(isSearching: boolean): void;
 }
 
-export default function SearchBar({ setPlaces }: Props) {
+export default function SearchBar({ setSearchPlaces, setIsSearching }: Props) {
   const { theme } = useContext(ThemeContext);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     const search = searchInputRef.current?.value;
+
+    if (typeof search === "string" && search.length > 0) {
+      setIsSearching(true);
+      setSearchPlaces("Loading");
+    } else {
+      setIsSearching(false);
+    }
 
     const res = await fetch("/api/places", {
       method: "PUT",
@@ -27,9 +35,13 @@ export default function SearchBar({ setPlaces }: Props) {
       },
       body: JSON.stringify({ search }),
     });
+    const { body } = await res.json();
 
-    const data = await res.json();
-    setPlaces(data.body);
+    if (Array.isArray(body) && body.length > 0) {
+      setSearchPlaces(body);
+    } else {
+      setSearchPlaces("NotFound");
+    }
   };
 
   return (

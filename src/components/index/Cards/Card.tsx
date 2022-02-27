@@ -12,7 +12,7 @@ interface Props {
   place: Place;
 }
 
-export default function PlaceCard({ place }: Props) {
+export default function Card({ place }: Props) {
   const { theme } = useContext(ThemeContext);
 
   return (
