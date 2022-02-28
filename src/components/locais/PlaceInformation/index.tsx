@@ -16,7 +16,7 @@ interface Props {
 export default function PlaceInformation({ id, setPlaceExists }: Props) {
   const { data, error } = useSWR("/api/place/" + id);
   const place = data?.body as Place;
-  console.log(error);
+
   if (error) {
     setPlaceExists(false);
   }
