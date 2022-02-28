@@ -29,8 +29,11 @@ const place = async (req: NextApiRequest, res: NextApiResponse): Promise<void> =
 
     async DELETE() {
       res.statusCode = await placesManager.delete(id, req.body.key);
-
       res.end();
+
+      if (res.statusCode === 200) {
+        await res.unstable_revalidate("/locais/" + id);
+      }
     },
   };
 

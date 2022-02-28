@@ -10,7 +10,7 @@ import PlaceInformation from "@/components/locais/PlaceInformation";
 import placesManager from "@/database/placesManager";
 
 const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [placeExists, setPlaceExists] = useState(true);
+  const [placeExists, setPlaceExists] = useState(place?.id !== undefined);
 
   if (!placeExists) {
     return <Error statusCode={404} />;
@@ -68,7 +68,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   } catch (error) {
     return {
       props: {},
-      revalidate: 3600, // 1 hour
+      revalidate: 60, // 1 Minute
       notFound: !data,
     };
   }
