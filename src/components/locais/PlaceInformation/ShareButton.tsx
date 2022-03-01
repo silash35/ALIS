@@ -12,7 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import { useRef, useState } from "react";
 
-import styles from "./ShareButton.module.scss";
+import styles from "./shareButton.module.scss";
 
 const ShareButton = () => {
   const [open, setOpen] = useState(false);

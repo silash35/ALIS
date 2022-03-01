@@ -3,7 +3,7 @@ import { Place } from "@prisma/client";
 
 import TPlaces from "../TPlaces";
 import Card from "./Card";
-import styles from "./Cards.module.scss";
+import styles from "./cards.module.scss";
 
 interface CardsContainerProps {
   places: Place[];
