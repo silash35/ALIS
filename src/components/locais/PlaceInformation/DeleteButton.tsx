@@ -6,8 +6,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
+import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
 import { useRef, useState } from "react";
+
+import styles from "./deleteButton.module.scss";
 
 interface Props {
   id: string;
@@ -16,6 +19,7 @@ interface Props {
 const DeletePlaceButton = ({ id }: Props) => {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errorText, setErrorText] = useState("");
 
   const keyInputRef = useRef<HTMLInputElement>(null);
@@ -41,7 +45,9 @@ const DeletePlaceButton = ({ id }: Props) => {
 
     let res = {} as Response;
     if (key != "") {
+      setLoading(true);
       res = await fetch(`/api/place/${id}`, data);
+      setLoading(false);
     }
 
     if (res.status == 200) {
@@ -83,6 +89,7 @@ const DeletePlaceButton = ({ id }: Props) => {
             Deletar
           </Button>
         </DialogActions>
+        {loading ? <LinearProgress /> : <div className={styles.space} />}
       </Dialog>
     </>
   );
