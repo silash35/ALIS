@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import Account from "./account";
 import styles from "./header.module.scss";
 
 export default function Header() {
@@ -12,20 +13,14 @@ export default function Header() {
         <Link as="/" href="/">
           <a className={styles.logo}>a</a>
         </Link>
-        <div>
+        <div className={styles.links}>
           <Link as="/" href="/">
             {router.asPath == "/" ? <a id={styles.active}>Inicio</a> : <a>Inicio</a>}
           </Link>
           <Link as="/sobre" href="/sobre">
             {router.asPath == "/sobre" ? <a id={styles.active}>Sobre</a> : <a>Sobre</a>}
           </Link>
-          <Link as="/novo" href="/novo">
-            {router.asPath == "/novo" ? (
-              <a id={styles.active}>Adicionar Local</a>
-            ) : (
-              <a>Adicionar Local</a>
-            )}
-          </Link>
+          <Account />
         </div>
       </nav>
     </header>

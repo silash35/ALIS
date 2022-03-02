@@ -18,7 +18,7 @@ export default function FormLogin({ providers }: Props) {
   const matches = useMediaQuery("(min-width:400px)");
 
   return (
-    <main className={styles.main}>
+    <main>
       <article className={styles.card}>
         <h1 className={styles.title}>alis</h1>
         <Button

@@ -2,7 +2,7 @@ import { GetServerSideProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { getProviders, getSession } from "next-auth/react";
 
-import FormLogin from "@/components/signin/FormLogin";
+import FormLogin from "@/components/auth/FormLogin";
 
 export default function Login({ providers }: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
