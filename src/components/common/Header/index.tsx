@@ -10,15 +10,18 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <nav>
-        <Link as="/" href="/">
-          <a className={styles.logo}>a</a>
-        </Link>
         <div className={styles.links}>
           <Link as="/" href="/">
-            {router.asPath == "/" ? <a id={styles.active}>Inicio</a> : <a>Inicio</a>}
+            <a className={styles.logo}>a</a>
+          </Link>
+        </div>
+
+        <div className={styles.links}>
+          <Link as="/" href="/">
+            <a id={router.asPath === "/" ? styles.active : undefined}>Inicio</a>
           </Link>
           <Link as="/sobre" href="/sobre">
-            {router.asPath == "/sobre" ? <a id={styles.active}>Sobre</a> : <a>Sobre</a>}
+            <a id={router.asPath === "/sobre" ? styles.active : undefined}>Sobre</a>
           </Link>
           <Account />
         </div>

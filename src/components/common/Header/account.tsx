@@ -65,6 +65,6 @@ export default function Account() {
       </>
     );
   } else {
-    return <button onClick={() => signIn()}>Login</button>;
+    return <button onClick={() => signIn()}>Fazer Login</button>;
   }
 }

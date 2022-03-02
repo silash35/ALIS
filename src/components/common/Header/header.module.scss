@@ -18,13 +18,13 @@
 
 .links {
   display: flex;
+  gap: 30px;
 
   a,
   button,
   p {
     align-self: center;
     margin: 0;
-    margin-left: 30px;
 
     font-size: large;
     font-weight: 600;
@@ -44,16 +44,16 @@
     padding: 0;
     font-family: unset;
   }
-}
 
-.logo {
-  font-family: "Pacifico", cursive;
-  color: v.$blue;
-  font-weight: 400;
-  font-size: 80px;
+  .logo {
+    font-family: "Pacifico", cursive;
+    color: v.$blue;
+    font-weight: 400;
+    font-size: 5em;
 
-  line-height: 60px;
-  transform: translateY(-15px);
+    line-height: 60px;
+    transform: translateY(-15px);
+  }
 }
 
 #active {
