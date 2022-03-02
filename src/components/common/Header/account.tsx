@@ -6,6 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRef, useState } from "react";
 
@@ -30,6 +31,7 @@ export default function Account() {
               <Avatar
                 src={data.data.user?.image === null ? undefined : data.data.user?.image}
                 alt={data.data.user?.name === null ? undefined : data.data.user?.name}
+                imgProps={{ referrerPolicy: "no-referrer" }}
               />
             </IconButton>
           </div>
@@ -43,18 +45,26 @@ export default function Account() {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          <MenuItem>
-            <ListItemIcon>
-              <PersonIcon fontSize="small" />
-            </ListItemIcon>
-            Meu perfil
-          </MenuItem>
-          <MenuItem>
-            <ListItemIcon>
-              <AddIcon fontSize="small" />
-            </ListItemIcon>
-            Criar novo Local
-          </MenuItem>
+          <Link href="/profile">
+            <a>
+              <MenuItem>
+                <ListItemIcon>
+                  <PersonIcon fontSize="small" />
+                </ListItemIcon>
+                Meu perfil
+              </MenuItem>
+            </a>
+          </Link>
+          <Link href="/locais/novo">
+            <a>
+              <MenuItem>
+                <ListItemIcon>
+                  <AddIcon fontSize="small" />
+                </ListItemIcon>
+                Criar novo Local
+              </MenuItem>
+            </a>
+          </Link>
           <MenuItem onClick={() => signOut()}>
             <ListItemIcon>
               <Logout fontSize="small" />

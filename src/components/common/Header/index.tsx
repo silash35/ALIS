@@ -11,16 +11,16 @@ export default function Header() {
     <header className={styles.header}>
       <nav>
         <div className={styles.links}>
-          <Link as="/" href="/">
+          <Link href="/">
             <a className={styles.logo}>a</a>
           </Link>
         </div>
 
         <div className={styles.links}>
-          <Link as="/" href="/">
+          <Link href="/">
             <a id={router.asPath === "/" ? styles.active : undefined}>Inicio</a>
           </Link>
-          <Link as="/sobre" href="/sobre">
+          <Link href="/sobre">
             <a id={router.asPath === "/sobre" ? styles.active : undefined}>Sobre</a>
           </Link>
           <Account />

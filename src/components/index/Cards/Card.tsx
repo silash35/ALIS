@@ -11,7 +11,7 @@ interface Props {
 
 export default function Card({ place }: Props) {
   return (
-    <Link as={`/locais/${place.id}`} href={`/locais/${place.id}`}>
+    <Link href={`/locais/${place.id}`}>
       <a>
         <article
           className={styles.card}

@@ -1,5 +1,6 @@
 import { Place } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { getSession } from "next-auth/react";
 
 import placesManager from "@/database/placesManager";
 
@@ -32,7 +33,17 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 
     async PUT() {
       res.setHeader("Content-Type", "application/json");
-      places = await placesManager.find(req.body.search);
+
+      if (req.body.getByUser === true) {
+        const session = await getSession({ req });
+        if (session?.user?.email) {
+          places = await placesManager.findByUser(session.user.email);
+        } else {
+          throw "Unauthorized";
+        }
+      } else {
+        places = await placesManager.find(req.body.search);
+      }
 
       res.statusCode = 200;
       res.end(
@@ -48,7 +59,7 @@ const places = async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     if (requestedMethod != undefined) {
       await requestedMethod();
     } else {
-      throw "Invalid Method";
+      throw "Method Not Allowed";
     }
   } catch (error) {
     res.statusCode = 404;

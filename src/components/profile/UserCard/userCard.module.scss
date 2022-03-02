@@ -1,0 +1,34 @@
+@use "card";
+@use "variables.module" as v;
+
+.card {
+  @extend %card;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+
+  margin-top: 128px;
+  max-width: 95vw;
+  gap: 30px;
+  h1 {
+    text-align: center;
+    margin: 0;
+  }
+
+  p {
+    margin-top: 0.8em;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  a {
+    color: v.$blue;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+  }
+}

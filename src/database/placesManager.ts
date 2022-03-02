@@ -24,6 +24,18 @@ class PlacesManager {
     return places;
   }
 
+  async findByUser(userMail: string) {
+    await prisma.$connect();
+    const places = await prisma.place.findMany({
+      where: {
+        userMail,
+      },
+    });
+    await prisma.$disconnect();
+
+    return places;
+  }
+
   async getAll() {
     await prisma.$connect();
     const allPlaces = await prisma.place.findMany();

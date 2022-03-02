@@ -1,3 +1,4 @@
+@use "variables.module" as v;
 @use "nprogress";
 
 html,
@@ -8,6 +9,8 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   min-width: 320px;
+
+  color: v.$black;
 }
 
 #__next {
@@ -22,7 +25,8 @@ main {
   flex: 1;
 
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 // Others
@@ -35,7 +39,7 @@ p {
 }
 
 a {
-  color: black;
+  color: #222222;
   text-decoration: none;
 }
 
