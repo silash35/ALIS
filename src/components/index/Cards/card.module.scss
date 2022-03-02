@@ -1,5 +1,5 @@
 @use "variables" as v;
-@import "card";
+@use "card";
 
 .card {
   @extend %cardOnlyStyle;

@@ -1,0 +1,26 @@
+@use "@/styles/card";
+@use "variables" as v;
+
+.main {
+  flex: 1;
+  justify-content: center;
+}
+
+.title {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 80px;
+  color: v.$blue;
+
+  margin: 0;
+  text-align: center;
+}
+
+.card {
+  @extend %verticalCard;
+  margin: auto;
+
+  & > button {
+    margin: 10px 0;
+  }
+}

@@ -1,4 +1,4 @@
-@import "@/styles/card";
+@use "@/styles/card";
 
 .card {
   @extend %verticalCard;

@@ -1,4 +1,5 @@
-@import "card";
+@use "card";
+@use "variables" as v;
 
 .card {
   @extend %card;
@@ -17,5 +18,14 @@
     width: 400px;
 
     max-width: 80vw;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    svg {
+      color: v.$blue;
+      fill: v.$blue;
+    }
   }
 }
