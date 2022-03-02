@@ -1,0 +1,23 @@
+$borderLight: #eaeaea;
+$borderDark: #292929;
+
+%borders {
+  border: 1px solid $borderLight;
+  :global(.dark) & {
+    border-color: $borderDark;
+  }
+}
+
+%topBorder {
+  border-top: 1px solid $borderLight;
+  :global(.dark) & {
+    border-top-color: $borderDark;
+  }
+}
+
+%bottomBorder {
+  border-bottom: 1px solid $borderLight;
+  :global(.dark) & {
+    border-bottom-color: $borderDark;
+  }
+}

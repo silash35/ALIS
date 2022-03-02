@@ -1,6 +1,9 @@
-@use "variables" as v;
+@use "variables.module" as v;
+@use "borders";
 
 .header {
+  @extend %bottomBorder;
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -45,12 +48,4 @@
 
 #active {
   color: v.$blue;
-}
-
-.light {
-  border-bottom: 1px solid v.$borderLight;
-}
-
-.dark {
-  border-bottom: 1px solid v.$borderDark;
 }

@@ -1,6 +1,9 @@
-@use "variables" as v;
+@use "variables.module" as v;
+@use "borders";
 
 .footer {
+  @extend %topBorder;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,12 +21,4 @@
   & > form > label {
     font-size: 0;
   }
-}
-
-.light {
-  border-top: 1px solid v.$borderLight;
-}
-
-.dark {
-  border-top: 1px solid v.$borderDark;
 }

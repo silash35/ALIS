@@ -1,11 +1,10 @@
 import Button from "@mui/material/Button";
 import TextField, { TextFieldProps } from "@mui/material/TextField";
 import { Place } from "@prisma/client";
-import { FormEvent, useContext, useRef } from "react";
+import { FormEvent, useRef } from "react";
 import { useState } from "react";
 
 import EditDialog from "@/components/locais/FormChange/Dialog";
-import { ThemeContext } from "@/contexts/ThemeContext";
 
 import styles from "./formChange.module.scss";
 
@@ -32,7 +31,6 @@ export default function FormChange({ place }: Props) {
   };
 
   // Style
-  const { theme } = useContext(ThemeContext);
   const common: TextFieldProps = { variant: "outlined", fullWidth: true };
 
   const handleSubmit = (e: FormEvent) => {
@@ -41,7 +39,7 @@ export default function FormChange({ place }: Props) {
   };
 
   return (
-    <form className={`${styles.card} ${styles[theme]}`} onSubmit={handleSubmit} ref={formRef}>
+    <form className={styles.card} onSubmit={handleSubmit} ref={formRef}>
       <h2>Dados básicos do local</h2>
       <TextField defaultValue={place.name} name="name" label="Nome" required {...common} />
       <TextField

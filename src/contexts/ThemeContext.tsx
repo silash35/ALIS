@@ -2,6 +2,8 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
 import { createContext, ReactNode, useEffect, useState } from "react";
 
+import variables from "@/styles/variables.module.scss";
+
 type PaletteMode = "light" | "dark";
 
 const ThemeContext = createContext({
@@ -46,7 +48,7 @@ export const ThemeContextProvider = ({ children }: Props) => {
   const muiTheme = createTheme({
     palette: {
       primary: {
-        main: "#0070f3",
+        main: variables.primary,
       },
       mode: theme,
     },

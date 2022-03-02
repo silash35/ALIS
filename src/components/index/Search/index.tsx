@@ -1,8 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
-import { SyntheticEvent, useContext, useRef } from "react";
-
-import { ThemeContext } from "@/contexts/ThemeContext";
+import { SyntheticEvent, useRef } from "react";
 
 import TPlaces from "../TPlaces";
 import styles from "./search.module.scss";
@@ -13,7 +11,6 @@ interface Props {
 }
 
 export default function SearchBar({ setSearchPlaces, setIsSearching }: Props) {
-  const { theme } = useContext(ThemeContext);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = async (event: SyntheticEvent<HTMLFormElement>) => {
@@ -46,7 +43,7 @@ export default function SearchBar({ setSearchPlaces, setIsSearching }: Props) {
 
   return (
     <form onSubmit={handleSearch} className={styles.form}>
-      <label className={`${styles.pesquisa} ${styles[theme]}`}>
+      <label className={styles.pesquisa}>
         <input type="text" ref={searchInputRef}></input>
         <IconButton aria-label="pesquisar" type="submit">
           <SearchIcon />

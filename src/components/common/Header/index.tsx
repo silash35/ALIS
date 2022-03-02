@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useContext } from "react";
-
-import { ThemeContext } from "@/contexts/ThemeContext";
 
 import styles from "./header.module.scss";
 
 export default function Header() {
-  const { theme } = useContext(ThemeContext);
   const router = useRouter();
 
   return (
-    <header className={`${styles.header} ${styles[theme]}`}>
+    <header className={styles.header}>
       <nav>
         <Link as="/" href="/">
           <a className={styles.logo}>a</a>

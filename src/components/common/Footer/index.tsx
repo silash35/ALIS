@@ -1,15 +1,9 @@
-import { useContext } from "react";
-
-import { ThemeContext } from "@/contexts/ThemeContext";
-
 import styles from "./footer.module.scss";
 import ThemeSwitch from "./ThemeSwitch";
 
 const Footer = () => {
-  const { theme } = useContext(ThemeContext);
-
   return (
-    <footer className={`${styles.footer} ${styles[theme]}`}>
+    <footer className={styles.footer}>
       <p>
         Nenhum direito reservado. Mantido por{" "}
         <a
