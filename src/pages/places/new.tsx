@@ -1,11 +1,21 @@
 import Head from "next/head";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
-import FormRegistration from "@/components/novo/FormRegistration";
+import FormRegistration from "@/components/new/FormRegistration";
 
 const Novo = () => {
+  const data = useSession();
+
+  useEffect(() => {
+    if (data.status === "unauthenticated") {
+      signIn();
+    }
+  }, [data.status]);
+
   return (
     <>
       <Head>

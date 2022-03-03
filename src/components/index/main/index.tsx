@@ -1,8 +1,8 @@
 import { useState } from "react";
 import useSWR from "swr";
 
+import Cards from "@/components/common/PlaceCards";
 import Title from "@/components/common/Title";
-import Cards from "@/components/index/Cards";
 import Search from "@/components/index/Search";
 
 import TPlaces from "../TPlaces";

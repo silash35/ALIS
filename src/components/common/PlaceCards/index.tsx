@@ -1,7 +1,7 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { Place } from "@prisma/client";
 
-import TPlaces from "../TPlaces";
+import TPlaces from "../../index/TPlaces";
 import Card from "./Card";
 import styles from "./cards.module.scss";
 
@@ -23,7 +23,7 @@ interface CardsProps {
   places: TPlaces;
 }
 
-const Cards = ({ places }: CardsProps) => {
+const PlaceCards = ({ places }: CardsProps) => {
   if (Array.isArray(places) && places.length > 0) {
     return <CardsContainer places={places} />;
   } else if (places === "NotFound") {
@@ -37,4 +37,4 @@ const Cards = ({ places }: CardsProps) => {
   }
 };
 
-export default Cards;
+export default PlaceCards;

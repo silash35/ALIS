@@ -1,23 +1,21 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-import Cards from "@/components/index/Cards";
+import Cards from "@/components/common/PlaceCards";
 import TPlaces from "@/components/index/TPlaces";
 import UserCard from "@/components/profile/UserCard";
 
 export default function Profile() {
   const [userPlaces, serUserPlaces] = useState("Loading" as TPlaces);
-  const router = useRouter();
   const data = useSession();
 
   useEffect(() => {
     if (data.status === "unauthenticated") {
-      router.replace("/auth/signin");
+      signIn();
     }
 
     if (data.status === "authenticated") {

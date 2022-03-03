@@ -6,7 +6,7 @@ import { SWRConfig } from "swr";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-import PlaceInformation from "@/components/locais/PlaceInformation";
+import PlaceInformation from "@/components/places/PlaceInformation";
 import placesManager from "@/database/placesManager";
 
 const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>) => {

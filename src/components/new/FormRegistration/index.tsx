@@ -8,22 +8,10 @@ export default function FormRegistration() {
 
   return (
     <form className={styles.card} action="/api/protected/places" method="POST">
-      <h2>Seus dados</h2>
-      <TextField name="userName" label="Seu Nome" required {...common} />
-      <TextField name="userMail" label="Seu E-Mail" type="email" required {...common} />
-
-      <h2>Dados básicos do local</h2>
+      <h2>Dados básicos</h2>
       <TextField name="name" label="Nome" required {...common} />
       <TextField name="address" label="Endereço" required {...common} />
       <TextField name="description" label="Descrição" multiline required {...common} />
-      <TextField
-        name="key"
-        label="Chave para alteração"
-        helperText="Autenticação para editar as informações cadastradas"
-        type="password"
-        required
-        {...common}
-      />
 
       <h2>Informações extras</h2>
       <TextField name="email" label="Email do local" {...common} type="email" />

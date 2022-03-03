@@ -3,7 +3,7 @@ import Head from "next/head";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
-import AboutCard from "@/components/sobre/AboutCard";
+import AboutCard from "@/components/about/AboutCard";
 
 const Sobre = () => {
   return (

@@ -4,26 +4,16 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import TextField from "@mui/material/TextField";
-import { useRef } from "react";
 
 interface Props {
   open: boolean;
   id: string;
   form: HTMLFormElement;
-  error: boolean;
-  errorText: string;
-  setError: (value: boolean) => void;
-  setErrorText: (value: string) => void;
   handleClose: () => void;
 }
 
 const EditDialog = (props: Props) => {
-  const keyInputRef = useRef<HTMLInputElement>(null);
-
   const sendData = async () => {
-    const key = keyInputRef.current?.value;
-
     const formData = new FormData(props.form);
     const formDataObject = Object.fromEntries(formData);
 
@@ -33,37 +23,21 @@ const EditDialog = (props: Props) => {
       body: JSON.stringify({ place: formDataObject }),
     };
 
-    let res = {} as Response;
-    if (key != "") {
-      res = await fetch(`/api/protected/place/${props.id}`, data);
-    }
+    const res = await fetch(`/api/protected/place/${props.id}`, data);
 
     if (res.status == 200) {
       props.handleClose();
       window.location.href = `/places/${props.id}`;
-    } else {
-      props.setError(true);
-      props.setErrorText("Senha incorreta");
     }
   };
 
   return (
     <Dialog open={props.open} onClose={props.handleClose} aria-labelledby="form-dialog-title">
-      <DialogTitle id="form-dialog-title">Digite a chave do local</DialogTitle>
+      <DialogTitle id="form-dialog-title">
+        Você tem certeza que deseja editar esse local?
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          Para editar um local, você precisa da chave cadastrada.
-        </DialogContentText>
-        <TextField
-          autoFocus
-          margin="dense"
-          label="chave"
-          type="password"
-          inputRef={keyInputRef}
-          fullWidth
-          error={props.error}
-          helperText={props.errorText}
-        />
+        <DialogContentText>Não será possível reverter as mudanças.</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose} color="primary">

@@ -4,7 +4,7 @@ import { Place } from "@prisma/client";
 import { FormEvent, useRef } from "react";
 import { useState } from "react";
 
-import EditDialog from "@/components/locais/FormChange/Dialog";
+import EditDialog from "@/components/places/FormChange/Dialog";
 
 import styles from "./formChange.module.scss";
 
@@ -17,8 +17,6 @@ export default function FormChange({ place }: Props) {
 
   // Dialog
   const [open, setOpen] = useState(false);
-  const [error, setError] = useState(false);
-  const [errorText, setErrorText] = useState("");
 
   const openDialog = () => {
     setOpen(true);
@@ -26,8 +24,6 @@ export default function FormChange({ place }: Props) {
 
   const closeDialog = () => {
     setOpen(false);
-    setError(false);
-    setErrorText("");
   };
 
   // Style
@@ -40,7 +36,7 @@ export default function FormChange({ place }: Props) {
 
   return (
     <form className={styles.card} onSubmit={handleSubmit} ref={formRef}>
-      <h2>Dados básicos do local</h2>
+      <h2>Dados básicos</h2>
       <TextField defaultValue={place.name} name="name" label="Nome" required {...common} />
       <TextField
         defaultValue={place.address}
@@ -97,10 +93,6 @@ export default function FormChange({ place }: Props) {
       <EditDialog
         open={open}
         handleClose={closeDialog}
-        error={error}
-        errorText={errorText}
-        setError={setError}
-        setErrorText={setErrorText}
         form={formRef.current as HTMLFormElement}
         id={place.id}
       />
