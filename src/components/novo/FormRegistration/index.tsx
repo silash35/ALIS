@@ -7,7 +7,7 @@ export default function FormRegistration() {
   const common: TextFieldProps = { variant: "outlined", fullWidth: true };
 
   return (
-    <form className={styles.card} action="/api/places" method="POST">
+    <form className={styles.card} action="/api/protected/places" method="POST">
       <h2>Seus dados</h2>
       <TextField name="userName" label="Seu Nome" required {...common} />
       <TextField name="userMail" label="Seu E-Mail" type="email" required {...common} />

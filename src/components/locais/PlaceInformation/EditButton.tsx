@@ -9,7 +9,7 @@ interface Props {
 const EditPlaceButton = ({ id }: Props) => {
   return (
     <IconButton>
-      <Link href={`/locais/${id}/edit`}>
+      <Link href={`/places/${id}/edit`}>
         <a aria-label="Editar local">
           <EditIcon fontSize="large" />
         </a>

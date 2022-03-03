@@ -21,7 +21,7 @@ export default function Header() {
             <a id={router.asPath === "/" ? styles.active : undefined}>Inicio</a>
           </Link>
           <Link href="/sobre">
-            <a id={router.asPath === "/sobre" ? styles.active : undefined}>Sobre</a>
+            <a id={router.asPath === "/about" ? styles.active : undefined}>Sobre</a>
           </Link>
           <Account />
         </div>

@@ -24,8 +24,8 @@ export default function SearchBar({ setSearchPlaces, setIsSearching }: Props) {
       setIsSearching(false);
     }
 
-    const res = await fetch("/api/places", {
-      method: "PUT",
+    const res = await fetch("/api/public/places", {
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

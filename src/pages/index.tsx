@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       fallback: {
-        "/api/places": { body: places },
+        "/api/public/places": { body: places },
       },
     },
 

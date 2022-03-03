@@ -17,18 +17,17 @@ export default function Profile() {
 
   useEffect(() => {
     if (data.status === "unauthenticated") {
-      router.replace("/auth/login");
+      router.replace("/auth/signin");
     }
 
     if (data.status === "authenticated") {
       (async () => {
-        const res = await fetch("/api/places", {
-          method: "PUT",
+        const res = await fetch("/api/protected/places", {
+          method: "GET",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ getByUser: true }),
         });
         const { body } = await res.json();
 

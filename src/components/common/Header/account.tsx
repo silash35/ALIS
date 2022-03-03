@@ -55,7 +55,7 @@ export default function Account() {
               </MenuItem>
             </a>
           </Link>
-          <Link href="/locais/novo">
+          <Link href="/places/new">
             <a>
               <MenuItem>
                 <ListItemIcon>

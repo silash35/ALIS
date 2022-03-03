@@ -32,7 +32,7 @@ const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>
       <main>
         <SWRConfig
           value={{
-            fallback: { ["/api/place/" + id]: { body: place } },
+            fallback: { ["/api/public/place/" + id]: { body: place } },
             fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
           }}
         >

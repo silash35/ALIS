@@ -56,39 +56,38 @@ class PlacesManager {
   async insert(place: Place) {
     place.key = md5(place.key);
 
+    await prisma.$connect();
     await prisma.place.create({ data: parsePlaceCreate(place) });
-  }
-
-  async delete(id: string, key: string) {
-    await prisma.$connect();
-    const oldPlace = await prisma.place.findUnique({ where: { id: id } });
-
-    if (oldPlace?.key == md5(key)) {
-      await prisma.place.delete({ where: { id: id } });
-
-      return 200;
-    }
-
     await prisma.$disconnect();
-    return 401;
   }
 
-  async update(id: string, newPlace: Place, key: string) {
+  async delete(id: string, userMail?: string | null) {
     await prisma.$connect();
     const oldPlace = await prisma.place.findUnique({ where: { id: id } });
 
-    if (oldPlace?.key == md5(key)) {
+    if (oldPlace?.userMail === userMail) {
+      await prisma.place.delete({ where: { id: id } });
+    } else {
+      throw "Unauthorized";
+    }
+    await prisma.$disconnect();
+  }
+
+  async update(id: string, newPlace: Place, userMail?: string | null) {
+    await prisma.$connect();
+    const oldPlace = await prisma.place.findUnique({ where: { id: id } });
+
+    if (oldPlace?.userMail === userMail) {
       await prisma.place.update({
         where: {
           id: String(id),
         },
         data: parsePlaceUpdate(newPlace),
       });
-      return 200;
+    } else {
+      throw "Unauthorized";
     }
-
     await prisma.$disconnect();
-    return 401;
   }
 }
 

@@ -30,17 +30,17 @@ const EditDialog = (props: Props) => {
     const data = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ place: formDataObject, key: key }),
+      body: JSON.stringify({ place: formDataObject }),
     };
 
     let res = {} as Response;
     if (key != "") {
-      res = await fetch(`/api/place/${props.id}`, data);
+      res = await fetch(`/api/protected/place/${props.id}`, data);
     }
 
     if (res.status == 200) {
       props.handleClose();
-      window.location.href = `/locais/${props.id}`;
+      window.location.href = `/places/${props.id}`;
     } else {
       props.setError(true);
       props.setErrorText("Senha incorreta");
