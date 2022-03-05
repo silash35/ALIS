@@ -11,7 +11,7 @@ const methods = {
       await placesManager.update(String(req.query.id), req.body.place, session?.user?.email);
       res.end();
     } else {
-      throw "Unauthorized";
+      throw Error("Unauthorized");
     }
   },
 
@@ -23,7 +23,7 @@ const methods = {
 
       await res.unstable_revalidate("/locais/" + String(req.query.id));
     } else {
-      throw "Unauthorized";
+      throw Error("Unauthorized");
     }
   },
 };

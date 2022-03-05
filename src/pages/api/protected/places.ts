@@ -13,7 +13,7 @@ const methods = {
     if (session?.user?.email) {
       places = await placesManager.findByUser(session.user.email);
     } else {
-      throw "Unauthorized";
+      throw Error("Unauthorized");
     }
 
     res.statusCode = 200;
@@ -29,7 +29,7 @@ const methods = {
     if (session) {
       await placesManager.insert(req.body);
     } else {
-      throw "Unauthorized";
+      throw Error("Unauthorized");
     }
 
     res.writeHead(302, {

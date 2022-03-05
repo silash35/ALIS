@@ -68,7 +68,7 @@ class PlacesManager {
     if (oldPlace?.userMail === userMail) {
       await prisma.place.delete({ where: { id: id } });
     } else {
-      throw "Unauthorized";
+      throw Error("Unauthorized");
     }
     await prisma.$disconnect();
   }
@@ -85,7 +85,7 @@ class PlacesManager {
         data: parsePlaceUpdate(newPlace),
       });
     } else {
-      throw "Unauthorized";
+      throw Error("Unauthorized");
     }
     await prisma.$disconnect();
   }

@@ -1,31 +1,20 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
-import LinearProgress from "@mui/material/LinearProgress";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
-import styles from "./deleteButton.module.scss";
+import Dialog from "@/components/common/Dialog";
 
 interface Props {
   id: string;
 }
 
 const DeletePlaceButton = ({ id }: Props) => {
+  const router = useRouter();
+
   const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const deletePlace = async () => {
     const data = {
@@ -33,38 +22,29 @@ const DeletePlaceButton = ({ id }: Props) => {
       headers: { "Content-Type": "application/json" },
     };
 
-    setLoading(true);
     const res = await fetch(`/api/place/${id}`, data);
-    setLoading(false);
 
     if (res.status == 200) {
+      router.push("/");
       handleClose();
-      window.location.href = "/";
     }
   };
 
   return (
     <>
-      <IconButton aria-label="delete place" onClick={handleClickOpen}>
+      <IconButton aria-label="delete place" onClick={handleOpen}>
         <DeleteIcon fontSize="large" />
       </IconButton>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">
-          Você tem certeza que deseja deletar esse local?
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>Todo o conteúdo será perdido para sempre</DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            cancelar
-          </Button>
-          <Button onClick={deletePlace} variant="outlined" color="primary">
-            Deletar
-          </Button>
-        </DialogActions>
-        {loading ? <LinearProgress /> : <div className={styles.space} />}
-      </Dialog>
+
+      <Dialog
+        open={open}
+        handleClose={handleClose}
+        onConfirmation={deletePlace}
+        title="Você tem certeza que deseja deletar esse local?"
+        text="Todo o conteúdo será perdido para sempre"
+        YesButtonText="Deletar"
+        id="delete-dialog"
+      />
     </>
   );
 };
