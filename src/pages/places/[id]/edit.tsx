@@ -1,6 +1,7 @@
 import { Place } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
+import { getSession } from "next-auth/react";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
@@ -40,13 +41,34 @@ const PlacePage = ({ place }: Props) => {
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let data = null;
+  const session = await getSession(context);
+  let data: Place | null = null;
 
-  if (context.query.id && !Array.isArray(context.query.id)) {
-    data = await placesManager.getByID(context.query.id);
+  try {
+    if (context.query.id && !Array.isArray(context.query.id)) {
+      data = await placesManager.getByID(context.query.id);
+    }
+  } catch {
+    data = null;
   }
 
   return {
+    redirect: (() => {
+      if (session === null) {
+        return {
+          permanent: false,
+          destination: "/auth/signin",
+        };
+      } else if (session.user?.email !== data?.userMail) {
+        return {
+          permanent: false,
+          destination: "/places/" + data?.id,
+        };
+      } else {
+        return undefined;
+      }
+    })(),
+
     props: {
       place: data,
     },

@@ -13,11 +13,11 @@ import { useRef, useState } from "react";
 import styles from "./account.module.scss";
 
 export default function Account() {
-  const data = useSession();
+  const session = useSession();
   const menuAnchor = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  if (data.status === "authenticated") {
+  if (session.status === "authenticated") {
     return (
       <>
         <div className={styles.avatarContainer} ref={menuAnchor}>
@@ -29,8 +29,8 @@ export default function Account() {
               aria-expanded={isOpen ? "true" : undefined}
             >
               <Avatar
-                src={data.data.user?.image === null ? undefined : data.data.user?.image}
-                alt={data.data.user?.name === null ? undefined : data.data.user?.name}
+                src={session.data.user?.image === null ? undefined : session.data.user?.image}
+                alt={session.data.user?.name === null ? undefined : session.data.user?.name}
                 imgProps={{ referrerPolicy: "no-referrer" }}
               />
             </IconButton>

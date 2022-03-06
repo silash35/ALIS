@@ -8,13 +8,13 @@ import Title from "@/components/common/Title";
 import FormRegistration from "@/components/new/FormRegistration";
 
 const Novo = () => {
-  const data = useSession();
+  const session = useSession();
 
   useEffect(() => {
-    if (data.status === "unauthenticated") {
+    if (session.status === "unauthenticated") {
       signIn();
     }
-  }, [data.status]);
+  }, [session.status]);
 
   return (
     <>

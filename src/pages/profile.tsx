@@ -11,14 +11,14 @@ import UserCard from "@/components/profile/UserCard";
 
 export default function Profile() {
   const [userPlaces, serUserPlaces] = useState("Loading" as TPlaces);
-  const data = useSession();
+  const session = useSession();
 
   useEffect(() => {
-    if (data.status === "unauthenticated") {
+    if (session.status === "unauthenticated") {
       signIn();
     }
 
-    if (data.status === "authenticated") {
+    if (session.status === "authenticated") {
       (async () => {
         const res = await fetch("/api/protected/places", {
           method: "GET",
@@ -36,7 +36,7 @@ export default function Profile() {
         }
       })();
     }
-  }, [data.status]);
+  }, [session.status]);
 
   return (
     <>
@@ -45,9 +45,9 @@ export default function Profile() {
       </Head>
       <Header />
       <main>
-        {data.status === "authenticated" && data.data?.user ? (
+        {session.status === "authenticated" && session.data?.user ? (
           <>
-            <UserCard user={data.data.user} />
+            <UserCard user={session.data.user} />
 
             <h2>Seus Locais</h2>
 
