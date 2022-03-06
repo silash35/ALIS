@@ -12,16 +12,15 @@ model Place {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   userName String
-  userMail String?
+  userMail String
 
   name        String
   description String
   address     String
-  key         String
   phone       String?
   email       String?
   imageURL    String?
   website     String?
 
-  @@fulltext([userName, name, address, description])
+  @@fulltext([name, address, description])
 }

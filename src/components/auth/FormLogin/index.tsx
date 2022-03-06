@@ -11,9 +11,10 @@ interface Props {
       id: string;
     };
   };
+  csrfToken: string;
 }
 
-export default function FormLogin({ providers }: Props) {
+export default function FormLogin({ providers, csrfToken }: Props) {
   const { google } = providers;
   const matches = useMediaQuery("(min-width:400px)");
 
@@ -29,6 +30,22 @@ export default function FormLogin({ providers }: Props) {
         >
           {matches ? "Faça Login com o Google" : "Logar com o Google"}
         </Button>
+        {csrfToken && (
+          <form method="post" action="/api/auth/callback/credentials">
+            <h2>Use credentials during development and testing</h2>
+            <p>Try users from Cypress fixtures</p>
+            <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+            <label>
+              Username
+              <input name="username" type="text" />
+            </label>
+            <label>
+              Password
+              <input name="password" type="password" />
+            </label>
+            <button type="submit">Sign in</button>
+          </form>
+        )}
       </article>
     </main>
   );

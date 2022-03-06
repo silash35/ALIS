@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 14.x
       - name: Copy .env file
-        run: cp .env.test .env
+        run: cp .env.dev .env
       - name: Install Yarn
         run: npm install -g yarn
       - name: Install Packages
