@@ -12,7 +12,6 @@ import UserCard from "@/components/profile/UserCard";
 export default function Profile() {
   const [userPlaces, serUserPlaces] = useState("Loading" as TPlaces);
   const session = useSession();
-  console.log(session);
 
   useEffect(() => {
     if (session.status === "unauthenticated") {
