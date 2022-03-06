@@ -18,10 +18,10 @@ export default function Header() {
 
         <div className={styles.links}>
           <Link href="/">
-            <a id={router.asPath === "/" ? styles.active : undefined}>Inicio</a>
+            <a id={router.pathname === "/" ? styles.active : undefined}>Inicio</a>
           </Link>
           <Link href="/about">
-            <a id={router.asPath === "/about" ? styles.active : undefined}>Sobre</a>
+            <a id={router.pathname === "/about" ? styles.active : undefined}>Sobre</a>
           </Link>
           <Account />
         </div>
