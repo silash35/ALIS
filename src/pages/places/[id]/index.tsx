@@ -1,3 +1,4 @@
+import { Place } from "@prisma/client";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Error from "next/error";
 import Head from "next/head";
@@ -59,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  let data = null;
+  let data: Place | null = null;
 
   try {
     if (context?.params?.id && !Array.isArray(context.params.id)) {

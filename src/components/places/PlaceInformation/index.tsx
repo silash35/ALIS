@@ -1,5 +1,7 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { Place } from "@prisma/client";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 
 import DeleteButton from "./DeleteButton";
@@ -14,8 +16,19 @@ interface Props {
 }
 
 export default function PlaceInformation({ id, setPlaceExists }: Props) {
+  const [allowEdit, setAllowEdit] = useState(false);
   const { data } = useSWR("/api/public/place/" + id);
   const place = data?.body as Place;
+
+  const session = useSession();
+
+  useEffect(() => {
+    if (session.status === "authenticated") {
+      if (session.data.user?.email === place.userMail) {
+        setAllowEdit(true);
+      }
+    }
+  }, [session.status]);
 
   if (data.body === null) {
     setPlaceExists(false);
@@ -73,8 +86,12 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
       </section>
 
       <section className={styles.buttons}>
-        <EditButton id={place.id} />
-        <DeleteButton id={place.id} />
+        {allowEdit && (
+          <>
+            <EditButton id={place.id} />
+            <DeleteButton id={place.id} />
+          </>
+        )}
         <ShareButton />
       </section>
     </article>

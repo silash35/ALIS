@@ -53,9 +53,7 @@ const ShareButton = () => {
   };
 
   const copyLink = () => {
-    InputRef.current?.select();
-    InputRef.current?.setSelectionRange(0, 99999);
-    document.execCommand("copy");
+    navigator.clipboard.writeText(placeUrl);
   };
 
   return (
@@ -72,68 +70,70 @@ const ShareButton = () => {
       </Button>
 
       <Dialog open={open} onClose={closeDialog} aria-labelledby="dialog-title">
-        <DialogTitle id="dialog-title">
-          <div className={styles.title}>
-            <div>Compartilhe esse local</div>
-            <IconButton aria-label="Cancelar" onClick={closeDialog}>
-              <CloseIcon />
-            </IconButton>
-          </div>
-        </DialogTitle>
-        <DialogContent dividers>
-          <div className={styles.container}>
-            <IconButton
-              onClick={() => {
-                goToUrl(facebookUrl);
-              }}
-              aria-label="Compartilhar no Facebook"
-            >
-              <FacebookIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              onClick={() => {
-                goToUrl(twitterUrl);
-              }}
-              aria-label="Compartilhar no Twitter"
-            >
-              <TwitterIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              onClick={() => {
-                goToUrl(whatsAppUrl);
-              }}
-              aria-label="Compartilhar no WhatsApp"
-            >
-              <WhatsAppIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              onClick={() => {
-                goToUrl(linkedInUrl);
-              }}
-              aria-label="Compartilhar no LinkedIn"
-            >
-              <LinkedInIcon fontSize="large" />
-            </IconButton>
-          </div>
-          <div className={styles.container}>
-            <Input
-              autoFocus
-              margin="dense"
-              defaultValue={placeUrl}
-              readOnly
-              fullWidth
-              inputRef={InputRef}
-            />
-            <Button
-              aria-label="Copiar link do local"
-              variant="outlined"
-              color="primary"
-              onClick={copyLink}
-            >
-              Copiar
-            </Button>
-          </div>
-        </DialogContent>
+        <article>
+          <DialogTitle id="dialog-title">
+            <section className={styles.title}>
+              <div>Compartilhe esse local</div>
+              <IconButton aria-label="Cancelar" onClick={closeDialog}>
+                <CloseIcon />
+              </IconButton>
+            </section>
+          </DialogTitle>
+          <DialogContent dividers>
+            <section className={styles.container}>
+              <IconButton
+                onClick={() => {
+                  goToUrl(facebookUrl);
+                }}
+                aria-label="Compartilhar no Facebook"
+              >
+                <FacebookIcon fontSize="large" />
+              </IconButton>
+              <IconButton
+                onClick={() => {
+                  goToUrl(twitterUrl);
+                }}
+                aria-label="Compartilhar no Twitter"
+              >
+                <TwitterIcon fontSize="large" />
+              </IconButton>
+              <IconButton
+                onClick={() => {
+                  goToUrl(whatsAppUrl);
+                }}
+                aria-label="Compartilhar no WhatsApp"
+              >
+                <WhatsAppIcon fontSize="large" />
+              </IconButton>
+              <IconButton
+                onClick={() => {
+                  goToUrl(linkedInUrl);
+                }}
+                aria-label="Compartilhar no LinkedIn"
+              >
+                <LinkedInIcon fontSize="large" />
+              </IconButton>
+            </section>
+            <section className={styles.container}>
+              <Input
+                autoFocus
+                margin="dense"
+                defaultValue={placeUrl}
+                readOnly
+                fullWidth
+                inputRef={InputRef}
+              />
+              <Button
+                aria-label="Copiar link do local"
+                variant="outlined"
+                color="primary"
+                onClick={copyLink}
+              >
+                Copiar
+              </Button>
+            </section>
+          </DialogContent>
+        </article>
       </Dialog>
     </>
   );

@@ -53,6 +53,7 @@
 .buttons {
   display: flex;
   justify-content: flex-end;
+  min-height: 71px;
 
   > button {
     margin: 10px;
