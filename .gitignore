@@ -3,7 +3,6 @@
 # cypress
 /cypress/plugins
 /cypress/screenshots
-/cypress/support
 /cypress/videos
 
 # dependencies
