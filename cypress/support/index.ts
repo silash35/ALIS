@@ -1,4 +1,4 @@
-import "./commands/login";
+import "./commands/account";
 import "./commands/placeCRUD";
 
 beforeEach(() => {

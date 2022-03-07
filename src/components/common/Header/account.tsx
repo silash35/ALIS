@@ -32,6 +32,7 @@ export default function Account() {
                 src={session.data.user?.image === null ? undefined : session.data.user?.image}
                 alt={session.data.user?.name === null ? undefined : session.data.user?.name}
                 imgProps={{ referrerPolicy: "no-referrer" }}
+                data-cy="avatar"
               />
             </IconButton>
           </div>
@@ -65,7 +66,7 @@ export default function Account() {
               </MenuItem>
             </a>
           </Link>
-          <MenuItem onClick={() => signOut()}>
+          <MenuItem data-cy="signOut" onClick={() => signOut()}>
             <ListItemIcon>
               <Logout fontSize="small" />
             </ListItemIcon>

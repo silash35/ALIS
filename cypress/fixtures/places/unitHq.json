@@ -1,8 +1,5 @@
 {
-  "userName": "Brigadier Sir Alistair Gordon Lethbridge-Stewart",
-
   "name": "UNIT HQ",
   "description": "The operating base of UNIT. Don't worry, the Brigadier understands LIBRAS",
-  "address": "Secret Location",
-  "key": "456"
+  "address": "Secret Location"
 }
