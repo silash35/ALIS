@@ -1,19 +1,33 @@
+import Link from "next/link";
+
 import styles from "./footer.module.scss";
 import ThemeSwitch from "./ThemeSwitch";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <p>
-        Nenhum direito reservado. Mantido por{" "}
-        <a
-          href="https://silash35.github.io/"
-          title="Website of Silas Henrique"
-          rel="noopener noreferrer"
-        >
-          Silas Henrique
-        </a>
-      </p>
+      <div>
+        <p>
+          <Link href="/about">
+            <a>Sobre o ALIS</a>
+          </Link>
+        </p>
+        <p>
+          <Link href="/faq">
+            <a>Perguntas Frequentes</a>
+          </Link>
+        </p>
+        <p>
+          Nenhum direito reservado. Mantido por{" "}
+          <a
+            href="https://silash35.github.io/"
+            title="Website of Silas Henrique"
+            rel="noopener noreferrer"
+          >
+            Silas Henrique
+          </a>
+        </p>
+      </div>
       <ThemeSwitch />
     </footer>
   );

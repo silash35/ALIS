@@ -9,16 +9,16 @@ const Privacy = () => {
   return (
     <>
       <Head>
-        <title>
-          Perguntas <span>frequentes</span>
-        </title>
+        <title>Perguntas frequentes</title>
       </Head>
 
       <Header />
 
       <main>
         <Title small>
-          <h1>Perguntas frequentes</h1>
+          <h1>
+            Perguntas <span>frequentes</span>
+          </h1>
           <p>+ Politicas de privacidade e termos de uso</p>
         </Title>
 
