@@ -22,23 +22,14 @@ export default NextAuth({
           return null;
         }
 
-        let user = null;
-
-        const doctor = await import("../../../../cypress/fixtures/users/doctor.json").then(
-          (module) => module.default
+        const users = await import("../../../../cypress/fixtures/users.json").then(
+          (module) => module.users
         );
-        const brigadier = await import("../../../../cypress/fixtures/users/brigadier.json").then(
-          (module) => module.default
-        );
-
-        if (credentials?.username === doctor.name && credentials?.password === doctor.password) {
-          user = doctor;
-        } else if (
-          credentials?.username === brigadier.name &&
-          credentials?.password === brigadier.password
-        ) {
-          user = brigadier;
-        }
+        const user = users.find((user) => {
+          if (credentials?.username === user.name && credentials?.password === user.password) {
+            return user;
+          }
+        });
 
         if (user) {
           return user;
@@ -49,7 +40,7 @@ export default NextAuth({
     }),
   ],
   pages: {
-    signIn: "/auth/signin",
+    signIn: "/auth/signIn",
   },
   theme: {
     colorScheme: "auto",

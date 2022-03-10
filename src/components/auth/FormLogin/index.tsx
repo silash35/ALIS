@@ -1,5 +1,4 @@
 import GoogleIcon from "@mui/icons-material/Google";
-import { useMediaQuery } from "@mui/material";
 import Button from "@mui/material/Button";
 import { signIn } from "next-auth/react";
 
@@ -12,11 +11,11 @@ interface Props {
     };
   };
   csrfToken: string;
+  signUp?: boolean;
 }
 
-export default function FormLogin({ providers, csrfToken }: Props) {
+export default function FormLogin({ providers, csrfToken, signUp }: Props) {
   const { google } = providers;
-  const matches = useMediaQuery("(min-width:400px)");
 
   return (
     <main>
@@ -28,12 +27,12 @@ export default function FormLogin({ providers, csrfToken }: Props) {
           startIcon={<GoogleIcon />}
           onClick={() => signIn(google.id)}
         >
-          {matches ? "Faça Login com o Google" : "Logar com o Google"}
+          {signUp ? "Continue com o Google" : "Entrar com o Google"}
         </Button>
         {csrfToken && (
           <form method="post" action="/api/auth/callback/credentials">
             <h2>Use credentials during development and testing</h2>
-            <p>Try users from Cypress fixtures</p>
+            <p>The test users are in the Cypress Fixtures folder </p>
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <label>
               Username

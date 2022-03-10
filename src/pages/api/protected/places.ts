@@ -27,7 +27,9 @@ const methods = {
   async POST(req: NextApiRequest, res: NextApiResponse) {
     const session = await getSession({ req });
     if (session) {
-      await placesManager.insert(req.body);
+      const place = req.body;
+      place.userMail = session.user?.email;
+      await placesManager.insert(place);
     } else {
       throw Error("Unauthorized");
     }

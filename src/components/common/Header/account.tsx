@@ -76,6 +76,13 @@ export default function Account() {
       </>
     );
   } else {
-    return <button onClick={() => signIn()}>Fazer Login</button>;
+    return (
+      <>
+        <button onClick={() => signIn()}>Fazer Login</button>
+        <Link href="/auth/signUp">
+          <a>Criar conta</a>
+        </Link>
+      </>
+    );
   }
 }

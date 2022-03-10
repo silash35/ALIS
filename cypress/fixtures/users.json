@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "developer1",
+      "email": "developer1@developer.com",
+      "image": "https://static.wikia.nocookie.net/tardis/images/a/aa/OneThinks.jpg/revision/latest?cb=20191010181235",
+      "password": "developer1"
+    },
+    {
+      "name": "Developer 2",
+      "email": "developer2@developer.com",
+      "image": "https://static.wikia.nocookie.net/tardis/images/b/b1/TwoFingerPoint.jpg/revision/latest?cb=20200629234657",
+      "password": "developer2"
+    }
+  ]
+}

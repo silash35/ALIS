@@ -4,7 +4,7 @@ import { getProviders, getSession } from "next-auth/react";
 
 import FormLogin from "@/components/auth/FormLogin";
 
-export default function Login(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function SignIn(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <Head>

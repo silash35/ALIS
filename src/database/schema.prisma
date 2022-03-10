@@ -11,7 +11,6 @@ datasource db {
 model Place {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  userName String
   userMail String
 
   name        String

@@ -1,12 +1,9 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import Account from "./account";
 import styles from "./header.module.scss";
 
 export default function Header() {
-  const router = useRouter();
-
   return (
     <header className={styles.header}>
       <nav>
@@ -17,12 +14,6 @@ export default function Header() {
         </div>
 
         <div className={styles.links}>
-          <Link href="/">
-            <a id={router.pathname === "/" ? styles.active : undefined}>Inicio</a>
-          </Link>
-          <Link href="/about">
-            <a id={router.pathname === "/about" ? styles.active : undefined}>Sobre</a>
-          </Link>
           <Account />
         </div>
       </nav>
