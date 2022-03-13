@@ -34,11 +34,6 @@ declare global {
 Cypress.Commands.add("createPlaceByUI", (place) => {
   cy.visit("/places/new");
 
-  cy.get("input[name=userName]").click();
-  cy.get("input[name=userName]").type(place.userName);
-  cy.get("input[name=userMail]").click();
-  cy.get("input[name=userMail]").type(place.userMail);
-
   cy.get("input[name=name]").click();
   cy.get("input[name=name]").type(place.name);
   cy.get("input[name=address]").click();
@@ -124,8 +119,6 @@ Cypress.Commands.add("updatePlaceByUI", (place, newPlace) => {
   cy.get("input[name=imageURL]").clear();
 
   cy.get("button[type=submit]").click();
-  cy.get("input[type=password]").clear();
-  cy.get("input[type=password]").type(newPlace.key);
 
   cy.contains("Salvar Alterações").click();
 

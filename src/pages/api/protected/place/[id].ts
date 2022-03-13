@@ -7,8 +7,8 @@ import apiFactory from "@/utils/apiFactory";
 const methods = {
   async POST(req: NextApiRequest, res: NextApiResponse) {
     const session = await getSession({ req });
-    if (session) {
-      await placesManager.update(String(req.query.id), req.body.place, session?.user?.email);
+    if (session?.user?.email) {
+      await placesManager.update(String(req.query.id), req.body.place, session.user.email);
       res.end();
     } else {
       throw Error("Unauthorized");
@@ -17,8 +17,8 @@ const methods = {
 
   async DELETE(req: NextApiRequest, res: NextApiResponse) {
     const session = await getSession({ req });
-    if (session) {
-      await placesManager.delete(String(req.query.id), session?.user?.email);
+    if (session?.user?.email) {
+      await placesManager.delete(String(req.query.id), session.user.email);
       res.end();
 
       await res.unstable_revalidate("/locais/" + String(req.query.id));

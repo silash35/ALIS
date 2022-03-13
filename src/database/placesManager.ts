@@ -1,5 +1,4 @@
 import { Place } from "@prisma/client";
-import md5 from "md5";
 
 import prisma from "./prisma";
 
@@ -11,7 +10,6 @@ class PlacesManager {
     const places = await prisma.place.findMany({
       where: {
         OR: [
-          { userName: { contains: search, mode: "insensitive" } },
           { name: { contains: search, mode: "insensitive" } },
           { address: { contains: search, mode: "insensitive" } },
           { description: { contains: search, mode: "insensitive" } },
@@ -54,14 +52,12 @@ class PlacesManager {
 
   // Write functions
   async insert(place: Place) {
-    place.key = md5(place.key);
-
     await prisma.$connect();
     await prisma.place.create({ data: parsePlaceCreate(place) });
     await prisma.$disconnect();
   }
 
-  async delete(id: string, userMail?: string | null) {
+  async delete(id: string, userMail?: string) {
     await prisma.$connect();
     const oldPlace = await prisma.place.findUnique({ where: { id: id } });
 
@@ -73,7 +69,7 @@ class PlacesManager {
     await prisma.$disconnect();
   }
 
-  async update(id: string, newPlace: Place, userMail?: string | null) {
+  async update(id: string, newPlace: Place, userMail?: string) {
     await prisma.$connect();
     const oldPlace = await prisma.place.findUnique({ where: { id: id } });
 
@@ -107,12 +103,10 @@ const parsePlaceUpdate = (place: Place) => {
 
 const parsePlaceCreate = (place: Place) => {
   const parsedPlace = {
-    userName: parseString(place.userName),
     userMail: parseString(place.userMail),
     name: parseString(place.name),
     description: parseString(place.description),
     address: parseString(place.address),
-    key: parseString(place.key),
     phone: parseString(place.phone),
     email: parseString(place.email),
     imageURL: parseString(place.imageURL),
