@@ -1,4 +1,4 @@
-import doctor from "../../fixtures/users/doctor.json";
+import { User } from "../types";
 
 declare global {
   namespace Cypress {
@@ -7,7 +7,7 @@ declare global {
        * Custom command to sign in to Alis by UI using passed user
        * @example cy.signIn(user)
        */
-      signInByUI(user: typeof doctor): void;
+      signInByUI(user: User): void;
 
       /**
        * Custom command to sign out to Alis by UI
@@ -19,7 +19,7 @@ declare global {
        * Custom command to sign in to Alis by API using passed user
        * @example cy.signIn(user)
        */
-      signInByAPI(user: typeof doctor): void;
+      signInByAPI(user: User): void;
 
       /**
        * Custom command to sign out to Alis by API

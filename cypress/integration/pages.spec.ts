@@ -1,3 +1,4 @@
+/*
 describe("Load Pages", () => {
   it("should load the Home Page", () => {
     const homePageText = "Bem vindo ao alis";
@@ -35,5 +36,5 @@ describe("Load Pages", () => {
     cy.get("header").should("not.exist");
   });
 });
-
+*/
 export {};

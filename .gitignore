@@ -5,6 +5,9 @@
 /cypress/screenshots
 /cypress/videos
 
+# Typescript
+.tsbuildinfo
+
 # dependencies
 /node_modules
 /.pnp
