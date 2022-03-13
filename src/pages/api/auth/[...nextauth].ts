@@ -1,17 +1,24 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
+import { CredentialsConfig, OAuthConfig } from "next-auth/providers";
+import GoogleProvider, { GoogleProfile } from "next-auth/providers/google";
 
 import variables from "@/styles/variables.module.scss";
 
-export default NextAuth({
-  providers: [
+export default async function auth(req: NextApiRequest, res: NextApiResponse) {
+  const providers: (OAuthConfig<GoogleProfile> | CredentialsConfig)[] = [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
+  ];
+
+  if (process.env.ALLOW_CREDENTIALS === "true") {
     // Only Available for testing and development
-    CredentialsProvider({
+    const CredentialsProvider = await import("next-auth/providers/credentials").then(
+      (module) => module.default
+    );
+    const credentialsProvider = CredentialsProvider({
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text" },
@@ -37,14 +44,19 @@ export default NextAuth({
           return null;
         }
       },
-    }),
-  ],
-  pages: {
-    signIn: "/auth/signIn",
-  },
-  theme: {
-    colorScheme: "auto",
-    brandColor: variables.primary, // Hex color code
-    logo: "/icon.svg", // Absolute URL to image
-  },
-});
+    });
+    providers.push(credentialsProvider);
+  }
+
+  return await NextAuth(req, res, {
+    providers,
+    pages: {
+      signIn: "/auth/signIn",
+    },
+    theme: {
+      colorScheme: "auto",
+      brandColor: variables.primary,
+      logo: "/icon.svg",
+    },
+  });
+}
