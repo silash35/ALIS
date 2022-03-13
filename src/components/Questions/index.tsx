@@ -29,7 +29,7 @@ export default function Questions() {
           mesmo o seu endereço de email estará guardado nos nossos servidores.
         </p>
         <p>
-          Como um extra, você também pode remover completamente o acesso do ALIS a sua conta Google
+          Como um extra, você também pode remover o ALIS dos sites conectadas a sua conta Google
           acessando o{" "}
           <a href="https://myaccount.google.com/permissions" rel="noopener noreferrer">
             Google Accounts

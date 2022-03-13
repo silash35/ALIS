@@ -56,23 +56,20 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
 
         {place.phone && (
           <p>
-            Telefone:
-            <a href={`mailto:${place.phone}`} title={`Phone number of ${place.phone}`}>
-              {place.phone}
-            </a>
+            Telefone: <a href={`tel:${place.phone}`}>{place.phone}</a>
           </p>
         )}
         {place.email && (
           <p>
-            Email:
-            <a href={`mailto:${place.email}`} title={`${place.name}'s e-mail address`}>
+            Email:{" "}
+            <a href={`mailto:${place.email}`} target="_blank" rel="noopener noreferrer">
               {place.email}
             </a>
           </p>
         )}
         {place.website && (
           <p>
-            Site:
+            Site:{" "}
             <a
               href={place.website}
               title={`${place.name}'s website`}
@@ -83,6 +80,13 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
             </a>
           </p>
         )}
+        <p>
+          Algum problema ou sugestão? Entre em contato com o{" "}
+          <a href={`mailto:${place.userMail}`} target="_blank" rel="noopener noreferrer">
+            responsável
+          </a>{" "}
+          por essa página.
+        </p>
       </section>
 
       <section className={styles.buttons}>

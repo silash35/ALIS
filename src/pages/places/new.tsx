@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
-import FormRegistration from "@/components/new/FormRegistration";
+import FormRegistration from "@/components/places/FormRegistration";
 
 const Novo = () => {
   const session = useSession();
