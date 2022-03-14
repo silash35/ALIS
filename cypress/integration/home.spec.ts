@@ -7,12 +7,8 @@ describe("Load Pages", () => {
     cy.get("header").contains("a").click();
     cy.contains(homePageText);
 
-    cy.get("header").contains("Inicio").click();
-    cy.contains(homePageText);
-
-    cy.get("header").contains("Inicio").should("have.attr", "id");
-    cy.get("header").contains("Sobre").should("not.have.attr", "id");
-    cy.get("header").contains("Fazer Login").should("not.have.attr", "id");
+    cy.get("header").contains("Criar Conta");
+    cy.get("header").contains("Fazer Login");
   });
 });
 

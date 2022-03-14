@@ -20,6 +20,10 @@
   display: flex;
   gap: 30px;
 
+  a {
+    color: v.$blue;
+  }
+
   a,
   button,
   p {
@@ -54,8 +58,4 @@
     line-height: 60px;
     transform: translateY(-15px);
   }
-}
-
-#active {
-  color: v.$blue;
 }
