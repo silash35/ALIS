@@ -9,6 +9,7 @@ const methods = {
     const session = await getSession({ req });
     if (session?.user?.email) {
       await placesManager.update(String(req.query.id), req.body.place, session.user.email);
+      res.statusCode = 200;
       res.end();
     } else {
       throw Error("Unauthorized");
@@ -19,6 +20,7 @@ const methods = {
     const session = await getSession({ req });
     if (session?.user?.email) {
       await placesManager.delete(String(req.query.id), session.user.email);
+      res.statusCode = 200;
       res.end();
 
       await res.unstable_revalidate("/locais/" + String(req.query.id));

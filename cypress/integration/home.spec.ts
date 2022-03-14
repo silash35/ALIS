@@ -9,22 +9,7 @@ describe("Home Page", () => {
   });
 
   it("should load", () => {
-    const homePageText = "Bem vindo ao alis";
     cy.contains("Bem vindo ao alis");
-  });
-
-  it("should not be logged", () => {
-    cy.get("header").contains("Criar Conta");
-    cy.get("header").contains("Fazer Login");
-    cy.get("[data-cy=avatar]").should("not.exist");
-  });
-
-  it("should be logged", () => {
-    cy.signIn(users[2]);
-    cy.get("header").contains("Criar Conta").should("not.exist");
-    cy.get("header").contains("Fazer Login").should("not.exist");
-    cy.get("[data-cy=avatar]");
-    cy.signOut();
   });
 
   it("should search", () => {

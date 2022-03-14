@@ -1,4 +1,4 @@
 import "./commands/account";
-import "./commands/placeCRUD";
+import "./commands/place";
 
 export {};
