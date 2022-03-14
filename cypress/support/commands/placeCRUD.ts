@@ -4,34 +4,33 @@ declare global {
   namespace Cypress {
     interface Chainable {
       /**
-       * Custom command to create a place by UI using passed place
-       * @example cy.createPlaceByUI(place)
+       * Custom command to create a place using passed place
+       * @example cy.createPlace(place)
        */
-      createPlaceByUI(place: Place): void;
+      createPlace(place: Place): void;
 
       /**
-       * Custom command to read a place by UI using passed place
-       * @example cy.createPlaceByUI(place)
+       * Custom command to read a place using passed place
+       * @example cy.createPlace(place)
        */
-      readPlaceByUI(place: Place): void;
+      readPlace(place: Place): void;
 
       /**
-       * Custom command to update a place by UI using passed place
-       * @example cy.createPlaceByUI(place)
+       * Custom command to update a place using passed place
+       * @example cy.createPlace(place)
        */
-      updatePlaceByUI(place: Place, newPlace: Place): void;
+      updatePlace(place: Place, newPlace: Place): void;
 
       /**
-       * Custom command to update a place by UI using passed place
-       * @example cy.createPlaceByUI(place)
+       * Custom command to update a place using passed place
+       * @example cy.createPlace(place)
        */
-      deletePlaceByUI(place: Place): void;
+      deletePlace(place: Place): void;
     }
   }
 }
 
-// Using UI
-Cypress.Commands.add("createPlaceByUI", (place) => {
+Cypress.Commands.add("createPlace", (place) => {
   cy.visit("/places/new");
 
   cy.get("input[name=name]").click();
@@ -62,9 +61,9 @@ Cypress.Commands.add("createPlaceByUI", (place) => {
   cy.location("pathname").should("eq", "/");
 });
 
-Cypress.Commands.add("readPlaceByUI", (place) => {
+Cypress.Commands.add("readPlace", (place) => {
   cy.visit("/");
-  cy.intercept("PUT", "/api/places").as("searchPlace");
+  cy.intercept("PUT", "/api/public/places").as("searchPlace");
 
   cy.get("input[type=text]").click();
   cy.get("input[type=text]").type(place.description + "{enter}");
@@ -83,7 +82,7 @@ Cypress.Commands.add("readPlaceByUI", (place) => {
   if (place.imageURL) cy.get(`img[src="${place.imageURL}"]`).should("have.attr", "alt");
 });
 
-Cypress.Commands.add("updatePlaceByUI", (place, newPlace) => {
+Cypress.Commands.add("updatePlace", (place, newPlace) => {
   cy.visit("/");
   cy.intercept("PUT", "/api/places").as("searchPlace");
 
@@ -140,9 +139,9 @@ Cypress.Commands.add("updatePlaceByUI", (place, newPlace) => {
   cy.get("img").should("not.exist");
 });
 
-Cypress.Commands.add("deletePlaceByUI", (place) => {
+Cypress.Commands.add("deletePlace", (place) => {
   cy.visit("/");
-  cy.intercept("PUT", "/api/places").as("searchPlace");
+  cy.intercept("POST", "/api/public/places").as("searchPlace");
 
   cy.get("input[type=text]").click();
   cy.get("input[type=text]").type(place.description);
@@ -150,8 +149,6 @@ Cypress.Commands.add("deletePlaceByUI", (place) => {
 
   cy.wait("@searchPlace");
   cy.contains(place.name).click();
-
-  cy.location("pathname").should("contain", "locais");
 
   cy.get('[data-testid="DeleteIcon"] > path').click();
   cy.contains("Deletar").click();
@@ -163,7 +160,5 @@ Cypress.Commands.add("deletePlaceByUI", (place) => {
   cy.wait("@searchPlace");
   cy.contains(place.name).should("not.exist");
 });
-
-// Using API
 
 export {};

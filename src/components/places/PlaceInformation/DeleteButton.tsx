@@ -22,7 +22,7 @@ const DeletePlaceButton = ({ id }: Props) => {
       headers: { "Content-Type": "application/json" },
     };
 
-    const res = await fetch(`/api/place/${id}`, data);
+    const res = await fetch(`/api/protected/place/${id}`, data);
 
     if (res.status == 200) {
       router.push("/");

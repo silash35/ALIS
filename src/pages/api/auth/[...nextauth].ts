@@ -18,6 +18,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     const CredentialsProvider = await import("next-auth/providers/credentials").then(
       (module) => module.default
     );
+
     const credentialsProvider = CredentialsProvider({
       name: "Credentials",
       credentials: {

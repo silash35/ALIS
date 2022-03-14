@@ -3,7 +3,9 @@
 # cypress
 /cypress/plugins
 /cypress/screenshots
+/cypress/downloads
 /cypress/videos
+
 
 # Typescript
 .tsbuildinfo

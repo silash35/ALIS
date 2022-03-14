@@ -30,7 +30,7 @@ export default function FormLogin({ providers, csrfToken, signUp }: Props) {
           {signUp ? "Continue com o Google" : "Entrar com o Google"}
         </Button>
         {csrfToken && (
-          <form method="post" action="/api/auth/callback/credentials">
+          <form method="post" action="/api/auth/callback/credentials" data-cy="signInForm">
             <h2>Use credentials during development and testing</h2>
             <p>The test users are in the Cypress Fixtures folder </p>
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />

@@ -16,13 +16,13 @@
       "name": "Tester 1",
       "email": "tester1@tester.com",
       "image": "https://picsum.photos/96",
-      "password": "developer1"
+      "password": "tester1"
     },
     {
       "name": "Tester 2",
       "email": "tester2@tester.com",
       "image": "https://picsum.photos/96",
-      "password": "developer2"
+      "password": "tester2"
     }
   ]
 }

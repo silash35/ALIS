@@ -80,7 +80,7 @@ export default function Account() {
       <>
         <button onClick={() => signIn()}>Fazer Login</button>
         <Link href="/auth/signUp">
-          <a>Criar conta</a>
+          <a>Criar Conta</a>
         </Link>
       </>
     );
