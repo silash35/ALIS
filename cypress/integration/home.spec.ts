@@ -2,17 +2,17 @@ import { users } from "../fixtures/users.json";
 import { places } from "../fixtures/places.json";
 
 describe("Home Page", () => {
-  before(() => {
-    cy.signIn(users[2]);
-    cy.createPlace(places[0]);
-    cy.signOut();
-  });
-
   it("should load", () => {
+    cy.visit("/");
     cy.contains("Bem vindo ao alis");
   });
 
   it("should search", () => {
+    cy.signIn(users[2]);
+    cy.createPlace(places[0]);
+    cy.signOut();
+
+    cy.visit("/");
     cy.intercept("POST", "/api/public/places").as("searchPlace");
     cy.get("input[type=text]").click();
     cy.get("input[type=text]").type(places[0].description + "{enter}");
