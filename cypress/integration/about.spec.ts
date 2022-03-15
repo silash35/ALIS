@@ -1,6 +1,6 @@
 describe("About Page", () => {
   it("should load", () => {
-    cy.visit("/");
+    cy.visit("/about");
     cy.contains("O que é o ALIS");
   });
 });
