@@ -2,7 +2,7 @@ import { users } from "../fixtures/users.json";
 import { places } from "../fixtures/places.json";
 
 describe("Profile Page", () => {
-  it("should not load when not logged", () => {
+  it("should redirect when not logged", () => {
     cy.visit("/profile");
     cy.location("pathname").should("equal", "/auth/signIn");
   });
