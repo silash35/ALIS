@@ -5,6 +5,7 @@ on: [push, pull_request]
 jobs:
   Cypress:
     runs-on: ubuntu-latest
+    container: cypress/base:12
     steps:
       - name: Setup repo
         uses: actions/checkout@v3

@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "yarn e2e",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "yarn build && start-test 'yarn start' http://0.0.0.0:3000/ 'yarn cypress'",
