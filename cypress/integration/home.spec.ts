@@ -18,10 +18,6 @@ describe("Home Page", () => {
     cy.get("input[type=text]").type(places[0].description + "{enter}");
     cy.wait("@searchPlace");
     cy.get("h2").first().contains(places[0].name);
-
-    cy.signIn(users[2]);
-    cy.deletePlace(places[0]);
-    cy.signOut();
   });
 
   it("should change Theme", () => {
@@ -34,6 +30,12 @@ describe("Home Page", () => {
     cy.get(".MuiSwitch-input").check();
     cy.get("body").should("have.class", "light");
     cy.get("body").should("not.have.class", "dark");
+  });
+
+  after(() => {
+    cy.signIn(users[2]);
+    cy.deletePlace(places[0]);
+    cy.signOut();
   });
 });
 
