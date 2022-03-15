@@ -18,11 +18,11 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
-      - name: Install Packages
-        run: pnpm install
+          run_install: true
       - name: Cypress.io
         uses: cypress-io/github-action@v2
         with:
+          install: false
           build: pnpm build
           start: pnpm start
           wait-on: "http://localhost:3000"
