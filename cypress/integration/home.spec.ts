@@ -21,6 +21,18 @@ describe("Home Page", () => {
     cy.get("h2").first().contains(places[0].name);
   });
 
+  it("should change Theme", () => {
+    cy.visit("/");
+    cy.get("body").should("have.class", "light");
+    cy.get("body").should("not.have.class", "dark");
+    cy.get(".MuiSwitch-input").uncheck();
+    cy.get("body").should("not.have.class", "light");
+    cy.get("body").should("have.class", "dark");
+    cy.get(".MuiSwitch-input").check();
+    cy.get("body").should("have.class", "light");
+    cy.get("body").should("not.have.class", "dark");
+  });
+
   after(() => {
     cy.signIn(users[2]);
     cy.deletePlace(places[0]);

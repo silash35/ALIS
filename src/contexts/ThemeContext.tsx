@@ -20,28 +20,21 @@ interface Props {
 export const ThemeContextProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<PaletteMode>("light");
 
-  let body: HTMLBodyElement;
-
   const toggleTheme = () => {
     const newTheme = theme == "light" ? "dark" : "light";
 
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    if (body == undefined) {
-      body = document.querySelector("body") as HTMLBodyElement;
-    }
-    body.className = newTheme;
+    document.body.className = newTheme;
   };
 
   useEffect(() => {
-    if (window != undefined) {
-      if (localStorage.getItem("theme") == undefined) {
-        localStorage.setItem("theme", theme);
-      } else {
-        if (localStorage.getItem("theme") != theme) {
-          toggleTheme();
-        }
+    if (localStorage.getItem("theme")) {
+      if (localStorage.getItem("theme") !== theme) {
+        toggleTheme();
       }
+    } else {
+      localStorage.setItem("theme", theme);
     }
   }, []);
 
