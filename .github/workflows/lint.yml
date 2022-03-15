@@ -12,9 +12,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14.x
-      - name: Install Yarn
-        run: npm install -g yarn
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
       - name: Install Packages
-        run: yarn install
+        run: pnpm install
       - name: Run linter
-        run: yarn lint
+        run: pnpm lint
