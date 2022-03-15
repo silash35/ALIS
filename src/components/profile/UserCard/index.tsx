@@ -20,7 +20,11 @@ export default function UserCard({ user }: Props) {
         </p>
       </div>
       <div>
-        <img src={user?.image !== null ? user?.image : undefined} referrerPolicy="no-referrer" />
+        <img
+          src={user?.image !== null ? user?.image : undefined}
+          data-cy="profileImage"
+          referrerPolicy="no-referrer"
+        />
       </div>
     </article>
   );

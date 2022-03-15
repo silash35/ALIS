@@ -26,6 +26,7 @@ export default function FormLogin({ providers, csrfToken, signUp }: Props) {
           size="large"
           startIcon={<GoogleIcon />}
           onClick={() => signIn(google.id)}
+          data-cy="googleButton"
         >
           {signUp ? "Continue com o Google" : "Entrar com o Google"}
         </Button>
