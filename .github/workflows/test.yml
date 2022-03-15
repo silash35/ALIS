@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14.x
       - name: Copy .env file
@@ -18,5 +18,9 @@ jobs:
         run: npm install -g yarn
       - name: Install Packages
         run: yarn install
-      - name: Run Cypress
-        run: yarn e2e:headless
+      - name: Cypress.io
+        uses: cypress-io/github-action@v2
+        with:
+          build: yarn build
+          start: yarn start
+          wait-on: "http://localhost:3000"
