@@ -9,8 +9,8 @@
     "lint": "next lint",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
-    "e2e": "yarn build && start-test 'yarn start' http://0.0.0.0:3000/ 'yarn cypress'",
-    "e2e:headless": "yarn build && start-test 'yarn start' http://0.0.0.0:3000/ 'yarn cypress:headless'"
+    "e2e": "pnpm build && start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress'",
+    "e2e:headless": "pnpm build && start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress:headless'"
   },
   "prisma": {
     "schema": "src/database/schema.prisma"
@@ -31,8 +31,7 @@
     "prisma": "^3.10.0",
     "sass": "^1.49.9",
     "start-server-and-test": "^1.14.0",
-    "typescript": "^4.6.2",
-    "yarn-upgrade-all": "^0.6.1"
+    "typescript": "^4.6.2"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",
