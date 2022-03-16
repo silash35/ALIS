@@ -28,14 +28,16 @@ Cypress.Commands.add("createPlace", (place) => {
 Cypress.Commands.add("deletePlace", (place) => {
   cy.request("/api/public/places").then((response) => {
     const allPlaces: PlaceWithId[] = response.body.body;
-
+    let placeCount = 0;
     allPlaces.forEach((requestPlace) => {
       if (requestPlace.description === place.description) {
+        placeCount++;
         cy.request("DELETE", "/api/protected/place/" + requestPlace.id).then((response) => {
           expect(response.status).equal(200);
         });
       }
     });
+    cy.wrap(placeCount).as("placeCount");
   });
 });
 

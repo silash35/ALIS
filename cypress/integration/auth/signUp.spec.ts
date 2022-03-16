@@ -1,7 +1,7 @@
 import { users } from "../../fixtures/users.json";
 
 describe("Sign Up Page", () => {
-  it("should load", () => {
+  it("should load when not logged", () => {
     cy.visit("/auth/signUp");
     cy.get("[data-cy=googleButton]").contains("Google");
   });
