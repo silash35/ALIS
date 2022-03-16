@@ -57,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       if (session === null) {
         return {
           permanent: false,
-          destination: "/auth/signin",
+          destination: "/auth/signIn",
         };
       } else if (session.user?.email !== data?.userMail) {
         return {

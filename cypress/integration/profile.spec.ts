@@ -17,6 +17,18 @@ describe("Profile Page", () => {
     cy.contains(users[2].email);
     cy.get("[data-cy=profileImage]").should("have.attr", "src", users[2].image);
   });
+
+  it("should load user places", () => {
+    cy.signIn(users[2]);
+
+    cy.createPlace(places[0]);
+    cy.visit("/profile");
+    cy.contains(places[0].name);
+
+    cy.deletePlace(places[0]);
+    cy.visit("/profile");
+    cy.contains(places[0].name).should("not.exist");
+  });
 });
 
 export {};
