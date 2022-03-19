@@ -45,7 +45,7 @@ Cypress.Commands.add("signOut", () => {
   cy.wait("@signOut");
   cy.wait("@session");
 
-  cy.get("header").contains("Criar Conta");
+  cy.contains("Criar Conta");
   cy.get("header").contains("Fazer Login");
   cy.get("[data-cy=avatar]").should("not.exist");
 });
