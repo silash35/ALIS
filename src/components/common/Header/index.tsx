@@ -1,35 +1,20 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useContext } from "react";
 
-import { ThemeContext } from "@/contexts/ThemeContext";
-
+import Account from "./account";
 import styles from "./header.module.scss";
 
 export default function Header() {
-  const { theme } = useContext(ThemeContext);
-  const router = useRouter();
-
   return (
-    <header className={`${styles.header} ${styles[theme]}`}>
+    <header className={styles.header}>
       <nav>
-        <Link as="/" href="/">
-          <a className={styles.logo}>a</a>
-        </Link>
-        <div>
-          <Link as="/" href="/">
-            {router.asPath == "/" ? <a id={styles.active}>Inicio</a> : <a>Inicio</a>}
+        <div className={styles.links}>
+          <Link href="/">
+            <a className={styles.logo}>a</a>
           </Link>
-          <Link as="/sobre" href="/sobre">
-            {router.asPath == "/sobre" ? <a id={styles.active}>Sobre</a> : <a>Sobre</a>}
-          </Link>
-          <Link as="/novo" href="/novo">
-            {router.asPath == "/novo" ? (
-              <a id={styles.active}>Adicionar Local</a>
-            ) : (
-              <a>Adicionar Local</a>
-            )}
-          </Link>
+        </div>
+
+        <div className={styles.links}>
+          <Account />
         </div>
       </nav>
     </header>

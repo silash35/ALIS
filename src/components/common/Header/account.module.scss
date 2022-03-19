@@ -1,0 +1,22 @@
+@use "variables.module" as v;
+@use "borders";
+
+.avatarContainer {
+  display: flex;
+  align-items: center;
+
+  .border {
+    padding: 2px;
+    border: 2px solid transparent;
+
+    border-radius: 50%;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.open {
+      border-color: v.$blue;
+      box-shadow: rgba(0, 112, 243, 15%) 0px 10px 20px 0px;
+    }
+  }
+}

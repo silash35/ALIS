@@ -3,6 +3,7 @@ import "@/styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Router from "next/router";
+import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
 import React from "react";
 
@@ -15,9 +16,7 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-function MyApp(props: AppProps) {
-  const { Component, pageProps } = props;
-
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <>
       <Head>
@@ -38,9 +37,11 @@ function MyApp(props: AppProps) {
           key="twitterDescription"
         />
       </Head>
-      <ThemeContextProvider>
-        <Component {...pageProps} />
-      </ThemeContextProvider>
+      <SessionProvider session={session}>
+        <ThemeContextProvider>
+          <Component {...pageProps} />
+        </ThemeContextProvider>
+      </SessionProvider>
     </>
   );
 }

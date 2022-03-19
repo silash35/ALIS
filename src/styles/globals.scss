@@ -1,3 +1,4 @@
+@use "variables.module" as v;
 @use "nprogress";
 
 html,
@@ -8,18 +9,24 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   min-width: 320px;
+
+  color: v.$black;
 }
 
 #__next {
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
 }
 
 main {
   display: flex;
+  flex: 1;
+
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 // Others
@@ -28,17 +35,11 @@ p {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
-  text-align: center;
 }
 
 a {
-  color: black;
+  color: #222222;
   text-decoration: none;
-}
-
-.corner {
-  align-self: flex-end;
-  width: min-content;
 }
 
 // Dark Theme

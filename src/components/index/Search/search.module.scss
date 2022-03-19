@@ -1,10 +1,13 @@
-@use "variables" as v;
+@use "variables.module" as v;
+@use "borders";
 
 .form {
   margin: auto;
 }
 
 .pesquisa {
+  @extend %borders;
+
   display: flex;
   place-items: center;
 
@@ -30,12 +33,4 @@
     max-width: 70vw;
     height: 30px;
   }
-}
-
-.light {
-  border: 1px solid v.$borderLight;
-}
-
-.dark {
-  border: 1px solid v.$borderDark;
 }

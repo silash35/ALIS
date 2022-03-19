@@ -1,4 +1,4 @@
-@use "variables" as v;
+@use "variables.module" as v;
 
 .title {
   display: flex;
@@ -6,12 +6,12 @@
   align-items: center;
   margin: 100px;
   margin-bottom: 50px;
+  text-align: center;
 
   h1 {
     margin: 0;
     line-height: 1.15;
     font-size: 4rem;
-    text-align: center;
 
     span {
       color: v.$blue;
@@ -23,10 +23,15 @@
   }
 }
 
-.cursiveTitle {
-  @extend .title;
+.cursive {
   h1 {
     font-family: "Pacifico", cursive;
     font-weight: 400;
+  }
+}
+
+.small {
+  h1 {
+    font-size: 3rem;
   }
 }

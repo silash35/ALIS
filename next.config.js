@@ -25,7 +25,7 @@ module.exports = () => {
 
   if (process.env.KEEP_PROPERTIES !== "true") {
     nextConfig.compiler.reactRemoveProperties = {
-      properties: ["^data-test$", "^data-testid$"],
+      properties: ["^data-test$", "^data-testid$", "^data-cy$"],
     };
   }
 

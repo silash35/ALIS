@@ -1,25 +1,33 @@
-import { useContext } from "react";
-
-import { ThemeContext } from "@/contexts/ThemeContext";
+import Link from "next/link";
 
 import styles from "./footer.module.scss";
 import ThemeSwitch from "./ThemeSwitch";
 
 const Footer = () => {
-  const { theme } = useContext(ThemeContext);
-
   return (
-    <footer className={`${styles.footer} ${styles[theme]}`}>
-      <p>
-        Nenhum direito reservado. Mantido por{" "}
-        <a
-          href="https://silash35.github.io/"
-          title="Website of Silas Henrique"
-          rel="noopener noreferrer"
-        >
-          Silas Henrique
-        </a>
-      </p>
+    <footer className={styles.footer}>
+      <div>
+        <p>
+          <Link href="/about">
+            <a>Sobre o ALIS</a>
+          </Link>
+        </p>
+        <p>
+          <Link href="/faq">
+            <a>Perguntas Frequentes</a>
+          </Link>
+        </p>
+        <p>
+          Nenhum direito reservado. Mantido por{" "}
+          <a
+            href="https://silash35.github.io/"
+            title="Website of Silas Henrique"
+            rel="noopener noreferrer"
+          >
+            Silas Henrique
+          </a>
+        </p>
+      </div>
       <ThemeSwitch />
     </footer>
   );

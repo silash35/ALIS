@@ -1,8 +1,8 @@
 import { useState } from "react";
 import useSWR from "swr";
 
+import Cards from "@/components/common/PlaceCards";
 import Title from "@/components/common/Title";
-import Cards from "@/components/index/Cards";
 import Search from "@/components/index/Search";
 
 import TPlaces from "../TPlaces";
@@ -12,7 +12,7 @@ const Main = () => {
   const [searchPlaces, setSearchPlaces] = useState([] as TPlaces);
   const [isSearching, setIsSearching] = useState(false);
 
-  const { data, error } = useSWR("/api/places");
+  const { data, error } = useSWR("/api/public/places");
   const SWRtoTPlaces = (): TPlaces => {
     if (Array.isArray(data?.body)) {
       if (data.body.length > 0) {

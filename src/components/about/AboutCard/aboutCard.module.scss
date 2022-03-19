@@ -1,0 +1,31 @@
+@use "card";
+@use "variables.module" as v;
+
+.card {
+  @extend %card;
+
+  align-self: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: fit-content;
+
+  justify-content: center;
+  align-items: center;
+
+  p {
+    text-align: justify;
+    width: 400px;
+
+    max-width: 80vw;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    svg {
+      color: v.$blue;
+      fill: v.$blue;
+    }
+  }
+}

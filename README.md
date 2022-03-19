@@ -18,11 +18,11 @@ This repository is where the magic occurs and ALIS is developed. Feel free to he
 
 ## Getting Started
 
-If you want to run the ALIS development server on your computer, you will need to have Node and Yarn installed. With everything ready, the first step is to rename the ".env.dev" file to ".env".
+If you want to run the ALIS development server on your computer, you will need to have Node and PNPM installed. With everything ready, the first step is to rename the ".env.dev" file to ".env".
 
 The second step is to run the following commands:
 
-     yarn install
-     yarn dev
+     pnpm install
+     pnpm dev
 
 Finally, go to the indicated URL (Probably [http://localhost:3000](http://localhost:3000)).

@@ -1,0 +1,54 @@
+@use "variables.module" as v;
+
+.image {
+  display: flex;
+  margin: 0;
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+
+  img {
+    width: 100%;
+    height: fit-content;
+    align-self: center;
+
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    height: 300px;
+    border-radius: 0;
+  }
+}
+
+.openImage {
+  animation: openImage 0.5s both;
+  background-color: #000000f3;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  z-index: 1;
+
+  img {
+    place-self: center;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+}
+
+@keyframes openImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
