@@ -1,14 +1,26 @@
 import { users } from "../../fixtures/users.json";
 import { places } from "../../fixtures/places.json";
 import { Place } from "../../support/types";
-import { Place as PlaceWithId } from "@prisma/client";
 
 describe("Place Page", () => {
-  it("should load", () => {
+  beforeEach(() => {
     cy.signIn(users[2]);
     cy.createPlace(places[0]);
     cy.signOut();
     cy.getPlaceId(places[0]);
+  });
+
+  it("should load only when place is valid", () => {
+    cy.visit(`/places/623630453a89ceb2275e1274`, { failOnStatusCode: false });
+    cy.contains("h1", "404");
+    cy.visit(`/places/623630453a89ceb2275e1275`, { failOnStatusCode: false });
+    cy.contains("h1", "404");
+    cy.visit(`/places/623630453a89ceb2275e12755notExist`, { failOnStatusCode: false });
+    cy.contains("h1", "404");
+    cy.visit(`/places/notExist`, { failOnStatusCode: false });
+    cy.contains("h1", "404");
+    cy.visit(`/places/`, { failOnStatusCode: false });
+    cy.contains("h1", "404");
 
     cy.get("@placeId").then((placeID) => {
       cy.visit("/places/" + placeID);
@@ -29,11 +41,6 @@ describe("Place Page", () => {
   });
 
   it("should only load edit buttons when user is the creator of the place", () => {
-    cy.signIn(users[2]);
-    cy.createPlace(places[0]);
-    cy.signOut();
-    cy.getPlaceId(places[0]);
-
     cy.get("@placeId").then((placeID) => {
       cy.visit("/places/" + placeID);
       cy.get("[data-testid=EditIcon]").should("not.exist");
@@ -52,6 +59,20 @@ describe("Place Page", () => {
     });
 
     cy.deletePlace(places[0]);
+  });
+
+  it("should delete place by UI", () => {
+    cy.get("@placeId").then((placeID) => {
+      cy.signIn(users[2]);
+      cy.visit(`/places/${placeID}`);
+      cy.get("[data-testid=DeleteIcon]").click();
+
+      cy.get("button").contains("Deletar").click();
+      cy.location("pathname").should("equal", "/");
+
+      cy.visit(`/places/${placeID}`, { failOnStatusCode: false });
+      cy.contains("h1", "404");
+    });
   });
 });
 
