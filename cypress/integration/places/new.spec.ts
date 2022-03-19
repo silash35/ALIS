@@ -23,13 +23,7 @@ describe("New Place Page", () => {
     createPlaceByUi(places[1]);
 
     cy.deletePlace(places[0]);
-    cy.get("@placeCount").then((placeCount) => {
-      expect(placeCount).equal(1);
-    });
     cy.deletePlace(places[1]);
-    cy.get("@placeCount").then((placeCount) => {
-      expect(placeCount).equal(1);
-    });
   });
 });
 

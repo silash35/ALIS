@@ -8,7 +8,7 @@ describe("Place Page", () => {
     cy.signIn(users[2]);
     cy.createPlace(places[0]);
     cy.signOut();
-    getPlaceId(places[0]);
+    cy.getPlaceId(places[0]);
 
     cy.get("@placeId").then((placeID) => {
       cy.visit("/places/" + placeID);
@@ -24,13 +24,15 @@ describe("Place Page", () => {
         }
       );
     });
+
+    cy.deletePlace(places[1]);
   });
 
   it("should only load edit buttons when user is the creator of the place", () => {
     cy.signIn(users[2]);
     cy.createPlace(places[0]);
     cy.signOut();
-    getPlaceId(places[0]);
+    cy.getPlaceId(places[0]);
 
     cy.get("@placeId").then((placeID) => {
       cy.visit("/places/" + placeID);
@@ -48,12 +50,8 @@ describe("Place Page", () => {
       cy.get("[data-testid=EditIcon]").should("exist");
       cy.get("[data-testid=DeleteIcon]").should("exist");
     });
-  });
 
-  afterEach(() => {
-    cy.signIn(users[2]);
     cy.deletePlace(places[0]);
-    cy.deletePlace(places[1]);
   });
 });
 
@@ -83,15 +81,4 @@ const readPlaceByUi = (place: Place) => {
   } else {
     cy.contains("p", "Site:").should("not.exist");
   }
-};
-
-const getPlaceId = (place: Place) => {
-  cy.request("/api/public/places").then((response) => {
-    const allPlaces: PlaceWithId[] = response.body.body;
-    allPlaces.forEach((requestPlace) => {
-      if (requestPlace.description === place.description) {
-        cy.wrap(requestPlace.id).as("placeId");
-      }
-    });
-  });
 };
