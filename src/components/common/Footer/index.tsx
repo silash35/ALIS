@@ -10,13 +10,23 @@ const Footer = () => {
         <p>
           <Link href="/help/about">
             <a>Sobre o ALIS</a>
-          </Link>
-        </p>
-        <p>
+          </Link>{" "}
+          -{" "}
           <Link href="/help/faq">
             <a>Perguntas Frequentes</a>
           </Link>
         </p>
+
+        <p>
+          <Link href="/help/terms">
+            <a>Termos de Uso</a>
+          </Link>{" "}
+          -{" "}
+          <Link href="/help/privacy">
+            <a>Política de Privacidade</a>
+          </Link>
+        </p>
+
         <p>
           Nenhum direito reservado. Mantido por{" "}
           <a

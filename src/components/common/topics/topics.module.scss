@@ -1,6 +1,6 @@
 @use "variables.module" as v;
 
-.container {
+.topics {
   justify-content: center;
   align-items: center;
 
@@ -12,6 +12,10 @@
   }
   p {
     margin: 16px 0;
+  }
+
+  ol {
+    font-size: inherit;
   }
 
   a {

@@ -1,8 +1,8 @@
-import styles from "./privacy.module.scss";
+import Topics from "@/components/common/topics";
 
 export default function Terms() {
   return (
-    <article className={styles.container}>
+    <Topics>
       <section>
         <h2>Termos</h2>
         <p>
@@ -88,6 +88,6 @@ export default function Terms() {
           localidade.
         </p>
       </section>
-    </article>
+    </Topics>
   );
 }

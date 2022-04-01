@@ -1,8 +1,8 @@
-import styles from "./questions.module.scss";
+import Topics from "@/components/common/topics";
 
 export default function Questions() {
   return (
-    <article className={styles.container}>
+    <Topics>
       <section>
         <h2>Quais dados são coletados?</h2>
         <p>
@@ -80,11 +80,6 @@ export default function Questions() {
           .
         </p>
       </section>
-      <section>
-        <h2>Alguma garantia?</h2>
-        <p>NÃO!</p>
-        <p>O ALIS é disponibilizado gratuitamente e sem nenhuma garantia de nenhum tipo.</p>
-      </section>
-    </article>
+    </Topics>
   );
 }
