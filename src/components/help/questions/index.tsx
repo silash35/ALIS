@@ -1,10 +1,10 @@
-import styles from "./faq.module.scss";
+import styles from "./questions.module.scss";
 
 export default function Questions() {
   return (
     <article className={styles.container}>
       <section>
-        <h2 id="privacyPolicy">Quais dados são coletados?</h2>
+        <h2>Quais dados são coletados?</h2>
         <p>
           Não coletamos nenhum dado dos usuários. Nem ao menos guardamos as informações dos perfis
           em nosso banco de dados. O seu nome, endereço de email e foto do perfil são requisitados
@@ -81,7 +81,7 @@ export default function Questions() {
         </p>
       </section>
       <section>
-        <h2 id="termsOfService">Alguma garantia?</h2>
+        <h2>Alguma garantia?</h2>
         <p>NÃO!</p>
         <p>O ALIS é disponibilizado gratuitamente e sem nenhuma garantia de nenhum tipo.</p>
       </section>

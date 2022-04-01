@@ -1,0 +1,20 @@
+@use "variables.module" as v;
+
+.container {
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px;
+  max-width: 90vw;
+
+  h2 {
+    border-bottom: v.$blue solid 2px;
+  }
+  p {
+    margin: 16px 0;
+  }
+
+  a {
+    color: v.$blue;
+  }
+}

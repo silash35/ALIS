@@ -8,12 +8,12 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div>
         <p>
-          <Link href="/about">
+          <Link href="/help/about">
             <a>Sobre o ALIS</a>
           </Link>
         </p>
         <p>
-          <Link href="/faq">
+          <Link href="/help/faq">
             <a>Perguntas Frequentes</a>
           </Link>
         </p>

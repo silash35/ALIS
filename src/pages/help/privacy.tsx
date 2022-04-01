@@ -3,13 +3,13 @@ import Head from "next/head";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
-import Questions from "@/components/faq";
+import Privacy from "@/components/help/privacy";
 
-const Privacy = () => {
+const PrivacyPage = () => {
   return (
     <>
       <Head>
-        <title>Perguntas frequentes</title>
+        <title>Política de Privacidade</title>
       </Head>
 
       <Header />
@@ -17,16 +17,15 @@ const Privacy = () => {
       <main>
         <Title small>
           <h1>
-            Perguntas <span>frequentes</span>
+            Política de Privacidade do <span>ALIS</span>
           </h1>
-          <p>+ Politicas de privacidade e termos de uso</p>
         </Title>
 
-        <Questions />
+        <Privacy />
       </main>
       <Footer />
     </>
   );
 };
 
-export default Privacy;
+export default PrivacyPage;

@@ -1,32 +1,31 @@
 import Head from "next/head";
 
-import AboutCard from "@/components/about/AboutCard";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
+import Questions from "@/components/help/questions";
 
-const Sobre = () => {
+const Privacy = () => {
   return (
     <>
       <Head>
-        <title>Sobre</title>
+        <title>Perguntas frequentes</title>
       </Head>
 
       <Header />
 
       <main>
-        <Title>
+        <Title small>
           <h1>
-            O que é o <span>ALIS</span>
+            Perguntas <span>frequentes</span>
           </h1>
-          <p>O Agregador de Locais Inclusivos para Surdos</p>
         </Title>
 
-        <AboutCard />
+        <Questions />
       </main>
       <Footer />
     </>
   );
 };
 
-export default Sobre;
+export default Privacy;
