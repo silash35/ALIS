@@ -7,7 +7,7 @@ export default function AboutCard() {
       <p>
         O ALIS é uma plataforma voltada para a comunidade surda a fim de minimizar as dificuldades
         desse público na procura de locais inclusivos. Aqui você pode contribuir registrando um
-        lugar que você foi e tinha uma tecnologia pra facilitar a comunicação com surdos ou
+        lugar que você foi e tinha uma tecnologia pra facilitar a comunicação com surdos ou um
         interprete.
       </p>
       <Love />

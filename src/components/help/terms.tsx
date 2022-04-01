@@ -42,7 +42,7 @@ export default function Terms() {
       <section>
         <h2>Limitações</h2>
         <p>
-          Em nenhum caso o ALIS ou seus fornecedores serão responsáveis por quaisquer danos
+          Em nenhum caso o ALIS ou seus contribuidores serão responsáveis por quaisquer danos
           (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos
           negócios) decorrentes do uso ou da incapacidade de usar os materiais em ALIS, mesmo que
           ALIS ou um representante autorizado da ALIS tenha sido notificado oralmente ou por escrito

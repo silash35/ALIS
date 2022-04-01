@@ -27,8 +27,8 @@ export default function Privacy() {
           autorizados.
         </p>
         <p>
-          Não compartilhamos informações de identificação pessoal publicamente ou com terceiros,
-          exceto quando exigido por lei.
+          Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, com
+          exceção do endereço de E-mail de usuários que possuem locais publicados na plataforma.
         </p>
         <p>
           O nosso site pode ter links para sites externos que não são operados por nós. Esteja
@@ -73,14 +73,13 @@ export default function Privacy() {
               pública;
             </li>
             <li>
-              Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, Onde dá a Bola ou
-              azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os
-              direitos humanos;
+              Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, pornográfica, de
+              apologia ao terrorismo ou contra os direitos humanos;
             </li>
             <li>
               Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do ALIS, de
               seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou
-              quaisquer outros sistemas de hardware ou software que sejam capazes de causar danos
+              quaisquer outros sistemas de hardware ou software que sejam capazes de causar os danos
               anteriormente mencionados.
             </li>
           </ol>
