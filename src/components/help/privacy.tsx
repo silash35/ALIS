@@ -66,24 +66,23 @@ export default function Privacy() {
           O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o ALIS
           oferece no site e com caráter enunciativo, mas não limitativo:
         </p>
-        <p>
-          <ol>
-            <li>
-              Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem
-              pública;
-            </li>
-            <li>
-              Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, pornográfica, de
-              apologia ao terrorismo ou contra os direitos humanos;
-            </li>
-            <li>
-              Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do ALIS, de
-              seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou
-              quaisquer outros sistemas de hardware ou software que sejam capazes de causar os danos
-              anteriormente mencionados.
-            </li>
-          </ol>
-        </p>
+
+        <ol>
+          <li>
+            Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem
+            pública;
+          </li>
+          <li>
+            Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, pornográfica, de
+            apologia ao terrorismo ou contra os direitos humanos;
+          </li>
+          <li>
+            Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do ALIS, de seus
+            fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer
+            outros sistemas de hardware ou software que sejam capazes de causar os danos
+            anteriormente mencionados.
+          </li>
+        </ol>
       </section>
     </Topics>
   );
