@@ -4,7 +4,7 @@ import { SWRConfig } from "swr";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-import Main from "@/components/index/main";
+import Main from "@/components/index/Main";
 import placesManager from "@/database/placesManager";
 
 const Home = ({ fallback }: InferGetStaticPropsType<typeof getStaticProps>) => {

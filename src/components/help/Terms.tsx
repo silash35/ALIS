@@ -1,4 +1,4 @@
-import Topics from "@/components/common/topics";
+import Topics from "@/components/common/Topics";
 
 export default function Terms() {
   return (

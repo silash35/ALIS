@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Account from "./account";
+import Account from "./Account";
 import styles from "./header.module.scss";
 
 export default function Header() {

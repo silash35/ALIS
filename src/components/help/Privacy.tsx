@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Topics from "@/components/common/topics";
+import Topics from "@/components/common/Topics";
 
 export default function Privacy() {
   return (
