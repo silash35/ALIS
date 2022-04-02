@@ -1,6 +1,7 @@
-import GoogleIcon from "@mui/icons-material/Google";
 import Button from "@mui/material/Button";
 import { signIn } from "next-auth/react";
+
+import GoogleIcon from "@/components/common/icons/Google";
 
 import styles from "./formLogin.module.scss";
 
@@ -28,7 +29,7 @@ export default function FormLogin({ providers, csrfToken, signUp }: Props) {
           onClick={() => signIn(google.id)}
           data-cy="googleButton"
         >
-          {signUp ? "Continue com o Google" : "Entrar com o Google"}
+          {signUp ? "Inscrever-se com o Google" : "Fazer login com o Google"}
         </Button>
         {csrfToken && (
           <form method="post" action="/api/auth/callback/credentials" data-cy="signInForm">
