@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 
-import PlaceInputs from "@/components/places/placeInputs";
+import PlaceInputs from "@/components/places/PlaceInputs";
 
 import styles from "./formRegistration.module.scss";
 

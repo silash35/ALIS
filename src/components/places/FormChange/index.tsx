@@ -5,7 +5,7 @@ import { FormEvent, useRef } from "react";
 import { useState } from "react";
 
 import Dialog from "@/components/common/Dialog";
-import PlaceInputs from "@/components/places/placeInputs";
+import PlaceInputs from "@/components/places/PlaceInputs";
 
 import styles from "./formChange.module.scss";
 
