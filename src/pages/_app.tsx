@@ -5,7 +5,6 @@ import Head from "next/head";
 import Router from "next/router";
 import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
-import React from "react";
 
 import { ThemeContextProvider } from "@/contexts/ThemeContext";
 

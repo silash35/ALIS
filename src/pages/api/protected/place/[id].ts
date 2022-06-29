@@ -23,7 +23,7 @@ const methods = {
       res.statusCode = 200;
       res.end();
 
-      await res.unstable_revalidate("/locais/" + String(req.query.id));
+      await res.revalidate("/locais/" + String(req.query.id));
     } else {
       throw Error("Unauthorized");
     }
