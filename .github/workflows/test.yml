@@ -19,10 +19,11 @@ jobs:
         with:
           version: latest
           run_install: true
+      - name: Build
+        run: pnpm build
       - name: Cypress.io
         uses: cypress-io/github-action@v4
         with:
           install: false
-          build: pnpm build
           start: pnpm start
           wait-on: "http://localhost:3000"
