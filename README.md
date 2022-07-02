@@ -6,7 +6,7 @@ ALIS Website official repository
 
   <img src="https://img.shields.io/github/license/silash35/ALIS">
   <img src="https://vercelbadge.vercel.app/api/silash35/ALIS">
-  <img src="https://img.shields.io/david/silash35/ALIS">
+  <img src="https://github.com/silash35/ALIS/actions/workflows/test.yml/badge.svg">
 
 </p>
 
