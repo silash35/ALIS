@@ -6,6 +6,7 @@ specifiers:
   '@mui/icons-material': ^5.8.4
   '@mui/material': ^5.8.6
   '@prisma/client': ^4.0.0
+  '@swc/helpers': ^0.4.3
   '@types/node': ^18.0.0
   '@types/nprogress': ^0.2.0
   '@types/react': ^18.0.14
@@ -29,6 +30,7 @@ dependencies:
   '@mui/icons-material': 5.8.4_exkh4ozixmqjuepcuko77h7fiq
   '@mui/material': 5.8.6_h2u6a3oivtyocvjxeke7xcvlfa
   '@prisma/client': 4.0.0_prisma@4.0.0
+  '@swc/helpers': 0.4.3
   next: 12.2.0_b7sksnfkdyiidz7vzaadim75qm
   next-auth: 4.8.0_biqbaboplfbrettd7655fr4n2y
   next-pwa: 5.5.4_next@12.2.0
@@ -1879,6 +1881,12 @@ packages:
 
   /@swc/helpers/0.4.2:
     resolution: {integrity: sha512-556Az0VX7WR6UdoTn4htt/l3zPQ7bsQWK+HqdG4swV7beUCxo/BqmvbOpUkTIm/9ih86LIf1qsUnywNL3obGHw==}
+    dependencies:
+      tslib: 2.4.0
+    dev: false
+
+  /@swc/helpers/0.4.3:
+    resolution: {integrity: sha512-6JrF+fdUK2zbGpJIlN7G3v966PQjyx/dPt1T9km2wj+EUBqgrxCk3uX4Kct16MIm9gGxfKRcfax2hVf5jvlTzA==}
     dependencies:
       tslib: 2.4.0
     dev: false

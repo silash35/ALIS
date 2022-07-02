@@ -32,6 +32,7 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.6",
     "@prisma/client": "^4.0.0",
+    "@swc/helpers": "^0.4.3",
     "next": "^12.2.0",
     "next-auth": "^4.8.0",
     "next-pwa": "^5.5.4",
