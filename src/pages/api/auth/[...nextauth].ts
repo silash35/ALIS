@@ -1,17 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import NextAuth from "next-auth";
-import { CredentialsConfig, OAuthConfig } from "next-auth/providers";
-import GoogleProvider, { GoogleProfile } from "next-auth/providers/google";
+import type { Provider } from "next-auth/providers";
+import GoogleProvider from "next-auth/providers/google";
 
 import variables from "@/styles/variables.module.scss";
 
 export default async function auth(req: NextApiRequest, res: NextApiResponse) {
-  const providers: (OAuthConfig<GoogleProfile> | CredentialsConfig)[] = [
+  const providers = [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
-  ];
+  ] as Provider[];
 
   if (process.env.ALLOW_CREDENTIALS === "true") {
     // Only Available for testing and development
