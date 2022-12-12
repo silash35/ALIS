@@ -15,9 +15,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
 
   if (process.env.ALLOW_CREDENTIALS === "true") {
     // Only Available for testing and development
-    const CredentialsProvider = await import("next-auth/providers/credentials").then(
-      (module) => module.default
-    );
+    const CredentialsProvider = (await import("next-auth/providers/credentials")).default;
 
     const credentialsProvider = CredentialsProvider({
       name: "Credentials",
@@ -30,9 +28,8 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
           return null;
         }
 
-        const users = await import("../../../../cypress/fixtures/users.json").then(
-          (module) => module.users
-        );
+        const { users } = await import("../../../../cypress/fixtures/users.json");
+
         const user = users.find((user) => {
           if (credentials?.username === user.name && credentials?.password === user.password) {
             return user;

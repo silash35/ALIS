@@ -29,13 +29,7 @@ module.exports = () => {
     };
   }
 
-  if (process.env.NODE_ENV !== "development") {
-    nextConfig.pwa = {
-      dest: "public",
-    };
-
-    nextConfig = withPWA(nextConfig);
-  }
+  nextConfig = withPWA(nextConfig);
 
   return nextConfig;
 };
