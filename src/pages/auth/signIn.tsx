@@ -19,7 +19,7 @@ export default function SignIn(props: InferGetServerSidePropsType<typeof getServ
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let csrfToken = null;
   if (process.env.ALLOW_CREDENTIALS === "true") {
-    const getCsrfToken = await import("next-auth/react").then((module) => module.getCsrfToken);
+    const { getCsrfToken } = await import("next-auth/react");
     csrfToken = await getCsrfToken(context);
   }
 
