@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-env node */
-const withPWA = require("next-pwa");
+const withPWA = require("next-pwa")({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+});
 const path = require("path");
 
 module.exports = () => {
@@ -10,10 +13,6 @@ module.exports = () => {
 
   let nextConfig = {
     reactStrictMode: true,
-    pwa: {
-      dest: "public",
-      disable: process.env.NODE_ENV === "development",
-    },
     sassOptions: {
       includePaths: [path.join(__dirname, "src/styles")],
     },

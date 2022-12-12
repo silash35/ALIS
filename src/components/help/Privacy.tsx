@@ -9,11 +9,8 @@ export default function Privacy() {
         <h2>Política Privacidade</h2>
         <p>
           A sua privacidade é importante para nós. É política do ALIS respeitar a sua privacidade em
-          relação a qualquer informação sua que possamos coletar no site{" "}
-          <Link href="/">
-            <a>ALIS</a>
-          </Link>
-          , e outros sites que possuímos e operamos.
+          relação a qualquer informação sua que possamos coletar no site <Link href="/">ALIS</Link>,
+          e outros sites que possuímos e operamos.
         </p>
         <p>
           Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe

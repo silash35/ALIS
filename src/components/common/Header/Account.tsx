@@ -47,24 +47,20 @@ export default function Account() {
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
           <Link href="/profile">
-            <a>
-              <MenuItem>
-                <ListItemIcon>
-                  <PersonIcon fontSize="small" />
-                </ListItemIcon>
-                Meu perfil
-              </MenuItem>
-            </a>
+            <MenuItem>
+              <ListItemIcon>
+                <PersonIcon fontSize="small" />
+              </ListItemIcon>
+              Meu perfil
+            </MenuItem>
           </Link>
           <Link href="/places/new">
-            <a>
-              <MenuItem>
-                <ListItemIcon>
-                  <AddIcon fontSize="small" />
-                </ListItemIcon>
-                Criar novo Local
-              </MenuItem>
-            </a>
+            <MenuItem>
+              <ListItemIcon>
+                <AddIcon fontSize="small" />
+              </ListItemIcon>
+              Criar novo Local
+            </MenuItem>
           </Link>
           <MenuItem data-cy="signOut" onClick={() => signOut()}>
             <ListItemIcon>
@@ -79,9 +75,7 @@ export default function Account() {
     return (
       <>
         <button onClick={() => signIn()}>Fazer Login</button>
-        <Link href="/auth/signUp">
-          <a>Criar Conta</a>
-        </Link>
+        <Link href="/auth/signUp">Criar Conta</Link>
       </>
     );
   }

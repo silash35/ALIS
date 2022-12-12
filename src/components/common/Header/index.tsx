@@ -8,8 +8,8 @@ export default function Header() {
     <header className={styles.header}>
       <nav>
         <div className={styles.links}>
-          <Link href="/">
-            <a className={styles.logo}>a</a>
+          <Link href="/" className={styles.logo}>
+            a
           </Link>
         </div>
 

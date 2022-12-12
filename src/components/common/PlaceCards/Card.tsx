@@ -12,21 +12,19 @@ interface Props {
 export default function Card({ place }: Props) {
   return (
     <Link href={`/places/${place.id}`}>
-      <a>
-        <article
-          className={styles.card}
-          style={{
-            backgroundImage: `url(${place.imageURL}), url(/images/empty.png)`,
-          }}
-        >
-          <div className={styles.content}>
-            <h2>{place.name}</h2>
-            <IconButton aria-label="Discover the place">
-              <Explore fontSize="large" />
-            </IconButton>
-          </div>
-        </article>
-      </a>
+      <article
+        className={styles.card}
+        style={{
+          backgroundImage: `url(${place.imageURL}), url(/images/empty.png)`,
+        }}
+      >
+        <div className={styles.content}>
+          <h2>{place.name}</h2>
+          <IconButton aria-label="Discover the place">
+            <Explore fontSize="large" />
+          </IconButton>
+        </div>
+      </article>
     </Link>
   );
 }
