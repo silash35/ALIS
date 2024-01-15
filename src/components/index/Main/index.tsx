@@ -5,6 +5,7 @@ import Cards from "@/components/common/PlaceCards";
 import Title from "@/components/common/Title";
 import Search from "@/components/index/Search";
 
+import DeprecationWarning from "../DeprecationWarning";
 import TPlaces from "../TPlaces";
 import styles from "./main.module.scss";
 
@@ -40,6 +41,8 @@ const Main = () => {
       <Search setIsSearching={setIsSearching} setSearchPlaces={setSearchPlaces} />
 
       <Cards places={isSearching ? searchPlaces : allPlaces} />
+
+      <DeprecationWarning />
     </main>
   );
 };
