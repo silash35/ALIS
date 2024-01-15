@@ -30,16 +30,16 @@ const ConfirmationDialog = (props: Props) => {
   };
 
   return (
-    <Dialog open={props.open} onClose={props.handleClose} aria-labelledby={props.id}>
+    <Dialog aria-labelledby={props.id} onClose={props.handleClose} open={props.open}>
       <DialogTitle id={props.id}>{props.title}</DialogTitle>
       <DialogContent>
         <DialogContentText>{props.text}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.handleClose} color="primary">
+        <Button color="primary" onClick={props.handleClose}>
           cancelar
         </Button>
-        <Button variant="outlined" color="primary" onClick={handleConfirmation}>
+        <Button color="primary" onClick={handleConfirmation} variant="outlined">
           {props.YesButtonText}
         </Button>
       </DialogActions>

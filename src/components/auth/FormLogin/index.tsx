@@ -15,7 +15,7 @@ interface Props {
   signUp?: boolean;
 }
 
-export default function FormLogin({ providers, csrfToken, signUp }: Props) {
+const FormLogin = ({ providers, csrfToken, signUp }: Props) => {
   const { google } = providers;
 
   return (
@@ -23,19 +23,19 @@ export default function FormLogin({ providers, csrfToken, signUp }: Props) {
       <article className={styles.card}>
         <h1 className={styles.title}>alis</h1>
         <Button
-          variant="contained"
+          data-cy="googleButton"
+          onClick={() => signIn(google.id)}
           size="large"
           startIcon={<GoogleIcon />}
-          onClick={() => signIn(google.id)}
-          data-cy="googleButton"
+          variant="contained"
         >
           {signUp ? "Inscrever-se com o Google" : "Fazer login com o Google"}
         </Button>
         {csrfToken && (
-          <form method="post" action="/api/auth/callback/credentials" data-cy="signInForm">
+          <form action="/api/auth/callback/credentials" data-cy="signInForm" method="post">
             <h2>Use credentials during development and testing</h2>
             <p>The test users are in the Cypress Fixtures folder </p>
-            <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+            <input defaultValue={csrfToken} name="csrfToken" type="hidden" />
             <label>
               Username
               <input name="username" type="text" />
@@ -50,4 +50,6 @@ export default function FormLogin({ providers, csrfToken, signUp }: Props) {
       </article>
     </main>
   );
-}
+};
+
+export default FormLogin;

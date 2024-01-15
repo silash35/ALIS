@@ -37,7 +37,7 @@ const Main = () => {
         <p>O Agregador de Locais Inclusivos para Surdos</p>
       </Title>
 
-      <Search setSearchPlaces={setSearchPlaces} setIsSearching={setIsSearching} />
+      <Search setIsSearching={setIsSearching} setSearchPlaces={setSearchPlaces} />
 
       <Cards places={isSearching ? searchPlaces : allPlaces} />
     </main>

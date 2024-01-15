@@ -15,34 +15,32 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-  return (
-    <>
-      <Head>
-        {/* Viewport meta tag should not be used in _document.tsx. That's why it's in this file */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => (
+  <>
+    <Head>
+      {/* Viewport meta tag should not be used in _document.tsx. That's why it's in this file */}
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-        {/* These meta tags need to be here for the key attribute to work properly */}
-        <meta property="og:title" content="ALIS" key="ogTitle" />
-        <meta name="twitter:title" content="ALIS" key="twitterTitle" />
-        <meta
-          property="og:description"
-          content="O Agregador de Locais Inclusivos para Surdos"
-          key="ogDescription"
-        />
-        <meta
-          name="twitter:description"
-          content="O Agregador de Locais Inclusivos para Surdos"
-          key="twitterDescription"
-        />
-      </Head>
-      <SessionProvider session={session}>
-        <ThemeContextProvider>
-          <Component {...pageProps} />
-        </ThemeContextProvider>
-      </SessionProvider>
-    </>
-  );
-}
+      {/* These meta tags need to be here for the key attribute to work properly */}
+      <meta content="ALIS" key="ogTitle" property="og:title" />
+      <meta content="ALIS" key="twitterTitle" name="twitter:title" />
+      <meta
+        content="O Agregador de Locais Inclusivos para Surdos"
+        key="ogDescription"
+        property="og:description"
+      />
+      <meta
+        content="O Agregador de Locais Inclusivos para Surdos"
+        key="twitterDescription"
+        name="twitter:description"
+      />
+    </Head>
+    <SessionProvider session={session}>
+      <ThemeContextProvider>
+        <Component {...pageProps} />
+      </ThemeContextProvider>
+    </SessionProvider>
+  </>
+);
 
 export default MyApp;

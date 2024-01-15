@@ -15,7 +15,7 @@ interface Props {
   setPlaceExists(placeExists: boolean): void;
 }
 
-export default function PlaceInformation({ id, setPlaceExists }: Props) {
+const PlaceInformation = ({ id, setPlaceExists }: Props) => {
   const [allowEdit, setAllowEdit] = useState(false);
   const { data } = useSWR("/api/public/place/" + id);
   const place = data?.body as Place;
@@ -44,7 +44,7 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
 
   return (
     <article className={styles.container}>
-      {place.imageURL && <PlaceImage src={place.imageURL} name={place.name} />}
+      {place.imageURL && <PlaceImage name={place.name} src={place.imageURL} />}
 
       <div className={styles.title}>
         <h1>{place.name}</h1>
@@ -62,7 +62,7 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
         {place.email && (
           <p>
             Email:{" "}
-            <a href={`mailto:${place.email}`} target="_blank" rel="noopener noreferrer">
+            <a href={`mailto:${place.email}`} rel="noopener noreferrer" target="_blank">
               {place.email}
             </a>
           </p>
@@ -72,9 +72,9 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
             Site:{" "}
             <a
               href={place.website}
-              title={`${place.name}'s website`}
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
+              title={`${place.name}'s website`}
             >
               {place.website}
             </a>
@@ -82,7 +82,7 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
         )}
         <p>
           Algum problema ou sugestão? Entre em contato com o{" "}
-          <a href={`mailto:${place.userMail}`} target="_blank" rel="noopener noreferrer">
+          <a href={`mailto:${place.userMail}`} rel="noopener noreferrer" target="_blank">
             responsável
           </a>{" "}
           por essa página.
@@ -100,4 +100,6 @@ export default function PlaceInformation({ id, setPlaceExists }: Props) {
       </section>
     </article>
   );
-}
+};
+
+export default PlaceInformation;

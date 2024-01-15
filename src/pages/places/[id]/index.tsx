@@ -22,10 +22,10 @@ const PlacePage = ({ place, id }: InferGetStaticPropsType<typeof getStaticProps>
       <Head>
         <title>{place.name}</title>
 
-        <meta property="og:title" content={place.name} key="ogTitle" />
-        <meta name="twitter:title" content={place.name} key="twitterTitle" />
-        <meta property="og:description" content={place.description} key="ogDescription" />
-        <meta name="twitter:description" content={place.description} key="twitterDescription" />
+        <meta content={place.name} key="ogTitle" property="og:title" />
+        <meta content={place.name} key="twitterTitle" name="twitter:title" />
+        <meta content={place.description} key="ogDescription" property="og:description" />
+        <meta content={place.description} key="twitterDescription" name="twitter:description" />
       </Head>
 
       <Header />

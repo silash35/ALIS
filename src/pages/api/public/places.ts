@@ -12,7 +12,7 @@ const methods = {
     res.end(
       JSON.stringify({
         body: places,
-      })
+      }),
     );
   },
 
@@ -24,7 +24,7 @@ const methods = {
     res.end(
       JSON.stringify({
         body: places,
-      })
+      }),
     );
   },
 };

@@ -9,15 +9,13 @@ interface CardsContainerProps {
   places: Place[];
 }
 
-const CardsContainer = ({ places }: CardsContainerProps) => {
-  return (
-    <section className={styles.container}>
-      {places.map((place) => {
-        return <Card place={place} key={place.id}></Card>;
-      })}
-    </section>
-  );
-};
+const CardsContainer = ({ places }: CardsContainerProps) => (
+  <section className={styles.container}>
+    {places.map((place) => {
+      return <Card key={place.id} place={place}></Card>;
+    })}
+  </section>
+);
 
 interface CardsProps {
   places: TPlaces;

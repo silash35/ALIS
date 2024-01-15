@@ -10,7 +10,7 @@ interface Props {
   setIsSearching(isSearching: boolean): void;
 }
 
-export default function SearchBar({ setSearchPlaces, setIsSearching }: Props) {
+const SearchBar = ({ setSearchPlaces, setIsSearching }: Props) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = async (event: SyntheticEvent<HTMLFormElement>) => {
@@ -42,13 +42,15 @@ export default function SearchBar({ setSearchPlaces, setIsSearching }: Props) {
   };
 
   return (
-    <form onSubmit={handleSearch} className={styles.form}>
+    <form className={styles.form} onSubmit={handleSearch}>
       <label className={styles.pesquisa}>
-        <input type="text" ref={searchInputRef}></input>
+        <input ref={searchInputRef} type="text"></input>
         <IconButton aria-label="pesquisar" type="submit">
           <SearchIcon />
         </IconButton>
       </label>
     </form>
   );
-}
+};
+
+export default SearchBar;

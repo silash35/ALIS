@@ -20,7 +20,7 @@ const methods = {
     res.end(
       JSON.stringify({
         body: places,
-      })
+      }),
     );
   },
 

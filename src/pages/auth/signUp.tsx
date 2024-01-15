@@ -4,17 +4,17 @@ import { getProviders, getSession } from "next-auth/react";
 
 import FormLogin from "@/components/auth/FormLogin";
 
-export default function SignUp(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  return (
-    <>
-      <Head>
-        <title>Criar Conta</title>
-      </Head>
+const SignUp = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => (
+  <>
+    <Head>
+      <title>Criar Conta</title>
+    </Head>
 
-      <FormLogin providers={props.providers} csrfToken={props.csrfToken} signUp />
-    </>
-  );
-}
+    <FormLogin csrfToken={props.csrfToken} providers={props.providers} signUp />
+  </>
+);
+
+export default SignUp;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let csrfToken = null;

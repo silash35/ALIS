@@ -5,27 +5,25 @@ import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
 import Terms from "@/components/help/Terms";
 
-const TermsPage = () => {
-  return (
-    <>
-      <Head>
-        <title>Termos de Uso</title>
-      </Head>
+const TermsPage = () => (
+  <>
+    <Head>
+      <title>Termos de Uso</title>
+    </Head>
 
-      <Header />
+    <Header />
 
-      <main>
-        <Title small>
-          <h1>
-            Termos de uso do <span>ALIS</span>
-          </h1>
-        </Title>
+    <main>
+      <Title small>
+        <h1>
+          Termos de uso do <span>ALIS</span>
+        </h1>
+      </Title>
 
-        <Terms />
-      </main>
-      <Footer />
-    </>
-  );
-};
+      <Terms />
+    </main>
+    <Footer />
+  </>
+);
 
 export default TermsPage;

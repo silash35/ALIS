@@ -9,7 +9,7 @@ import Cards from "@/components/common/PlaceCards";
 import TPlaces from "@/components/index/TPlaces";
 import UserCard from "@/components/profile/UserCard";
 
-export default function Profile() {
+const Profile = () => {
   const [userPlaces, serUserPlaces] = useState("Loading" as TPlaces);
   const session = useSession();
 
@@ -60,4 +60,6 @@ export default function Profile() {
       <Footer />
     </>
   );
-}
+};
+
+export default Profile;
