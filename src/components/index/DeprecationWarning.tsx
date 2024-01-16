@@ -26,14 +26,19 @@ const DeprecationWarning = () => {
       <DialogTitle id={titleId}>Até mais, e Obrigado pelos Peixes!</DialogTitle>
       <DialogContent>
         <DialogContentText id={descriptionId}>
-          Muita coisa mudou desde que o ALIS foi criado. Hoje, não consigo mais dedicar tempo ao
-          projeto. O site continuará funcionando, mas lamentamos informar que não haverá mais
-          atualizações ou novos recursos. Agradeço a compreensão e o apoio de todos que utilizaram o
-          ALIS.
+          É com pesar que informo sobre a descontinuação do ALIS. Hoje, não consigo mais dedicar
+          tempo ao projeto e decidi encerrar o seu suporte e desenvolvimento. O site irá continuar
+          no ar, mas não receberá mais atualizações, correções de bugs ou novos recursos. Agradeço a
+          compreensão e o apoio de todos que utilizaram o ALIS.
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} sx={{ margin: "16px" }} variant="outlined" autoFocus>
+        <Button
+          onClick={handleClose}
+          sx={{ margin: "8px", marginTop: 0 }}
+          variant="outlined"
+          autoFocus
+        >
           Entendi
         </Button>
       </DialogActions>

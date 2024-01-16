@@ -1,6 +1,7 @@
 import { Place } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 import placesManager from "@/database/placesManager";
 import apiFactory from "@/utils/apiFactory";
@@ -8,7 +9,7 @@ import apiFactory from "@/utils/apiFactory";
 const methods = {
   async GET(req: NextApiRequest, res: NextApiResponse) {
     res.setHeader("Content-Type", "application/json");
-    const session = await getSession({ req });
+    const session = await getServerSession(req, res, authOptions);
     let places: Place[];
     if (session?.user?.email) {
       places = await placesManager.findByUser(session.user.email);
@@ -25,7 +26,7 @@ const methods = {
   },
 
   async POST(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req });
+    const session = await getServerSession(req, res, authOptions);
     if (session) {
       const place = req.body;
       place.userMail = session.user?.email;

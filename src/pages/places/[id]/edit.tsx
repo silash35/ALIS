@@ -1,7 +1,8 @@
 import { Place } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
@@ -39,7 +40,7 @@ const PlacePage = ({ place }: Props) => (
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await getSession(context);
+  const session = await getServerSession(context.req, context.res, authOptions);
   let data: Place | null = null;
 
   try {

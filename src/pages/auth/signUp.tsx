@@ -1,6 +1,8 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import { getProviders, getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { getProviders } from "next-auth/react";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 import FormLogin from "@/components/auth/FormLogin";
 
@@ -23,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     csrfToken = await getCsrfToken(context);
   }
 
-  const session = await getSession(context);
+  const session = await getServerSession(context.req, context.res, authOptions);
   let redirect = undefined;
   if (session) {
     redirect = {
