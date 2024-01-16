@@ -13,6 +13,7 @@ describe("Sign In Page", () => {
     cy.visit("/auth/signIn");
     cy.get("[data-cy=googleButton]").should("not.exist");
     cy.location("pathname").should("equal", "/");
+    cy.get("button").contains("Entendi").click();
   });
 });
 

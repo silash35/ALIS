@@ -9,4 +9,5 @@ interface User {
   image: string;
   password: string;
 }
+
 export type { User };

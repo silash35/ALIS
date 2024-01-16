@@ -33,7 +33,7 @@ describe("Place Page", () => {
 
           cy.visit("/places/" + placeID);
           readPlaceByUi(places[1]);
-        }
+        },
       );
     });
 
@@ -69,6 +69,7 @@ describe("Place Page", () => {
 
       cy.get("button").contains("Deletar").click();
       cy.location("pathname").should("equal", "/");
+      cy.get("button").contains("Entendi").click();
 
       cy.visit(`/places/${placeID}`, { failOnStatusCode: false });
       cy.contains("h1", "404");

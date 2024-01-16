@@ -12,10 +12,10 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open",
+    "cypress:open": "cypress open",
     "cypress:headless": "cypress run",
-    "e2e": "pnpm build && start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress'",
-    "e2e:headless": "pnpm build && start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress:headless'"
+    "e2e": "start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress:open'",
+    "e2e:headless": "start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress:headless'"
   },
   "prisma": {
     "schema": "src/database/schema.prisma"

@@ -13,7 +13,9 @@ const Card = ({ place }: Props) => (
   <Link href={`/places/${place.id}`}>
     <article
       style={{
-        backgroundImage: `url(${place.imageURL}), url(/images/empty.png)`,
+        backgroundImage: place.imageURL
+          ? `url(${place.imageURL}), url(/images/empty.png)`
+          : "url(/images/empty.png)",
       }}
       className={styles.card}
     >
