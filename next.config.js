@@ -6,11 +6,6 @@ const __dirname = path.dirname(__filename);
 
 import WithPWA from "next-pwa";
 
-const withPWA = WithPWA({
-  dest: "public",
-  disable: process.env.NODE_ENV === "development",
-});
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -33,7 +28,10 @@ export default () => {
     };
   }
 
-  nextConfig = withPWA(nextConfig);
+  const withPWA = WithPWA({
+    dest: "public",
+    disable: process.env.NODE_ENV === "development" || process.env.KEEP_PROPERTIES === "true",
+  });
 
-  return nextConfig;
+  return withPWA(nextConfig);
 };

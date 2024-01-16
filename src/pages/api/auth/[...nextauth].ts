@@ -5,6 +5,8 @@ import GoogleProvider from "next-auth/providers/google";
 
 import variables from "@/styles/variables.module.scss";
 
+import { users } from "../../../../cypress/fixtures/users.json";
+
 const providers = [
   GoogleProvider({
     clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -24,8 +26,6 @@ if (process.env.ALLOW_CREDENTIALS === "true") {
       if (process.env.ALLOW_CREDENTIALS !== "true") {
         return null;
       }
-
-      const { users } = await import("../../../../cypress/fixtures/users.json");
 
       const user = users.find((user) => {
         if (credentials?.username === user.name && credentials?.password === user.password) {
