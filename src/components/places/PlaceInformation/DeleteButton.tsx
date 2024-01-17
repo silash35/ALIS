@@ -37,13 +37,13 @@ const DeletePlaceButton = ({ id }: Props) => {
       </IconButton>
 
       <Dialog
-        open={open}
-        handleClose={handleClose}
-        onConfirmation={deletePlace}
-        title="Você tem certeza que deseja deletar esse local?"
-        text="Todo o conteúdo será perdido para sempre"
         YesButtonText="Deletar"
+        handleClose={handleClose}
         id="delete-dialog"
+        onConfirmation={deletePlace}
+        open={open}
+        text="Todo o conteúdo será perdido para sempre"
+        title="Você tem certeza que deseja deletar esse local?"
       />
     </>
   );

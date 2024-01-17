@@ -1,19 +1,17 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-env node */
-const withPWA = require("next-pwa");
-const path = require("path");
+import * as path from "path";
+import { fileURLToPath } from "url";
 
-module.exports = () => {
-  /**
-   * @type {import('next').NextConfig}
-   */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+import WithPWA from "next-pwa";
+
+/**
+ * @type {import('next').NextConfig}
+ */
+export default () => {
   let nextConfig = {
     reactStrictMode: true,
-    pwa: {
-      dest: "public",
-      disable: process.env.NODE_ENV === "development",
-    },
     sassOptions: {
       includePaths: [path.join(__dirname, "src/styles")],
     },
@@ -30,13 +28,10 @@ module.exports = () => {
     };
   }
 
-  if (process.env.NODE_ENV !== "development") {
-    nextConfig.pwa = {
-      dest: "public",
-    };
+  const withPWA = WithPWA({
+    dest: "public",
+    disable: process.env.NODE_ENV === "development" || process.env.KEEP_PROPERTIES === "true",
+  });
 
-    nextConfig = withPWA(nextConfig);
-  }
-
-  return nextConfig;
+  return withPWA(nextConfig);
 };

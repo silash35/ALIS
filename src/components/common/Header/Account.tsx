@@ -12,7 +12,7 @@ import { useRef, useState } from "react";
 
 import styles from "./account.module.scss";
 
-export default function Account() {
+const Account = () => {
   const session = useSession();
   const menuAnchor = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,48 +23,44 @@ export default function Account() {
         <div className={styles.avatarContainer} ref={menuAnchor}>
           <div className={`${styles.border} ${isOpen && styles.open}`}>
             <IconButton
-              onClick={() => setIsOpen(true)}
               aria-controls={isOpen ? "account-menu" : undefined}
-              aria-haspopup="true"
               aria-expanded={isOpen ? "true" : undefined}
+              aria-haspopup="true"
+              onClick={() => setIsOpen(true)}
             >
               <Avatar
-                src={session.data.user?.image === null ? undefined : session.data.user?.image}
                 alt={session.data.user?.name === null ? undefined : session.data.user?.name}
-                imgProps={{ referrerPolicy: "no-referrer" }}
                 data-cy="avatar"
+                imgProps={{ referrerPolicy: "no-referrer" }}
+                src={session.data.user?.image === null ? undefined : session.data.user?.image}
               />
             </IconButton>
           </div>
         </div>
         <Menu
           anchorEl={menuAnchor.current}
-          id="account-menu"
-          open={isOpen}
-          onClose={() => setIsOpen(false)}
-          onClick={() => setIsOpen(false)}
-          transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          id="account-menu"
+          onClick={() => setIsOpen(false)}
+          onClose={() => setIsOpen(false)}
+          open={isOpen}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
         >
           <Link href="/profile">
-            <a>
-              <MenuItem>
-                <ListItemIcon>
-                  <PersonIcon fontSize="small" />
-                </ListItemIcon>
-                Meu perfil
-              </MenuItem>
-            </a>
+            <MenuItem>
+              <ListItemIcon>
+                <PersonIcon fontSize="small" />
+              </ListItemIcon>
+              Meu perfil
+            </MenuItem>
           </Link>
           <Link href="/places/new">
-            <a>
-              <MenuItem>
-                <ListItemIcon>
-                  <AddIcon fontSize="small" />
-                </ListItemIcon>
-                Criar novo Local
-              </MenuItem>
-            </a>
+            <MenuItem>
+              <ListItemIcon>
+                <AddIcon fontSize="small" />
+              </ListItemIcon>
+              Criar novo Local
+            </MenuItem>
           </Link>
           <MenuItem data-cy="signOut" onClick={() => signOut()}>
             <ListItemIcon>
@@ -79,10 +75,10 @@ export default function Account() {
     return (
       <>
         <button onClick={() => signIn()}>Fazer Login</button>
-        <Link href="/auth/signUp">
-          <a>Criar Conta</a>
-        </Link>
+        <Link href="/auth/signUp">Criar Conta</Link>
       </>
     );
   }
-}
+};
+
+export default Account;

@@ -4,6 +4,7 @@ import { places } from "../fixtures/places.json";
 describe("Home Page", () => {
   it("should load", () => {
     cy.visit("/");
+    cy.get("button").contains("Entendi").click();
     cy.contains("Bem vindo ao alis");
   });
 
@@ -13,6 +14,7 @@ describe("Home Page", () => {
     cy.signOut();
 
     cy.visit("/");
+    cy.get("button").contains("Entendi").click();
     cy.intercept("POST", "/api/public/places").as("searchPlace");
     cy.get("input[type=text]").click();
     cy.get("input[type=text]").type(places[0].description + "{enter}");
@@ -22,6 +24,8 @@ describe("Home Page", () => {
 
   it("should change Theme", () => {
     cy.visit("/");
+    cy.get("button").contains("Entendi").click();
+
     cy.get("body").should("have.class", "light");
     cy.get("body").should("not.have.class", "dark");
     cy.get(".MuiSwitch-input").uncheck();

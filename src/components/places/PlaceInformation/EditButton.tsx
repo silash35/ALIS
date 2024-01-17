@@ -6,16 +6,12 @@ interface Props {
   id: string;
 }
 
-const EditPlaceButton = ({ id }: Props) => {
-  return (
-    <IconButton>
-      <Link href={`/places/${id}/edit`}>
-        <a aria-label="Editar local">
-          <EditIcon fontSize="large" />
-        </a>
-      </Link>
-    </IconButton>
-  );
-};
+const EditPlaceButton = ({ id }: Props) => (
+  <IconButton>
+    <Link aria-label="Editar local" href={`/places/${id}/edit`}>
+      <EditIcon fontSize="large" />
+    </Link>
+  </IconButton>
+);
 
 export default EditPlaceButton;

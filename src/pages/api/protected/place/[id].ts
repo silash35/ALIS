@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 import placesManager from "@/database/placesManager";
 import apiFactory from "@/utils/apiFactory";
 
 const methods = {
   async POST(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req });
+    const session = await getServerSession(req, res, authOptions);
     if (session?.user?.email) {
       await placesManager.update(String(req.query.id), req.body.place, session.user.email);
       res.statusCode = 200;
@@ -17,7 +18,7 @@ const methods = {
   },
 
   async DELETE(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req });
+    const session = await getServerSession(req, res, authOptions);
     if (session?.user?.email) {
       await placesManager.delete(String(req.query.id), session.user.email);
       res.statusCode = 200;

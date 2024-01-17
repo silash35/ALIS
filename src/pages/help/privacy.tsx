@@ -5,27 +5,25 @@ import Header from "@/components/common/Header";
 import Title from "@/components/common/Title";
 import Privacy from "@/components/help/Privacy";
 
-const PrivacyPage = () => {
-  return (
-    <>
-      <Head>
-        <title>Política de Privacidade</title>
-      </Head>
+const PrivacyPage = () => (
+  <>
+    <Head>
+      <title>Política de Privacidade</title>
+    </Head>
 
-      <Header />
+    <Header />
 
-      <main>
-        <Title small>
-          <h1>
-            Política de Privacidade do <span>ALIS</span>
-          </h1>
-        </Title>
+    <main>
+      <Title small>
+        <h1>
+          Política de Privacidade do <span>ALIS</span>
+        </h1>
+      </Title>
 
-        <Privacy />
-      </main>
-      <Footer />
-    </>
-  );
-};
+      <Privacy />
+    </main>
+    <Footer />
+  </>
+);
 
 export default PrivacyPage;

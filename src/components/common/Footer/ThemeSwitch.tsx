@@ -11,10 +11,10 @@ const ThemeSwitch = () => {
   return (
     <form>
       <Switch
-        inputProps={{ "aria-label": "Mudar tema do site (Claro Escuro)" }}
-        color="primary"
-        onChange={toggleTheme}
         checked={checked}
+        color="primary"
+        inputProps={{ "aria-label": "Mudar tema do site (Claro Escuro)" }}
+        onChange={toggleTheme}
       />
     </form>
   );

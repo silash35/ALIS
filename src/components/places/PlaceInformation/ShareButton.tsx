@@ -59,17 +59,17 @@ const ShareButton = () => {
   return (
     <>
       <Button
-        variant="contained"
         color="primary"
         id={styles.button}
+        onClick={openDialog}
         size="large"
         startIcon={<ShareIcon />}
-        onClick={openDialog}
+        variant="contained"
       >
         Compartilhar
       </Button>
 
-      <Dialog open={open} onClose={closeDialog} aria-labelledby="dialog-title">
+      <Dialog aria-labelledby="dialog-title" onClose={closeDialog} open={open}>
         <article>
           <DialogTitle id="dialog-title">
             <section className={styles.title}>
@@ -116,18 +116,18 @@ const ShareButton = () => {
             </section>
             <section className={styles.container}>
               <Input
-                autoFocus
-                margin="dense"
                 defaultValue={placeUrl}
-                readOnly
-                fullWidth
                 inputRef={InputRef}
+                margin="dense"
+                autoFocus
+                fullWidth
+                readOnly
               />
               <Button
                 aria-label="Copiar link do local"
-                variant="outlined"
                 color="primary"
                 onClick={copyLink}
+                variant="outlined"
               >
                 Copiar
               </Button>

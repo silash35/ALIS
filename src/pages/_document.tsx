@@ -8,43 +8,43 @@ export default class MyDocument extends Document {
         <Head>
           {/* Primary Meta Tags */}
           <meta charSet="utf-8" />
-          <meta httpEquiv="content-type" content="text/html" />
+          <meta content="text/html" httpEquiv="content-type" />
 
           {/* SEO Meta Tags */}
-          <meta name="author" content="Silas Henrique Alves Araújo" />
-          <meta name="description" content="O Agregador de Locais Inclusivos para Surdos" />
+          <meta content="Silas Henrique Alves Araújo" name="author" />
+          <meta content="O Agregador de Locais Inclusivos para Surdos" name="description" />
 
           {/* Open Graph / Facebook */}
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://alis.vercel.app/" />
-          <meta property="og:locale" content="pt_BR" />
-          <meta property="og:image" content="https://alis.vercel.app/card.png" />
+          <meta content="website" property="og:type" />
+          <meta content="https://alis.vercel.app/" property="og:url" />
+          <meta content="pt_BR" property="og:locale" />
+          <meta content="https://alis.vercel.app/card.png" property="og:image" />
           <meta
-            property="og:image:alt"
             content="A letra 'a' azul e cursiva, que a um olhar atento lembra uma orelha"
+            property="og:image:alt"
           />
 
           {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content="https://alis.vercel.app/" />
-          <meta name="twitter:creator" content="@silash35" />
-          <meta name="twitter:image" content="https://alis.vercel.app/card.png" />
+          <meta content="summary_large_image" name="twitter:card" />
+          <meta content="https://alis.vercel.app/" name="twitter:url" />
+          <meta content="@silash35" name="twitter:creator" />
+          <meta content="https://alis.vercel.app/card.png" name="twitter:image" />
 
           {/* Icons */}
-          <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-          <link rel="manifest" href="/icons/site.webmanifest" />
-          <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#0070f3" />
-          <link rel="shortcut icon" href="/icons/favicon.ico" />
-          <meta name="apple-mobile-web-app-title" content="ALIS" />
-          <meta name="application-name" content="ALIS" />
-          <meta name="msapplication-TileColor" content="#2d89ef" />
-          <meta name="msapplication-config" content="/icons/browserconfig.xml" />
-          <meta name="theme-color" content="#ffffff" />
+          <link href="/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+          <link href="/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+          <link href="/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+          <link href="/icons/site.webmanifest" rel="manifest" />
+          <link color="#0070f3" href="/icons/safari-pinned-tab.svg" rel="mask-icon" />
+          <link href="/icons/favicon.ico" rel="shortcut icon" />
+          <meta content="ALIS" name="apple-mobile-web-app-title" />
+          <meta content="ALIS" name="application-name" />
+          <meta content="#2d89ef" name="msapplication-TileColor" />
+          <meta content="/icons/browserconfig.xml" name="msapplication-config" />
+          <meta content="#ffffff" name="theme-color" />
 
           {/* Fonts */}
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link
             href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
             rel="stylesheet"

@@ -5,24 +5,24 @@ interface Props {
   place?: Place;
 }
 
-export default function PlaceInputs({ place }: Props) {
+const PlaceInputs = ({ place }: Props) => {
   const common: TextFieldProps = { variant: "outlined", fullWidth: true };
 
   return (
     <>
       <h2>Dados básicos</h2>
-      <TextField defaultValue={place?.name} name="name" label="Nome" required {...common} />
+      <TextField defaultValue={place?.name} label="Nome" name="name" required {...common} />
       <TextField
         defaultValue={place?.address}
-        name="address"
         label="Endereço"
+        name="address"
         required
         {...common}
       />
       <TextField
         defaultValue={place?.description}
-        name="description"
         label="Descrição"
+        name="description"
         multiline
         required
         {...common}
@@ -31,34 +31,36 @@ export default function PlaceInputs({ place }: Props) {
       <h2>Informações extras</h2>
       <TextField
         defaultValue={place?.email}
-        name="email"
         label="Email do local"
+        name="email"
         type="email"
         {...common}
       />
       <TextField
         defaultValue={place?.phone}
-        name="phone"
-        label="Telefone do local"
-        type="tel"
         inputProps={{ pattern: "[0-9,\\-,\\(,\\), ]{8,}" }}
+        label="Telefone do local"
+        name="phone"
+        type="tel"
         {...common}
       />
       <TextField
         defaultValue={place?.website}
-        name="website"
         label="Site do local"
+        name="website"
         type="url"
         {...common}
       />
       <TextField
         defaultValue={place?.imageURL}
-        name="imageURL"
-        label="Foto do local"
         helperText="Cole a URL de uma imagem da Web"
+        label="Foto do local"
+        name="imageURL"
         type="url"
         {...common}
       />
     </>
   );
-}
+};
+
+export default PlaceInputs;

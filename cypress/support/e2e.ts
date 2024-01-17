@@ -4,5 +4,3 @@ import "./commands/place";
 after(() => {
   cy.deleteAllTestPlaces();
 });
-
-export {};

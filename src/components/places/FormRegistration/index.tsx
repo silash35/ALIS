@@ -4,18 +4,18 @@ import PlaceInputs from "@/components/places/PlaceInputs";
 
 import styles from "./formRegistration.module.scss";
 
-export default function FormRegistration() {
-  return (
-    <form className={styles.card} action="/api/protected/places" method="POST">
-      <PlaceInputs />
+const FormRegistration = () => (
+  <form action="/api/protected/places" className={styles.card} method="POST">
+    <PlaceInputs />
 
-      <p className={styles.small}>
-        Seu endereço de email será visível para quem acessar a página desse local
-      </p>
+    <p className={styles.small}>
+      Seu endereço de email será visível para quem acessar a página desse local
+    </p>
 
-      <Button variant="outlined" color="primary" size="large" type="submit">
-        Cadastrar
-      </Button>
-    </form>
-  );
-}
+    <Button color="primary" size="large" type="submit" variant="outlined">
+      Cadastrar
+    </Button>
+  </form>
+);
+
+export default FormRegistration;

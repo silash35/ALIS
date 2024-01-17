@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
-        uses: actions/checkout@v3
-      - name: Setup Node.js 16
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20
       - name: Copy .env file
         run: cp .env.dev .env
       - name: Install PNPM
@@ -20,7 +20,7 @@ jobs:
           version: latest
           run_install: true
       - name: Cypress.io
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           install: false
           build: pnpm build

@@ -1,7 +1,8 @@
 import { Place } from "@prisma/client";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
@@ -13,35 +14,33 @@ interface Props {
   place: Place;
 }
 
-const PlacePage = ({ place }: Props) => {
-  return (
-    <>
-      <Head>
-        <title>Editar {place.name}</title>
-      </Head>
+const PlacePage = ({ place }: Props) => (
+  <>
+    <Head>
+      <title>Editar {place.name}</title>
+    </Head>
 
-      <Header />
+    <Header />
 
-      <main>
-        <Title>
-          <h1>
-            Atualizar <span>dados</span>
-          </h1>
-          <p>Modifique os dados do Local por aqui</p>
-        </Title>
+    <main>
+      <Title>
+        <h1>
+          Atualizar <span>dados</span>
+        </h1>
+        <p>Modifique os dados do Local por aqui</p>
+      </Title>
 
-        <FormChange place={place} />
-      </main>
+      <FormChange place={place} />
+    </main>
 
-      <Footer />
-    </>
-  );
-};
+    <Footer />
+  </>
+);
 
 export default PlacePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await getSession(context);
+  const session = await getServerSession(context.req, context.res, authOptions);
   let data: Place | null = null;
 
   try {

@@ -7,26 +7,24 @@ import Header from "@/components/common/Header";
 import Main from "@/components/index/Main";
 import placesManager from "@/database/placesManager";
 
-const Home = ({ fallback }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return (
-    <>
-      <Head>
-        <title>ALIS</title>
-      </Head>
+const Home = ({ fallback }: InferGetStaticPropsType<typeof getStaticProps>) => (
+  <>
+    <Head>
+      <title>ALIS</title>
+    </Head>
 
-      <Header />
-      <SWRConfig
-        value={{
-          fallback,
-          fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
-        }}
-      >
-        <Main />
-      </SWRConfig>
-      <Footer />
-    </>
-  );
-};
+    <Header />
+    <SWRConfig
+      value={{
+        fallback,
+        fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
+      }}
+    >
+      <Main />
+    </SWRConfig>
+    <Footer />
+  </>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const places = await placesManager.getAll();

@@ -9,24 +9,24 @@ interface Props {
   place: Place;
 }
 
-export default function Card({ place }: Props) {
-  return (
-    <Link href={`/places/${place.id}`}>
-      <a>
-        <article
-          className={styles.card}
-          style={{
-            backgroundImage: `url(${place.imageURL}), url(/images/empty.png)`,
-          }}
-        >
-          <div className={styles.content}>
-            <h2>{place.name}</h2>
-            <IconButton aria-label="Discover the place">
-              <Explore fontSize="large" />
-            </IconButton>
-          </div>
-        </article>
-      </a>
-    </Link>
-  );
-}
+const Card = ({ place }: Props) => (
+  <Link href={`/places/${place.id}`}>
+    <article
+      style={{
+        backgroundImage: place.imageURL
+          ? `url(${place.imageURL}), url(/images/empty.png)`
+          : "url(/images/empty.png)",
+      }}
+      className={styles.card}
+    >
+      <div className={styles.content}>
+        <h2>{place.name}</h2>
+        <IconButton aria-label="Discover the place">
+          <Explore fontSize="large" />
+        </IconButton>
+      </div>
+    </article>
+  </Link>
+);
+
+export default Card;

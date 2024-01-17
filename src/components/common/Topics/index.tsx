@@ -4,6 +4,6 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function Topics({ children }: Props) {
-  return <article className={styles.topics}>{children}</article>;
-}
+const Topics = ({ children }: Props) => <article className={styles.topics}>{children}</article>;
+
+export default Topics;

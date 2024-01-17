@@ -7,7 +7,7 @@ interface Props {
   name: string;
 }
 
-export default function PlaceImage({ src, name }: Props) {
+const PlaceImage = ({ src, name }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenImage = () => {
     setIsOpen(!isOpen);
@@ -16,13 +16,13 @@ export default function PlaceImage({ src, name }: Props) {
   // If the image do not load, the ALIS logo will be displayed.
   const image = (
     <img
-      src={src}
-      alt={`Foto do local ${name}`}
-      onClick={handleOpenImage}
       onError={(e) => {
         e.currentTarget.src = "/images/empty.png";
         e.currentTarget.alt = "Logo do ALIS (a letra a) com fundo preto";
       }}
+      alt={`Foto do local ${name}`}
+      onClick={handleOpenImage}
+      src={src}
     />
   );
 
@@ -36,4 +36,6 @@ export default function PlaceImage({ src, name }: Props) {
       )}
     </>
   );
-}
+};
+
+export default PlaceImage;

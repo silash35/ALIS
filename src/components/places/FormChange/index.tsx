@@ -13,7 +13,7 @@ interface Props {
   place: Place;
 }
 
-export default function FormChange({ place }: Props) {
+const FormChange = ({ place }: Props) => {
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -50,19 +50,21 @@ export default function FormChange({ place }: Props) {
   return (
     <form className={styles.card} onSubmit={handleSubmit} ref={formRef}>
       <PlaceInputs place={place} />
-      <Button variant="outlined" color="primary" size="large" type="submit">
+      <Button color="primary" size="large" type="submit" variant="outlined">
         Atualizar
       </Button>
 
       <Dialog
-        open={open}
-        handleClose={closeDialog}
-        onConfirmation={sendData}
-        title="Você tem certeza que deseja editar esse local?"
-        text="Não será possível reverter as mudanças."
         YesButtonText="Salvar Alterações"
+        handleClose={closeDialog}
         id="edit-dialog"
+        onConfirmation={sendData}
+        open={open}
+        text="Não será possível reverter as mudanças."
+        title="Você tem certeza que deseja editar esse local?"
       />
     </form>
   );
-}
+};
+
+export default FormChange;

@@ -1,20 +1,22 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import { getProviders, getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { getProviders } from "next-auth/react";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 import FormLogin from "@/components/auth/FormLogin";
 
-export default function SignUp(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  return (
-    <>
-      <Head>
-        <title>Criar Conta</title>
-      </Head>
+const SignUp = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => (
+  <>
+    <Head>
+      <title>Criar Conta</title>
+    </Head>
 
-      <FormLogin providers={props.providers} csrfToken={props.csrfToken} signUp />
-    </>
-  );
-}
+    <FormLogin csrfToken={props.csrfToken} providers={props.providers} signUp />
+  </>
+);
+
+export default SignUp;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let csrfToken = null;
@@ -23,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     csrfToken = await getCsrfToken(context);
   }
 
-  const session = await getSession(context);
+  const session = await getServerSession(context.req, context.res, authOptions);
   let redirect = undefined;
   if (session) {
     redirect = {
