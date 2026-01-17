@@ -1,0 +1,31 @@
+[
+  {
+    "id": "60628220ab39d80008aafff6",
+    "userMail": "silash35@gmail.com",
+    "name": "NAPNE - IFBA Simões Filho",
+    "address": "Pitanguinha, Simões Filho, dentro do campus do IFBA.",
+    "description": "O NAPNE é o Núcleo de Atendimento às Pessoas com Necessidades Educacionais. Tem como objetivo maior, desenvolver ações que contribuam para a promoção da inclusão escolar de pessoas com necessidades especiais, buscando viabilizar as condições para o seu acesso, permanência e saída com êxito nos cursos oferecidos pelo IFBA. Incluindo também, orientação aos servidores e prestadores de serviços do Campus, quanto ao atendimento aos discentes com necessidades específicas.\n\nDentre as principais ações, o NAPNE visa contribuir para a promoção do atendimento educacional especializado (AEE) aos discentes que dele necessitarem, identificando-os e orientando-os, bem como seus familiares, quanto aos seus direitos e deveres.",
+    "email": "luciane.oliveira@ifba.edu.br",
+    "imageURL": "https://portal.ifce.edu.br/media/images/Logo_NAPNE_Horizontal_fundo_bran_1.width-800.jpg"
+  },
+  {
+    "id": "606270cce6985b0008a33277",
+    "userMail": "evelynlopsvieira@gmail.com",
+    "name": "Associação De Deficientes De Simões Filho",
+    "address": "Rua Walter Aragão De Souza, SN-Centro, Simões Filho - Bahia",
+    "description": "Escola da rede pública que oferece ensino de LIBRAS para moradores da comunidade.",
+    "email": "adesf@bol.com.br",
+    "phone": "(71) 3296-0897",
+    "website": "http://adesfilho.blogspot.com/",
+    "imageURL": "https://1.bp.blogspot.com/_5Cn5JMFKLXA/R2WKGm5ChMI/AAAAAAAAABo/D_9ZNz1XP4o/s1600/marca-adesf.jpg"
+  },
+  {
+    "id": "606282e9ab39d80008aafff7",
+    "userMail": "silash35@gmail.com",
+    "name": "Salvador Shopping",
+    "address": "Av. Tancredo Neves, 3133 - Caminho das Árvores, Salvador - BA",
+    "description": "O Salvador Shopping contém totens interativos espalhados que conversam usando libras.",
+    "website": "https://www.salvadorshopping.com.br/#_",
+    "imageURL": "https://aloalobahia.com/images/p/salvadorcaoa_alo_alo_bahia.jpg"
+  }
+]

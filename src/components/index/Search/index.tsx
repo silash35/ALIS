@@ -4,6 +4,7 @@ import { SyntheticEvent, useRef } from "react";
 
 import TPlaces from "../TPlaces";
 import styles from "./search.module.scss";
+import Places from "database.json";
 
 interface Props {
   setSearchPlaces(places: TPlaces): void;
@@ -13,29 +14,28 @@ interface Props {
 const SearchBar = ({ setSearchPlaces, setIsSearching }: Props) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSearch = async (event: SyntheticEvent<HTMLFormElement>) => {
+  const handleSearch = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const search = searchInputRef.current?.value;
 
-    if (typeof search === "string" && search.length > 0) {
-      setIsSearching(true);
-      setSearchPlaces("Loading");
-    } else {
+    const search = searchInputRef.current?.value?.trim().toLowerCase();
+
+    if (!search) {
       setIsSearching(false);
+      setSearchPlaces("NotFound");
+      return;
     }
 
-    const res = await fetch("/api/public/places", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ search }),
-    });
-    const { body } = await res.json();
+    setIsSearching(true);
 
-    if (Array.isArray(body) && body.length > 0) {
-      setSearchPlaces(body);
+    const results = Places.filter(
+      (place) =>
+        place.name.toLowerCase().includes(search) ||
+        place.address.toLowerCase().includes(search) ||
+        place.description.toLowerCase().includes(search),
+    );
+
+    if (results.length > 0) {
+      setSearchPlaces(results);
     } else {
       setSearchPlaces("NotFound");
     }

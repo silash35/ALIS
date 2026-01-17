@@ -5,28 +5,21 @@
   "type": "module",
   "engines": {
     "node": "20.x",
-    "pnpm": "8.x"
+    "pnpm": "10.x"
   },
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint",
-    "cypress:open": "cypress open",
-    "cypress:headless": "cypress run",
-    "e2e": "start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress:open'",
-    "e2e:headless": "start-test 'pnpm start' http://0.0.0.0:3000/ 'pnpm cypress:headless'"
-  },
-  "prisma": {
-    "schema": "src/database/schema.prisma"
+    "lint": "next lint"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18.2.47",
-    "cypress": "^13.6.2",
-    "eslint-config-silash35": "^3.3.1",
-    "prisma": "^5.8.0",
+    "eslint-config-silash35": "==3.3.1",
+    "prettier-plugin-css-order": "^2.2.0",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "sass": "^1.69.7",
     "start-server-and-test": "^2.0.3",
     "typescript": "^5.3.3"
@@ -36,13 +29,9 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.4",
     "@mui/material": "^5.15.4",
-    "@prisma/client": "^5.8.0",
     "next": "^14.0.4",
-    "next-auth": "^4.24.5",
-    "next-pwa": "^5.6.0",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "swr": "^2.2.4"
+    "react-dom": "^18.2.0"
   }
 }

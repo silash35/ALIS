@@ -4,8 +4,6 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import WithPWA from "next-pwa";
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -28,10 +26,5 @@ export default () => {
     };
   }
 
-  const withPWA = WithPWA({
-    dest: "public",
-    disable: process.env.NODE_ENV === "development" || process.env.KEEP_PROPERTIES === "true",
-  });
-
-  return withPWA(nextConfig);
+  return nextConfig;
 };

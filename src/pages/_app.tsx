@@ -3,7 +3,6 @@ import "@/styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
 
 import { ThemeContextProvider } from "@/contexts/ThemeContext";
@@ -35,11 +34,9 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
         name="twitter:description"
       />
     </Head>
-    <SessionProvider session={session}>
       <ThemeContextProvider>
         <Component {...pageProps} />
       </ThemeContextProvider>
-    </SessionProvider>
   </>
 );
 
