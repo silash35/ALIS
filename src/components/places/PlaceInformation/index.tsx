@@ -1,7 +1,8 @@
+import { TPlace } from "@/components/index/TPlaces";
+
 import PlaceImage from "./Image";
 import styles from "./placeInformation.module.scss";
 import ShareButton from "./ShareButton";
-import { TPlace } from "@/components/index/TPlaces";
 
 interface Props {
   place: TPlace;

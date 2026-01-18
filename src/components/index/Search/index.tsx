@@ -1,10 +1,10 @@
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
+import Places from "database.json";
 import { SyntheticEvent, useRef } from "react";
 
 import TPlaces from "../TPlaces";
 import styles from "./search.module.scss";
-import Places from "database.json";
 
 interface Props {
   setSearchPlaces(places: TPlaces): void;

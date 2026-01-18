@@ -1,12 +1,13 @@
 import Explore from "@mui/icons-material/Explore";
 import IconButton from "@mui/material/IconButton";
-import { Place } from "@prisma/client";
 import Link from "next/link";
+
+import { TPlace } from "@/components/index/TPlaces";
 
 import styles from "./card.module.scss";
 
 interface Props {
-  place: Place;
+  place: TPlace;
 }
 
 const Card = ({ place }: Props) => (

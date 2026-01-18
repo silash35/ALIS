@@ -14,7 +14,7 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => (
+const MyApp = ({ Component, pageProps: { ...pageProps } }: AppProps) => (
   <>
     <Head>
       {/* Viewport meta tag should not be used in _document.tsx. That's why it's in this file */}
@@ -34,9 +34,9 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
         name="twitter:description"
       />
     </Head>
-      <ThemeContextProvider>
-        <Component {...pageProps} />
-      </ThemeContextProvider>
+    <ThemeContextProvider>
+      <Component {...pageProps} />
+    </ThemeContextProvider>
   </>
 );
 

@@ -9,8 +9,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
-    "start": "next start",
+    "build": "next build",
     "lint": "next lint"
   },
   "devDependencies": {

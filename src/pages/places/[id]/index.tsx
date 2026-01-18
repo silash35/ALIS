@@ -1,10 +1,11 @@
+import Places from "database.json";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Places from "database.json";
+
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-import PlaceInformation from "@/components/places/PlaceInformation";
 import { TPlace } from "@/components/index/TPlaces";
+import PlaceInformation from "@/components/places/PlaceInformation";
 
 const PlacePage = ({ place }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (

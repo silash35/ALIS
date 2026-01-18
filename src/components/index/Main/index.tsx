@@ -1,5 +1,5 @@
+import Places from "database.json";
 import { useState } from "react";
-import useSWR from "swr";
 
 import Cards from "@/components/common/PlaceCards";
 import Title from "@/components/common/Title";
@@ -7,8 +7,6 @@ import Search from "@/components/index/Search";
 
 import TPlaces from "../TPlaces";
 import styles from "./main.module.scss";
-
-import Places from "database.json";
 
 const Main = () => {
   const [searchPlaces, setSearchPlaces] = useState([] as TPlaces);
