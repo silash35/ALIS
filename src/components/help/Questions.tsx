@@ -61,9 +61,13 @@ const Questions = () => (
         <a href="https://nextjs.org/" rel="noopener noreferrer">
           Next.js
         </a>{" "}
-        e está hospedado na{" "}
+        e estava originalmente hospedado na{" "}
         <a href="https://vercel.com/" rel="noopener noreferrer">
           Vercel
+        </a>
+        . Atualmente, o projeto existe apenas como uma versão estática no{" "}
+        <a href="https://docs.github.com/en/pages" rel="noopener noreferrer">
+          GitHub Pages
         </a>
         .
       </p>
@@ -72,7 +76,7 @@ const Questions = () => (
         <a href="https://www.mongodb.com/" rel="noopener noreferrer">
           MongoDB
         </a>{" "}
-        é o Banco de Dados utilizado e ele está hospedado no{" "}
+        era o Banco de Dados utilizado e ele estava hospedado no{" "}
         <a href="https://www.mongodb.com/atlas" rel="noopener noreferrer">
           MongoDB Atlas
         </a>

@@ -16,9 +16,9 @@ export default class MyDocument extends Document {
 
           {/* Open Graph / Facebook */}
           <meta content="website" property="og:type" />
-          <meta content="https://alis.vercel.app/" property="og:url" />
+          <meta content="https://alis.silas.eng.br/" property="og:url" />
           <meta content="pt_BR" property="og:locale" />
-          <meta content="https://alis.vercel.app/card.png" property="og:image" />
+          <meta content="https://alis.silas.eng.br/card.png" property="og:image" />
           <meta
             content="A letra 'a' azul e cursiva, que a um olhar atento lembra uma orelha"
             property="og:image:alt"
@@ -26,9 +26,9 @@ export default class MyDocument extends Document {
 
           {/* Twitter */}
           <meta content="summary_large_image" name="twitter:card" />
-          <meta content="https://alis.vercel.app/" name="twitter:url" />
+          <meta content="https://alis.silas.eng.br/" name="twitter:url" />
           <meta content="@silash35" name="twitter:creator" />
-          <meta content="https://alis.vercel.app/card.png" name="twitter:image" />
+          <meta content="https://alis.silas.eng.br/card.png" name="twitter:image" />
 
           {/* Icons */}
           <link href="/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
