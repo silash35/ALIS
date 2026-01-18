@@ -6,8 +6,8 @@ import styles from "./header.module.scss";
 const Header = () => (
   <>
     <div className={styles.warning}>
-      O ALIS foi encerrado como serviço ativo. Esta versão está disponível apenas para fins
-      demonstrativos.
+      O ALIS foi encerrado. A versão atual existe apenas como registro histórico.{" "}
+      <Link href="/deprecation">Saiba mais</Link>
     </div>
     <header className={styles.header}>
       <nav>

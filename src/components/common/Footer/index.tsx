@@ -17,7 +17,7 @@ const Footer = () => (
       </p>
 
       <p>
-        Nenhum direito reservado. Mantido por{" "}
+        Nenhum direito reservado. Escrito, mantido e agora aposentado por{" "}
         <a href="https://silas.eng.br/" rel="noopener noreferrer" title="Website of Silas Henrique">
           Silas Henrique
         </a>

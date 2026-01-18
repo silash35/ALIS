@@ -14,7 +14,7 @@ export default () => {
       includePaths: [path.join(__dirname, "src/styles")],
     },
     compiler: {},
-    output: "export"
+    output: "export",
   };
 
   if (process.env.NODE_ENV === "production") {
